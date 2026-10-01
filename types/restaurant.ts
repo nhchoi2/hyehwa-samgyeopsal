@@ -3,9 +3,13 @@ export interface Restaurant {
   englishName: string;
   phone: string;
   address: string;
+  lotAddress: string;
   businessHours: string;
   closedDays: string;
   parking: string;
+  amenities: string[];
+  seating: string;
+  groupBooking: string;
   introduction: string;
   story: string;
   philosophy: string;

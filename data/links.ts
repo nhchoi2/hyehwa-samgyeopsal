@@ -4,8 +4,8 @@ export const links = {
   reservationUrl: '',
   naverReservationUrl: '',
   kakaoTalkUrl: '',
-  instagramUrl: '',
-  naverMapUrl: '',
+  instagramUrl: 'https://www.instagram.com/daetongryeong_hyehwa/',
+  naverMapUrl: 'https://map.naver.com/p/entry/place/31403119',
   kakaoMapUrl: '',
 };
 

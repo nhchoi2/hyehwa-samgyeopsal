@@ -4,11 +4,16 @@ import { content } from '@/data/content';
 import ExternalLinks from './ExternalLinks';
 export default function LocationInfo() {
   const fields = [
-    ['주소', restaurant.address],
+    ['도로명 주소', restaurant.address],
+    ...(restaurant.lotAddress ? [['지번 주소', restaurant.lotAddress]] : []),
     ['전화번호', restaurant.phone],
     ['영업시간', restaurant.businessHours],
     ['휴무일', restaurant.closedDays],
     ['주차', restaurant.parking],
+    ...(restaurant.amenities.length
+      ? [['편의시설', restaurant.amenities.join(' · ')]]
+      : []),
+    ...(restaurant.seating ? [['좌석 안내', restaurant.seating]] : []),
   ];
   return (
     <div className="location-grid">

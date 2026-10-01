@@ -14,6 +14,9 @@ export default function AboutPage() {
     ['브랜드 스토리', restaurant.story],
     ['음식 철학', restaurant.philosophy],
     ['공간 소개', restaurant.space],
+    ...(restaurant.groupBooking
+      ? [['단체모임 및 대관', restaurant.groupBooking]]
+      : []),
     ['식재료 소개', restaurant.ingredients],
   ];
   return (
