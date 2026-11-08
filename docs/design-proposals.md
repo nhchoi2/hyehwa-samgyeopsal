@@ -6,7 +6,7 @@
 - B: 짙은 녹색, 분할형 메인, 아치형 사진.
 - C: 밝은 노란색, 포스터형 구성, 방문 정보.
 
-공통 사실 정보: `data/restaurant.ts`, `data/links.ts`. 메뉴와 점심 메뉴: `data/menu.ts`, `data/lunch.ts`. 빈 배열이면 제공 사진과 문의 안내가 표시됩니다. 가격을 임의로 생성하지 않습니다. 사진: 기존 제공 자산을 `public/images/proposals`에 영문 파일명으로 복사했습니다.
+공통 사실 정보: `data/restaurant.ts`, `data/links.ts`. 메뉴와 점심 메뉴: `data/menu.ts`, `data/lunch.ts`. 2026-10-14 수집 자료의 유료 메뉴 32개와 점심 메뉴 3개를 공통 데이터에 반영했습니다. 콜키지 무료 안내는 별도로 표시합니다. 사진: 기존 제공 자산을 `public/images/proposals`에 영문 파일명으로 복사했습니다.
 
 기존 `/menu`, `/lunch`, `/about`, `/location`은 `(original)` 라우트 그룹으로 유지했습니다. 시안 페이지는 검색 색인을 비활성화했습니다.
 

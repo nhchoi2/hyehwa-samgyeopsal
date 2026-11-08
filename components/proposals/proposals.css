@@ -906,3 +906,124 @@
     transform: none;
   }
 }
+
+/* Real menu images keep their complete plate / set composition. */
+.pv-menu-categories {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--pv-line);
+}
+.pv-menu-categories a {
+  border: 1px solid var(--pv-line);
+  padding: 11px 20px;
+  font-size: 13px;
+  min-height: 44px;
+}
+.pv-menu-categories a:hover {
+  background: var(--pv-accent);
+  color: #fff;
+}
+.pv-menu-category {
+  scroll-margin-top: 24px;
+  margin-bottom: 65px;
+}
+.pv-menu-category > .pv-section-heading > span {
+  font-size: 12px;
+  opacity: 0.65;
+}
+.pv-menu-grid {
+  align-items: start;
+  row-gap: 44px;
+}
+.pv-menu-grid .pv-food-photo,
+.pv-b .pv-menu-grid .pv-food-photo {
+  aspect-ratio: 1;
+  border-radius: 0;
+  background: #eee9df;
+}
+.pv-menu-grid .pv-photo {
+  object-fit: contain;
+}
+.pv-menu-copy {
+  padding-top: 20px;
+  border-bottom: 1px solid var(--pv-line);
+  padding-bottom: 22px;
+}
+.pv-menu-copy .pv-kicker {
+  margin-bottom: 10px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+}
+.pv .pv-menu-copy h3 {
+  font-size: 23px;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+.pv-menu-price {
+  display: block;
+  color: var(--pv-accent);
+  font-size: 20px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.pv-menu-copy > p:last-child:not(.pv-kicker) {
+  font-size: 13px;
+  margin-top: 12px;
+  opacity: 0.8;
+}
+.pv-menu-source {
+  font-size: 12px;
+  opacity: 0.7;
+  margin-top: 25px;
+}
+.pv-menu-source a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pv-corkage {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 35px;
+  border: 1px solid var(--pv-line);
+  scroll-margin-top: 24px;
+}
+.pv-corkage-image {
+  position: relative;
+  aspect-ratio: 1;
+}
+.pv-corkage-image .pv-photo {
+  object-fit: contain;
+}
+.pv-corkage p {
+  font-size: 14px;
+}
+@media (max-width: 760px) {
+  .pv-menu-categories {
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  .pv-menu-categories a {
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+  .pv-menu-grid {
+    gap: 32px;
+  }
+  .pv-corkage {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 24px;
+  }
+  .pv-corkage-image {
+    max-width: 220px;
+    width: 100%;
+  }
+  .pv-menu-category {
+    margin-bottom: 45px;
+  }
+}

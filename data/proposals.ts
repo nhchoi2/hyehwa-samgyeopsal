@@ -40,3 +40,11 @@ export const foodPhotos = [
 ];
 export const isVariant = (value: string): value is Variant =>
   Object.hasOwn(variants, value);
+
+export const proposalPhotos: Record<string, string> = {
+  pork: '/images/proposals/pork.webp',
+  beef: '/images/proposals/beef.webp',
+  table: '/images/proposals/table.webp',
+  pot: '/images/proposals/pot.webp',
+  grill: '/images/proposals/grill.webp',
+};

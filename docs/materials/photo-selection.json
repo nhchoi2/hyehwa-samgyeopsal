@@ -1,0 +1,61 @@
+{
+  "note": "전체 업체 사진 연락 시트에서 육안으로 고른 시안용 후보. 최종 사용은 고객 확인 후 결정합니다.",
+  "hero_candidates": [
+    "business-052",
+    "business-054",
+    "business-060",
+    "business-067",
+    "business-084"
+  ],
+  "interior": [
+    "business-069",
+    "business-071",
+    "business-072",
+    "business-073",
+    "business-074",
+    "business-075",
+    "business-076",
+    "business-077",
+    "business-078",
+    "business-079"
+  ],
+  "exterior": [
+    "business-088",
+    "business-089"
+  ],
+  "food_context": [
+    "business-003",
+    "business-028",
+    "business-059",
+    "business-080"
+  ],
+  "promotional_graphic": [
+    "business-001",
+    "business-062"
+  ],
+  "files": {
+    "business-052": "web/business/business-052.webp",
+    "business-054": "web/business/business-054.webp",
+    "business-060": "web/business/business-060.webp",
+    "business-067": "web/business/business-067.webp",
+    "business-084": "web/business/business-084.webp",
+    "business-069": "web/business/business-069.webp",
+    "business-071": "web/business/business-071.webp",
+    "business-072": "web/business/business-072.webp",
+    "business-073": "web/business/business-073.webp",
+    "business-074": "web/business/business-074.webp",
+    "business-075": "web/business/business-075.webp",
+    "business-076": "web/business/business-076.webp",
+    "business-077": "web/business/business-077.webp",
+    "business-078": "web/business/business-078.webp",
+    "business-079": "web/business/business-079.webp",
+    "business-088": "web/business/business-088.webp",
+    "business-089": "web/business/business-089.webp",
+    "business-003": "web/business/business-003.webp",
+    "business-028": "web/business/business-028.webp",
+    "business-059": "web/business/business-059.webp",
+    "business-080": "web/business/business-080.webp",
+    "business-001": "web/business/business-001.webp",
+    "business-062": "web/business/business-062.webp"
+  }
+}

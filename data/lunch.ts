@@ -1,5 +1,8 @@
 import type { LunchItem } from '@/types/menu';
-export const lunchMenus: LunchItem[] = [];
+import source from './menu-source.json';
+export const lunchMenus: LunchItem[] = source.items
+  .filter((item) => item.lunch)
+  .map((item) => ({ ...item, kind: 'main' }));
 export const lunchLabels = {
   main: '점심 메뉴',
   set: '세트 메뉴',

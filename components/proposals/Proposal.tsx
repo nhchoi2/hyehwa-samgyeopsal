@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { variants, foodPhotos, type Variant } from '@/data/proposals';
+import { variants, type Variant } from '@/data/proposals';
 import { restaurant } from '@/data/restaurant';
-import { menus } from '@/data/menu';
+import { menus, featuredMenus } from '@/data/menu';
+import MenuGrid, { MenuCards } from './MenuGrid';
 import { lunchMenus } from '@/data/lunch';
 import { links } from '@/data/links';
 import Navigation from './Navigation';
+import { proposalPhotos } from '@/data/proposals';
 const phone = `tel:${restaurant.phone.replace(/[^+\d]/g, '')}`;
 export function Photo({
   name,
@@ -18,11 +20,11 @@ export function Photo({
 }) {
   return (
     <Image
-      src={`/images/proposals/${name}.jpg`}
+      src={proposalPhotos[name]}
       alt={alt}
       fill
       sizes="(max-width: 760px) 100vw, 60vw"
-      priority={priority}
+      preload={priority}
       className="pv-photo"
     />
   );
@@ -68,23 +70,6 @@ function Visit() {
           </div>
         ))}
       </dl>
-    </div>
-  );
-}
-function Gallery() {
-  return (
-    <div className="pv-food-grid">
-      {foodPhotos.map((item, i) => (
-        <figure key={item.image}>
-          <div className="pv-food-photo">
-            <Photo name={item.image} alt={`혜화삼겹살대통령 ${item.label}`} />
-          </div>
-          <figcaption>
-            <span>0{i + 1}</span>
-            {item.label}
-          </figcaption>
-        </figure>
-      ))}
     </div>
   );
 }
@@ -162,7 +147,7 @@ export default function Proposal({
                   메뉴 안내 ↗
                 </Link>
               </div>
-              <Gallery />
+              <MenuCards items={featuredMenus} />
             </section>
             <section className="pv-gather">
               <div className="pv-gather-photo">
@@ -203,52 +188,7 @@ export default function Proposal({
             </section>
             {(page === 'menu' || page === 'lunch') && (
               <section className="pv-section pv-menu-section">
-                {items.length ? (
-                  <div className="pv-food-grid">
-                    {items.map((item) => (
-                      <article className="pv-menu-item" key={item.id}>
-                        {item.image && (
-                          <div className="pv-food-photo">
-                            <Image
-                              src={item.image}
-                              alt={item.name}
-                              fill
-                              sizes="(max-width:760px) 100vw, 33vw"
-                              className="pv-photo"
-                            />
-                          </div>
-                        )}
-                        <p className="pv-kicker">{item.category}</p>
-                        <h2>{item.name}</h2>
-                        <p>{item.description}</p>
-                        <strong>{item.price}</strong>
-                      </article>
-                    ))}
-                  </div>
-                ) : (
-                  <>
-                    <Gallery />
-                    <div className="pv-menu-notice">
-                      <h2>
-                        {page === 'lunch'
-                          ? '점심 메뉴 안내'
-                          : '메뉴 및 가격 안내'}
-                      </h2>
-                      <p>
-                        {page === 'lunch'
-                          ? '점심 메뉴 구성과 주문 가능 시간은 매장에 문의해 주세요.'
-                          : '메뉴와 가격은 매장에 전화로 문의해 주세요.'}
-                      </p>
-                      <p>
-                        사진은 매장 제공 음식 사진입니다. 현재 판매 구성은 문의
-                        시 확인해 주세요.
-                      </p>
-                      <a className="pv-button" href={phone}>
-                        메뉴 문의 {restaurant.phone} ↗
-                      </a>
-                    </div>
-                  </>
-                )}
+                <MenuGrid items={items} lunch={page === 'lunch'} />
               </section>
             )}
             {page === 'about' && (
