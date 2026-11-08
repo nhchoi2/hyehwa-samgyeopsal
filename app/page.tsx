@@ -1,49 +1,54 @@
 import Link from 'next/link';
-import { restaurant } from '@/data/restaurant';
-import { menus } from '@/data/menu';
-import { content } from '@/data/content';
-import Hero from '@/components/home/Hero';
-import ContactSection from '@/components/home/ContactSection';
-import SectionTitle from '@/components/common/SectionTitle';
-import MenuCard from '@/components/menu/MenuCard';
 import type { Metadata } from 'next';
-export const metadata: Metadata = { alternates: { canonical: '/' } };
+import { variants, type Variant } from '@/data/proposals';
+import { Photo } from '@/components/proposals/Proposal';
+import '@/components/proposals/proposals.css';
+export const metadata: Metadata = {
+  title: '대통령 · 홈페이지 디자인 시안',
+  robots: { index: false, follow: false },
+};
 export default function Home() {
-  const featured = menus.filter((menu) => menu.featured).slice(0, 3);
   return (
-    <>
-      <div className="container">
-        <Hero />
-        <section className="section intro-section">
-          <SectionTitle {...content.home.about} />
-          <div>
-            <p className="muted leading-8">
-              {restaurant.introduction || content.pending.about}
-            </p>
-            <Link href="/about" className="text-link">
-              매장 소개 보기 ↗
-            </Link>
-          </div>
-        </section>
-        <section className="section">
-          <div className="section-top">
-            <SectionTitle {...content.home.menu} />
-            <Link href="/menu" className="text-link">
-              전체 메뉴 ↗
-            </Link>
-          </div>
-          {featured.length ? (
-            <div className="menu-grid">
-              {featured.map((menu) => (
-                <MenuCard key={menu.id} menu={menu} />
-              ))}
+    <main id="main-content" className="pv-chooser">
+      <header>
+        <span>HYEHWA SAMGYEOPSAL PRESIDENT</span>
+        <span>WEBSITE COLLECTION / 03</span>
+      </header>
+      <p className="pv-kicker">혜화 삼겹살 대통령</p>
+      <h1>같은 맛, 세 가지 분위기.</h1>
+      <p className="pv-chooser-intro">
+        마음에 드는 분위기를 골라보세요.
+        <br />각 시안에서 메뉴, 매장 소개, 오시는 길까지 직접 둘러볼 수
+        있습니다.
+      </p>
+      <div className="pv-choices">
+        {(Object.keys(variants) as Variant[]).map((key) => (
+          <Link
+            href={`/${key}`}
+            key={key}
+            className={`pv-choice pv-choice-${key}`}
+          >
+            <div className="pv-choice-photo">
+              <Photo
+                name={variants[key].image}
+                alt={`${variants[key].name} 시안의 대표 음식 사진`}
+                priority
+              />
+              <span>{key.toUpperCase()}</span>
             </div>
-          ) : (
-            <div className="empty-state">{content.pending.menu}</div>
-          )}
-        </section>
+            <div className="pv-choice-copy">
+              <p>{variants[key].english}</p>
+              <h2>{variants[key].name} ↗</h2>
+              <p>{variants[key].description}</p>
+              <strong>시안 둘러보기 →</strong>
+            </div>
+          </Link>
+        ))}
       </div>
-      <ContactSection />
-    </>
+      <footer>
+        모바일에서도 확인해 보세요. 시안 상단의 A · B · C 버튼으로 같은 페이지를
+        비교할 수 있습니다.
+      </footer>
+    </main>
   );
 }

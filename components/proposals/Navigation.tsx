@@ -1,0 +1,74 @@
+'use client';
+import Link from 'next/link';
+import { useState } from 'react';
+import { pages, variants, type Variant } from '@/data/proposals';
+export default function Navigation({
+  variant,
+  page,
+}: {
+  variant: Variant;
+  page: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const base = `/${variant}`;
+  return (
+    <>
+      <div className="pv-switch">
+        <Link href="/">시안 모아보기</Link>
+        <nav aria-label="디자인 비교">
+          {Object.keys(variants).map((v) => (
+            <Link
+              key={v}
+              href={`/${v}${page ? `/${page}` : ''}`}
+              aria-current={v === variant ? 'page' : undefined}
+            >
+              {v.toUpperCase()}
+              <span> 시안</span>
+            </Link>
+          ))}
+        </nav>
+      </div>
+      <header className="pv-header">
+        <Link className="pv-brand" href={base}>
+          <span>혜화 삼겹살</span>
+          <strong>
+            대통령<span className="pv-brand-dot">.</span>
+          </strong>
+        </Link>
+        <button
+          className="pv-toggle"
+          aria-expanded={open}
+          aria-controls="proposal-navigation"
+          onClick={() => setOpen(!open)}
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') setOpen(false);
+          }}
+        >
+          {open ? '닫기 ✕' : '메뉴 ☰'}
+        </button>
+        <nav
+          id="proposal-navigation"
+          className={open ? 'pv-nav is-open' : 'pv-nav'}
+          aria-label="주요 메뉴"
+          onKeyDown={(e) => {
+            if (e.key === 'Escape') setOpen(false);
+          }}
+        >
+          {pages.map((p) => (
+            <Link
+              key={p.slug}
+              href={`${base}${p.slug ? `/${p.slug}` : ''}`}
+              aria-current={p.slug === page ? 'page' : undefined}
+              onClick={() => setOpen(false)}
+            >
+              {p.label}
+            </Link>
+          ))}
+          <a className="pv-button" href="tel:027664405">
+            전화 예약 ↗
+          </a>
+        </nav>
+      </header>
+    </>
+  );
+}

@@ -3,9 +3,6 @@ import type { CSSProperties } from 'react';
 import Script from 'next/script';
 import { site } from '@/config/site';
 import { theme } from '@/config/theme';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import FloatingContact from '@/components/layout/FloatingContact';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -44,10 +41,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           본문으로 건너뛰기
         </a>
-        <Header />
-        <main id="main-content">{children}</main>
-        <Footer />
-        <FloatingContact />
+        {children}
         {gaEnabled && (
           <>
             <Script
