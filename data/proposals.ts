@@ -29,7 +29,6 @@ export type Variant = keyof typeof variants;
 export const pages = [
   { slug: '', label: '홈' },
   { slug: 'menu', label: '메뉴' },
-  { slug: 'lunch', label: '점심 안내' },
   { slug: 'about', label: '매장 소개' },
   { slug: 'location', label: '오시는 길' },
 ] as const;

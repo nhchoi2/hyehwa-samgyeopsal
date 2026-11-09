@@ -6,7 +6,6 @@ import { restaurant } from '@/data/restaurant';
 import { menus, featuredMenus } from '@/data/menu';
 import MenuGrid from './MenuGrid';
 import { MenuCards } from './MenuCards';
-import { lunchMenus } from '@/data/lunch';
 import { links } from '@/data/links';
 import Navigation from './Navigation';
 import { proposalPhotos } from '@/data/proposals';
@@ -92,10 +91,8 @@ export default function Proposal({
     base = `/${variant}`;
   const titles: Record<string, [string, string]> = {
     menu: ['OUR TABLE', '맛있는 만남의 시작.'],
-    lunch: ['LUNCH TIME', '점심에도, 대통령.'],
     about: ['OUR STORY', '함께여서 더 좋은 공간.'],
   };
-  const items = page === 'lunch' ? lunchMenus : menus;
   return (
     <div className={`pv pv-${variant}`}>
       <Navigation key={`${variant}-${page}`} variant={variant} page={page} />
@@ -195,11 +192,11 @@ export default function Proposal({
                 </p>
               </section>
             )}
-            {(page === 'menu' || page === 'lunch') && (
+            {page === 'menu' && (
               <section
                 className={`pv-section pv-menu-section${page === 'menu' ? ' pv-menu-page' : ''}`}
               >
-                <MenuGrid items={items} lunch={page === 'lunch'} />
+                <MenuGrid items={menus} />
               </section>
             )}
             {page === 'about' && (

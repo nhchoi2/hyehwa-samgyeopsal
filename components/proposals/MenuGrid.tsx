@@ -12,50 +12,36 @@ const categoryOptions = [
   { label: '곁들임', value: '곁들임' },
   { label: '주류', value: '주류' },
 ];
-export default function MenuGrid({
-  items,
-  lunch,
-}: {
-  items: MenuItem[];
-  lunch: boolean;
-}) {
+export default function MenuGrid({ items }: { items: MenuItem[] }) {
   const [selected, setSelected] = useState('세트 메뉴');
-  const visibleItems = lunch
-    ? items
-    : items.filter((item) => item.category === selected);
+  const visibleItems = items.filter((item) => item.category === selected);
   return (
-    <div className={lunch ? undefined : 'pv-menu-browser'}>
-      {!lunch && (
-        <nav className="pv-category-sidebar" aria-label="메뉴 분류">
-          {categoryOptions.map((category) => (
-            <button
-              key={category.value}
-              type="button"
-              aria-pressed={selected === category.value}
-              aria-controls="menu-results"
-              onClick={() => setSelected(category.value)}
-            >
-              {category.label}
-            </button>
-          ))}
-        </nav>
-      )}
+    <div className="pv-menu-browser">
+      <nav className="pv-category-sidebar" aria-label="메뉴 분류">
+        {categoryOptions.map((category) => (
+          <button
+            key={category.value}
+            type="button"
+            aria-pressed={selected === category.value}
+            aria-controls="menu-results"
+            onClick={() => setSelected(category.value)}
+          >
+            {category.label}
+          </button>
+        ))}
+      </nav>
       <div className="pv-menu-results" id="menu-results">
         <section
           className="pv-menu-category"
           aria-labelledby="menu-category-title"
         >
           <div className="pv-section-heading">
-            {lunch ? (
-              <h2 id="menu-category-title">점심 메뉴</h2>
-            ) : (
-              <h1 id="menu-category-title">{selected}</h1>
-            )}
+            <h1 id="menu-category-title">{selected}</h1>
             <span aria-live="polite">{visibleItems.length}가지 메뉴</span>
           </div>
           <MenuCards items={visibleItems} />
         </section>
-        {!lunch && selected === '주류' && (
+        {selected === '주류' && (
           <section className="pv-corkage">
             <div className="pv-corkage-image">
               <Image
@@ -74,7 +60,7 @@ export default function MenuGrid({
             </div>
           </section>
         )}
-        {lunch && (
+        {selected === '식사 메뉴' && (
           <p className="pv-menu-source">
             점심 메뉴의 주문 가능 시간은 매장에 문의해 주세요.
           </p>
