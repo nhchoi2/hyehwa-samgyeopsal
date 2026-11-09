@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { variants, type Variant } from '@/data/proposals';
 import { restaurant } from '@/data/restaurant';
 import { menus, featuredMenus } from '@/data/menu';
-import MenuGrid, { MenuCards } from './MenuGrid';
+import MenuGrid from './MenuGrid';
+import { MenuCards } from './MenuCards';
 import { lunchMenus } from '@/data/lunch';
 import { links } from '@/data/links';
 import Navigation from './Navigation';
@@ -175,19 +176,23 @@ export default function Proposal({
           </>
         ) : (
           <>
-            <section className="pv-page-heading">
-              <p className="pv-kicker">{titles[page][0]}</p>
-              <h1>{titles[page][1]}</h1>
-              <p>
-                {page === 'location'
-                  ? '방문 전에 위치와 운영 시간을 확인해 주세요.'
-                  : page === 'about'
-                    ? '좋은 사람들과 편안하게 나누는 한 끼.'
-                    : '대통령의 음식을 만나보세요.'}
-              </p>
-            </section>
+            {page !== 'menu' && (
+              <section className="pv-page-heading">
+                <p className="pv-kicker">{titles[page][0]}</p>
+                <h1>{titles[page][1]}</h1>
+                <p>
+                  {page === 'location'
+                    ? '방문 전에 위치와 운영 시간을 확인해 주세요.'
+                    : page === 'about'
+                      ? '좋은 사람들과 편안하게 나누는 한 끼.'
+                      : '대통령의 음식을 만나보세요.'}
+                </p>
+              </section>
+            )}
             {(page === 'menu' || page === 'lunch') && (
-              <section className="pv-section pv-menu-section">
+              <section
+                className={`pv-section pv-menu-section${page === 'menu' ? ' pv-menu-page' : ''}`}
+              >
                 <MenuGrid items={items} lunch={page === 'lunch'} />
               </section>
             )}

@@ -1027,3 +1027,107 @@
     margin-bottom: 45px;
   }
 }
+
+/* Compact menu browser shared by all three designs. */
+.pv .pv-menu-page {
+  padding-top: 36px;
+  padding-bottom: 60px;
+}
+.pv-menu-browser {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 45px;
+  align-items: start;
+}
+.pv-category-sidebar {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 24px;
+  border-right: 1px solid var(--pv-line);
+  padding-right: 20px;
+  gap: 8px;
+}
+.pv-category-sidebar button {
+  color: var(--pv-ink);
+  background: transparent;
+  text-align: left;
+  border: 0;
+  padding: 15px 18px;
+  min-height: 48px;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.pv-category-sidebar button[aria-pressed='true'] {
+  background: var(--pv-accent);
+  color: #fff;
+  font-weight: 700;
+}
+.pv-category-sidebar button:hover:not([aria-pressed='true']) {
+  background: color-mix(in srgb, var(--pv-accent) 10%, transparent);
+}
+.pv-menu-results {
+  min-width: 0;
+}
+.pv-menu-browser .pv-menu-category {
+  margin-bottom: 30px;
+}
+.pv-menu-browser .pv-section-heading {
+  align-items: center;
+  margin-bottom: 25px;
+}
+.pv-menu-browser .pv-section-heading h1 {
+  font-size: 30px;
+  line-height: 1.4;
+  margin: 0;
+}
+.pv-menu-browser .pv-menu-grid {
+  gap: 30px 22px;
+}
+.pv-menu-browser .pv-menu-copy h3 {
+  font-size: 20px;
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .pv-menu-browser {
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 28px;
+  }
+  .pv-menu-browser .pv-menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .pv .pv-menu-page {
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+  .pv-menu-browser {
+    display: block;
+  }
+  .pv-category-sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    flex-direction: row;
+    gap: 4px;
+    overflow-x: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--pv-line);
+    padding: 10px 0;
+    background: var(--pv-bg);
+    margin-bottom: 25px;
+  }
+  .pv-category-sidebar button {
+    flex: 1 0 auto;
+    text-align: center;
+    padding: 12px 14px;
+    min-height: 44px;
+    font-size: 13px;
+  }
+  .pv-menu-browser .pv-section-heading h1 {
+    font-size: 26px;
+  }
+  .pv-menu-browser .pv-section-heading {
+    margin-bottom: 20px;
+  }
+}
