@@ -1,9 +1,9 @@
 export const variants = {
   a: {
-    name: '따뜻한 다이닝',
+    name: '용스 다이닝 스타일',
     english: 'THE DINING',
     description:
-      '큰 음식 사진과 붉은 포인트. 용스 다이닝의 편안한 분위기를 담았습니다.',
+      '용스 다이닝의 헤더·사진 슬라이드·FAQ·공간 소개 구성을 대통령에 적용했습니다.',
     title: '좋은 사람들과,\n맛있는 한 자리.',
     note: '혜화에서 만나는 삼겹살의 즐거움',
     image: 'grill',

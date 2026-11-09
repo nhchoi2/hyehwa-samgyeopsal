@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { variants, pages, isVariant } from '@/data/proposals';
 import Proposal from '@/components/proposals/Proposal';
 import '@/components/proposals/proposals.css';
+import '@/components/proposals/yongs-a.css';
 type Props = { params: Promise<{ variant: string; path?: string[] }> };
 export const dynamicParams = false;
 export function generateStaticParams() {

@@ -1,0 +1,701 @@
+/* A follows the local yongs-dining source: Header, HomeHero, HomeFaq,
+   FeaturedMenus and Mid. All rules stay under .pv-a so B/C remain unchanged. */
+.pv-a {
+  --pv-bg: #f7efe8;
+  --pv-ink: #111827;
+  --pv-accent: #dc2626;
+  --pv-line: #e7d7cb;
+  font-family:
+    'Nanum Gothic', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  background:
+    radial-gradient(circle at 0 0, #ffffff8c, transparent 40%),
+    radial-gradient(circle at 100% 0, #f6d0bb73, transparent 36%),
+    linear-gradient(180deg, #f7efe8 0%, #f4e7de 45%, #f2e2d8 100%);
+}
+.pv-a h1,
+.pv-a h2,
+.pv-a h3,
+.pv-a .pv-brand strong {
+  font-family: inherit;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+}
+.pv-a .pv-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  min-height: 116px;
+  padding: 16px max(24px, calc((100% - 1232px) / 2));
+  background: #ffffffe0;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #ffffff4d;
+  gap: 24px;
+}
+.pv-a .ya-header-tagline {
+  color: #ef4444;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pv-a .pv-brand {
+  color: #dc2626;
+  align-items: center;
+  min-width: 150px;
+}
+.pv-a .pv-brand strong {
+  font-size: 39px;
+  letter-spacing: -0.07em;
+  font-weight: 900;
+}
+.pv-a .pv-brand > span {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  margin-bottom: 7px;
+}
+.pv-a .pv-nav {
+  gap: 3px;
+  color: #dc2626;
+  font-weight: 700;
+  font-size: 13px;
+}
+.pv-a .pv-nav > a:not(.pv-button) {
+  padding: 10px 12px;
+  border-radius: 999px;
+}
+.pv-a .pv-nav a[aria-current] {
+  border-bottom: 0;
+  background: #fef2f2;
+}
+.pv-a .pv-nav > a:hover {
+  background: #fef2f2;
+}
+.pv-a .pv-nav .pv-button {
+  border-radius: 999px;
+  background: #ef4444;
+  border: 0;
+  padding: 11px 19px;
+  gap: 8px;
+}
+.pv-a .pv-nav .pv-button:hover {
+  background: #dc2626;
+}
+.pv-a main {
+  padding-top: 12px;
+}
+.pv-a .ya-home {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px 130px;
+}
+.pv-a .ya-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 540px;
+  height: calc(100svh - 132px);
+  max-height: 720px;
+  background: #171717;
+  overflow: hidden;
+  margin-inline: -24px;
+  color: #fff;
+}
+.pv-a .ya-slide {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.pv-a .ya-slide.is-active {
+  opacity: 1;
+}
+.pv-a .ya-hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #0a0a0ae6, #0a0a0a8a 55%, #0a0a0a1a),
+    linear-gradient(0deg, #0a0a0ad1, transparent 60%, #0a0a0a1f);
+}
+.pv-a .ya-hero-content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  min-height: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 64px 56px 48px;
+  align-items: flex-start;
+}
+.pv-a .ya-neighborhood {
+  color: #fecaca;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.pv-a .ya-hero h1 {
+  font-size: 72px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1.1;
+  margin: 0;
+}
+.pv-a .ya-tagline {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 20px 0 0;
+}
+.pv-a .ya-hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+.pv-a .ya-hero-points span {
+  font-size: 14px;
+  font-weight: 600;
+  background: #ffffff1a;
+  border: 1px solid #ffffff4d;
+  padding: 8px 12px;
+  backdrop-filter: blur(6px);
+}
+.pv-a .ya-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 32px;
+}
+.pv-a .ya-action {
+  display: inline-flex;
+  min-height: 44px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.pv-a .ya-actions .ya-action {
+  min-width: 144px;
+}
+.pv-a .ya-white {
+  background: #fff;
+  color: #171717;
+}
+.pv-a .ya-red {
+  background: #dc2626;
+  color: #fff;
+}
+.pv-a .ya-outline {
+  border: 1px solid #ffffffb3;
+  background: #ffffff1a;
+  color: #fff;
+}
+.pv-a .ya-action:hover {
+  filter: brightness(0.95);
+}
+.pv-a .ya-slide-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 32px;
+}
+.pv-a .ya-slide-controls button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 30px;
+  border: 0;
+  background: none;
+  color: #fff;
+}
+.pv-a .ya-slide-controls button span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
+  background: #ffffffb3;
+}
+.pv-a .ya-slide-controls button[aria-current] span {
+  width: 36px;
+  background: #ef4444;
+}
+.pv-a .ya-slide-controls .ya-pause {
+  font-size: 11px;
+  border: 1px solid #ffffff70;
+  border-radius: 5px;
+  padding: 4px 9px;
+  margin-left: 12px;
+}
+.pv-a .ya-faq {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  gap: 56px;
+  padding: 80px 0;
+}
+.pv-a .ya-question-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #fff;
+  background: #dc2626;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.pv-a .ya-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #dc2626;
+  margin: 0 0 10px;
+}
+.pv-a .ya-faq h2,
+.pv-a .ya-signature h2 {
+  font-size: 30px;
+  margin: 0 0 14px;
+  line-height: 1.35;
+}
+.pv-a .ya-faq > div > p:last-child,
+.pv-a .ya-section-heading p:last-child {
+  font-size: 15px;
+  color: #525252;
+  line-height: 1.8;
+}
+.pv-a .ya-faq-list {
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  background: #ffffffe6;
+  box-shadow: 0 20px 60px -40px #50231473;
+}
+.pv-a .ya-faq details {
+  border-bottom: 1px solid #e5e5e5;
+}
+.pv-a .ya-faq details:last-child {
+  border: 0;
+}
+.pv-a .ya-faq summary {
+  display: flex;
+  align-items: start;
+  gap: 16px;
+  list-style: none;
+  padding: 24px 28px;
+}
+.pv-a .ya-faq summary::-webkit-details-marker {
+  display: none;
+}
+.pv-a .ya-faq summary > span {
+  font-size: 13px;
+  font-weight: 700;
+  color: #dc2626;
+  padding-top: 4px;
+}
+.pv-a .ya-faq summary strong {
+  flex: 1;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.pv-a .ya-faq summary i {
+  display: grid;
+  place-items: center;
+  border: 1px solid #fecaca;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  color: #dc2626;
+  font-style: normal;
+  flex-shrink: 0;
+}
+.pv-a .ya-faq details[open] summary i {
+  transform: rotate(45deg);
+}
+.pv-a .ya-faq details > p {
+  font-size: 14px;
+  color: #525252;
+  white-space: pre-line;
+  padding: 0 40px 26px 80px;
+  margin: 0;
+}
+.pv-a .ya-faq summary:hover {
+  background: #fef2f2;
+}
+.pv-a .ya-signature {
+  padding: 30px 0 64px;
+}
+.pv-a .ya-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.pv-a .ya-menu-link {
+  background: #fff;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  white-space: nowrap;
+}
+.pv-a .ya-featured {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.pv-a .ya-featured article {
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  box-shadow: 0 1px 2px #0000000d;
+}
+.pv-a .ya-featured-image {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: #f5f5f5;
+}
+.pv-a .ya-featured-image img {
+  object-fit: contain;
+}
+.pv-a .ya-featured-image > span {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  color: #fff;
+  background: #dc2626;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.pv-a .ya-featured-copy {
+  padding: 16px;
+}
+.pv-a .ya-featured h3 {
+  font-size: 18px;
+  margin: 0;
+}
+.pv-a .ya-featured p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #525252;
+  margin: 8px 0 16px;
+}
+.pv-a .ya-featured strong {
+  font-size: 16px;
+}
+.pv-a .ya-stories {
+  max-width: 1152px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 24px 16px;
+}
+.pv-a .ya-stories article {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.pv-a .ya-story-image {
+  position: relative;
+  aspect-ratio: 3/4;
+}
+.pv-a .ya-story-image img {
+  object-fit: contain;
+}
+.pv-a .ya-stories article:nth-child(2) {
+  grid-column: 1;
+  grid-row: 2;
+}
+.pv-a .ya-stories article:nth-child(3) {
+  grid-column: 2;
+  grid-row: 1;
+}
+.pv-a .ya-stories article:nth-child(2) .ya-story-image,
+.pv-a .ya-stories article:nth-child(4) .ya-story-image {
+  order: 2;
+}
+.pv-a .ya-stories article:last-child {
+  grid-column: 1/-1;
+  max-width: 672px;
+  width: 100%;
+  margin: 16px auto 0;
+  align-items: center;
+}
+.pv-a .ya-stories article:last-child .ya-story-image {
+  aspect-ratio: 4/3;
+}
+.pv-a .ya-stories h3 {
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0;
+}
+.pv-a .ya-stories p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #525252;
+  white-space: pre-line;
+  margin: 8px 0 20px;
+}
+.pv-a .pv-footer {
+  background: #f5ece5;
+  color: #374151;
+  border-top: 1px solid #d6d3d1;
+  padding: 48px max(24px, calc((100% - 1152px) / 2));
+  font-size: 14px;
+}
+.pv-a .pv-footer small {
+  border-color: #d6d3d1;
+}
+.pv-a .pv-footer .pv-brand {
+  align-items: start;
+}
+.pv-a .pv-footer .pv-brand strong {
+  font-size: 24px;
+}
+.pv-a .pv-footer .pv-brand > span {
+  font-size: 10px;
+}
+.pv-a .pv-page-heading {
+  max-width: 1280px;
+  margin: auto;
+  padding: 36px 24px 24px;
+  border: 0;
+}
+.pv-a .pv-page-heading h1 {
+  font-size: 32px;
+}
+.pv-a .pv-section {
+  max-width: 1280px;
+  margin: auto;
+  padding: 48px 24px;
+}
+.pv-a .pv-button {
+  border-radius: 8px;
+  font-weight: 700;
+  background: #dc2626;
+}
+.pv-a .pv-menu-page {
+  padding-top: 24px;
+}
+.pv-a .pv-category-sidebar {
+  top: 140px;
+}
+.pv-a .pv-category-sidebar button {
+  border-radius: 8px;
+}
+.pv-a .pv-menu-grid .pv-menu-item {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px #0000000d;
+}
+.pv-a .pv-menu-copy {
+  border: 0;
+  padding: 18px;
+}
+.pv-a .pv-menu-copy h3 {
+  font-family: inherit;
+  font-weight: 700;
+}
+.pv-a .pv-menu-price {
+  color: #171717;
+}
+.pv-a .pv-menu-notice,
+.pv-a .pv-corkage {
+  border-radius: 16px;
+  background: #ffffffb3;
+}
+@media (min-width: 1280px) {
+  .pv-a .ya-hero {
+    margin-inline: 0;
+  }
+}
+@media (max-width: 1100px) {
+  .pv-a .ya-header-tagline {
+    display: none;
+  }
+  .pv-a .pv-header {
+    justify-content: space-between;
+  }
+  .pv-a .ya-hero h1 {
+    font-size: 60px;
+  }
+  .pv-a .ya-tagline {
+    font-size: 34px;
+  }
+  .pv-a .ya-faq {
+    gap: 32px;
+  }
+  .pv-a .ya-stories {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+  .pv-a .ya-stories article {
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+  }
+  .pv-a .ya-stories article:nth-child(even) .ya-story-image {
+    order: 2;
+  }
+  .pv-a .ya-stories article:last-child {
+    max-width: none;
+  }
+  .pv-a .ya-story-image {
+    aspect-ratio: 4/3;
+  }
+}
+@media (max-width: 760px) {
+  .pv-a .pv-header {
+    min-height: 80px;
+    padding: 12px 20px;
+  }
+  .pv-a .pv-header > .pv-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 0;
+  }
+  .pv-a .pv-brand strong {
+    font-size: 30px;
+  }
+  .pv-a .pv-brand > span {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+  .pv-a .pv-toggle {
+    margin-left: auto;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    background: #fff;
+  }
+  .pv-a .pv-nav {
+    left: 16px;
+    right: 16px;
+    border-radius: 16px;
+    border: 1px solid #fee2e2;
+    background: #fffffff2;
+    padding: 12px;
+    box-shadow: 0 10px 20px #0001;
+  }
+  .pv-a .pv-nav > a:not(.pv-button) {
+    text-align: center;
+    padding: 12px;
+  }
+  .pv-a main {
+    padding-top: 8px;
+  }
+  .pv-a .ya-home {
+    padding: 0 16px 80px;
+  }
+  .pv-a .ya-hero {
+    margin-inline: -16px;
+    height: auto;
+    max-height: none;
+    min-height: 540px;
+  }
+  .pv-a .ya-hero-content {
+    padding: 64px 20px 32px;
+    min-height: 600px;
+  }
+  .pv-a .ya-hero h1 {
+    font-size: 36px;
+  }
+  .pv-a .ya-tagline {
+    font-size: 28px;
+    line-height: 1.35;
+  }
+  .pv-a .ya-hero-points span {
+    font-size: 12px;
+  }
+  .pv-a .ya-actions {
+    flex-direction: column;
+    align-self: stretch;
+    gap: 12px;
+  }
+  .pv-a .ya-actions .ya-action {
+    width: 100%;
+  }
+  .pv-a .ya-faq {
+    grid-template-columns: 1fr;
+    padding: 56px 0;
+    gap: 28px;
+  }
+  .pv-a .ya-faq h2,
+  .pv-a .ya-signature h2 {
+    font-size: 24px;
+  }
+  .pv-a .ya-faq summary {
+    padding: 20px;
+    gap: 12px;
+  }
+  .pv-a .ya-faq summary strong {
+    font-size: 15px;
+  }
+  .pv-a .ya-faq details > p {
+    padding: 0 30px 24px 62px;
+  }
+  .pv-a .ya-signature {
+    padding: 0 0 48px;
+  }
+  .pv-a .ya-section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .pv-a .ya-featured {
+    grid-template-columns: 1fr;
+  }
+  .pv-a .ya-stories {
+    padding: 16px 0;
+    gap: 48px;
+  }
+  .pv-a .ya-stories article {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .pv-a .ya-stories article .ya-story-image {
+    width: 100%;
+    order: 0 !important;
+  }
+  .pv-a .ya-stories article > div:last-child {
+    text-align: center;
+  }
+  .pv-a .ya-stories h3 {
+    font-size: 18px;
+  }
+  .pv-a .ya-stories p {
+    font-size: 14px;
+  }
+  .pv-a .pv-footer {
+    padding-bottom: 100px;
+  }
+  .pv-a .pv-menu-page {
+    padding-top: 0;
+  }
+  .pv-a .pv-category-sidebar {
+    top: 80px;
+    background: #f7efe8;
+  }
+  .pv-a .pv-page-heading {
+    padding: 28px 20px 10px;
+  }
+  .pv-a .pv-page-heading h1 {
+    font-size: 28px;
+  }
+  .pv-a .pv-section {
+    padding: 32px 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pv-a .ya-slide {
+    transition: none;
+  }
+}

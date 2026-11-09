@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import YongsHome from './YongsHome';
 import Link from 'next/link';
 import { variants, type Variant } from '@/data/proposals';
 import { restaurant } from '@/data/restaurant';
@@ -94,7 +95,9 @@ export default function Proposal({
     <div className={`pv pv-${variant}`}>
       <Navigation key={`${variant}-${page}`} variant={variant} page={page} />
       <main id="main-content">
-        {!page ? (
+        {!page && variant === 'a' ? (
+          <YongsHome />
+        ) : !page ? (
           <>
             <section className="pv-hero">
               <div className="pv-hero-image">

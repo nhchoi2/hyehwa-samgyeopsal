@@ -29,6 +29,9 @@ export default function Navigation({
         </nav>
       </div>
       <header className="pv-header">
+        {variant === 'a' && (
+          <p className="ya-header-tagline">맛있는 한 점, 함께하는 좋은 시간.</p>
+        )}
         <Link className="pv-brand" href={base}>
           <span>혜화 삼겹살</span>
           <strong>
