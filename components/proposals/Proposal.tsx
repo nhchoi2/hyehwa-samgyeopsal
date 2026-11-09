@@ -43,12 +43,18 @@ function Actions({ base }: { base: string }) {
     </div>
   );
 }
-function Visit() {
+function Visit({ standalone = false }: { standalone?: boolean }) {
   return (
     <div className="pv-visit">
       <div>
-        <p className="pv-kicker">FIND US IN HYEHWA</p>
-        <h2>혜화에서 만나요.</h2>
+        {standalone ? (
+          <h1>오시는 길</h1>
+        ) : (
+          <>
+            <p className="pv-kicker">FIND US IN HYEHWA</p>
+            <h2>혜화에서 만나요.</h2>
+          </>
+        )}
         <p>{restaurant.address}</p>
         <a
           className="pv-button"
@@ -88,7 +94,6 @@ export default function Proposal({
     menu: ['OUR TABLE', '맛있는 만남의 시작.'],
     lunch: ['LUNCH TIME', '점심에도, 대통령.'],
     about: ['OUR STORY', '함께여서 더 좋은 공간.'],
-    location: ['COME ON OVER', '오늘은 혜화에서 만나요.'],
   };
   const items = page === 'lunch' ? lunchMenus : menus;
   return (
@@ -179,16 +184,14 @@ export default function Proposal({
           </>
         ) : (
           <>
-            {page !== 'menu' && (
+            {page !== 'menu' && page !== 'location' && (
               <section className="pv-page-heading">
                 <p className="pv-kicker">{titles[page][0]}</p>
                 <h1>{titles[page][1]}</h1>
                 <p>
-                  {page === 'location'
-                    ? '방문 전에 위치와 운영 시간을 확인해 주세요.'
-                    : page === 'about'
-                      ? '좋은 사람들과 편안하게 나누는 한 끼.'
-                      : '대통령의 음식을 만나보세요.'}
+                  {page === 'about'
+                    ? '좋은 사람들과 편안하게 나누는 한 끼.'
+                    : '대통령의 음식을 만나보세요.'}
                 </p>
               </section>
             )}
@@ -231,14 +234,10 @@ export default function Proposal({
               </section>
             )}
             {page === 'location' && (
-              <section className="pv-section">
-                <Visit />
+              <section className="pv-section pv-location-page">
+                <Visit standalone />
                 <div className="pv-location-note">
                   <h2>방문 전 확인해 주세요</h2>
-                  <p>
-                    평일 브레이크타임은 15:00–16:00이며, 주말에는 브레이크타임
-                    없이 운영합니다.
-                  </p>
                   <p>주차 방법과 단체 좌석은 방문 전에 전화로 문의해 주세요.</p>
                   <div className="pv-amenities">
                     {restaurant.amenities.map((x) => (
