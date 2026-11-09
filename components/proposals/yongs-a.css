@@ -699,3 +699,123 @@
     transition: none;
   }
 }
+
+/* Source-style image overlay cards on A's menu only. */
+.pv-a .ya-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.pv-a .ya-overlay-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.pv-a .ya-menu-card {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid #ffffff99;
+  background: #292524;
+  box-shadow: 0 1px 3px #0001;
+  isolation: isolate;
+}
+.pv-a .ya-menu-photo {
+  object-fit: cover;
+}
+.pv-a .ya-menu-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #dc2626;
+  color: #fff;
+  border-radius: 99px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+}
+.pv-a .ya-menu-overlay {
+  position: absolute;
+  inset: auto 0 0;
+  max-height: 100%;
+  overflow-y: auto;
+  background: #000b;
+  color: #fff;
+  padding: 14px 18px;
+}
+.pv-a .ya-menu-overlay h2 {
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 0 0 5px;
+  color: #fff;
+}
+.pv-a .ya-menu-overlay strong {
+  display: block;
+  font-size: 15px;
+}
+.pv-a .ya-menu-overlay button {
+  display: block;
+  margin-top: 10px;
+  min-height: 36px;
+  width: 100%;
+  border: 1px solid #ffffff66;
+  background: #ffffff1a;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 7px 12px;
+}
+.pv-a .ya-menu-overlay button:hover {
+  background: #ffffff30;
+}
+.pv-a .ya-menu-description p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 12px 0;
+  white-space: pre-line;
+}
+.pv-a .ya-menu-card.is-open .ya-menu-overlay {
+  inset: 0;
+  background: #171717f2;
+  display: flex;
+  flex-direction: column;
+}
+.pv-a .ya-menu-card.is-open button {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+.pv-a .ya-menu-card.is-open .ya-menu-description {
+  overflow-y: auto;
+  min-height: 0;
+  margin-bottom: 12px;
+}
+@media (max-width: 1100px) {
+  .pv-a .ya-menu-card {
+    aspect-ratio: 4/3;
+  }
+  .pv-a .ya-menu-overlay h2 {
+    font-size: 16px;
+  }
+  .pv-a .ya-menu-overlay {
+    padding: 12px;
+  }
+}
+@media (max-width: 760px) {
+  .pv-a .ya-overlay-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .pv-a .ya-menu-overlay button {
+    min-height: 44px;
+  }
+  .pv-a .ya-menu-card {
+    aspect-ratio: 4/3;
+  }
+}

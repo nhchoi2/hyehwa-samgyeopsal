@@ -196,7 +196,7 @@ export default function Proposal({
               <section
                 className={`pv-section pv-menu-section${page === 'menu' ? ' pv-menu-page' : ''}`}
               >
-                <MenuGrid items={menus} />
+                <MenuGrid items={menus} overlay={variant === 'a'} />
               </section>
             )}
             {page === 'about' && (

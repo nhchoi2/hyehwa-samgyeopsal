@@ -4,6 +4,7 @@ import Image from 'next/image';
 import type { MenuItem } from '@/types/menu';
 import { corkage, menuSource } from '@/data/menu';
 import { MenuCards } from './MenuCards';
+import YongsMenuCards from './YongsMenuCards';
 
 const categoryOptions = [
   { label: '세트', value: '세트 메뉴' },
@@ -12,7 +13,13 @@ const categoryOptions = [
   { label: '곁들임', value: '곁들임' },
   { label: '주류', value: '주류' },
 ];
-export default function MenuGrid({ items }: { items: MenuItem[] }) {
+export default function MenuGrid({
+  items,
+  overlay = false,
+}: {
+  items: MenuItem[];
+  overlay?: boolean;
+}) {
   const [selected, setSelected] = useState('세트 메뉴');
   const visibleItems = items.filter((item) => item.category === selected);
   return (
@@ -35,11 +42,15 @@ export default function MenuGrid({ items }: { items: MenuItem[] }) {
           className="pv-menu-category"
           aria-labelledby="menu-category-title"
         >
-          <div className="pv-section-heading">
+          <div className={overlay ? 'ya-sr-only' : 'pv-section-heading'}>
             <h1 id="menu-category-title">{selected}</h1>
             <span aria-live="polite">{visibleItems.length}가지 메뉴</span>
           </div>
-          <MenuCards items={visibleItems} />
+          {overlay ? (
+            <YongsMenuCards key={selected} items={visibleItems} />
+          ) : (
+            <MenuCards items={visibleItems} />
+          )}
         </section>
         {selected === '주류' && (
           <section className="pv-corkage">
