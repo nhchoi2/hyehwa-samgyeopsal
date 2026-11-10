@@ -44,7 +44,7 @@ export default function MenuGrid({
         >
           <div className={overlay ? 'ya-sr-only' : 'pv-section-heading'}>
             <h1 id="menu-category-title">{selected}</h1>
-            <span aria-live="polite">{visibleItems.length}가지 메뉴</span>
+            <span aria-live="polite">메뉴 {visibleItems.length}개</span>
           </div>
           {overlay ? (
             <YongsMenuCards key={selected} items={visibleItems} />
@@ -67,13 +67,16 @@ export default function MenuGrid({
               <p className="pv-kicker">BRING YOUR OWN BOTTLE</p>
               <h2>콜키지 무료</h2>
               <p>가져오신 주류를 추가 비용 없이 함께 즐기세요.</p>
-              <p>최대 1병 안내 · 이용 조건은 예약 시 확인해 주세요.</p>
+              <p>
+                최대 1병까지 이용할 수 있습니다. 자세한 조건은 예약 시 확인해
+                주세요.
+              </p>
             </div>
           </section>
         )}
         {selected === '식사 메뉴' && (
           <p className="pv-menu-source">
-            점심 메뉴의 주문 가능 시간은 매장에 문의해 주세요.
+            점심 메뉴를 주문할 수 있는 시간은 매장에 문의해 주세요.
           </p>
         )}
         <p className="pv-menu-source">

@@ -11,10 +11,11 @@ export const variants = {
   b: {
     name: '대통령의 식탁',
     english: 'THE TABLE',
-    description: '깊은 녹색과 여백, 음식과 모임의 이야기에 집중한 구성입니다.',
-    title: '함께하는 식탁,\n오래 남는 시간.',
-    note: '대학로의 하루를 완성하는 한 끼',
-    image: 'table',
+    description:
+      '짙은 녹색과 대나무통 삼겹살 사진으로 대통령의 대표 메뉴를 소개합니다.',
+    title: '대나무통에서\n시작되는 한 점',
+    note: '혜화 대통령의 대나무통 구이 삼겹살',
+    image: 'bamboo',
   },
   c: {
     name: '오늘, 혜화',
@@ -46,4 +47,5 @@ export const proposalPhotos: Record<string, string> = {
   table: '/images/proposals/table.webp',
   pot: '/images/proposals/pot.webp',
   grill: '/images/proposals/grill.webp',
+  bamboo: '/images/materials/business/business-052.webp',
 };

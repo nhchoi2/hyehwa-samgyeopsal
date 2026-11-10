@@ -481,10 +481,27 @@
 .pv-a .pv-menu-page {
   padding-top: 24px;
 }
+.pv-a .pv-menu-browser {
+  display: block;
+}
 .pv-a .pv-category-sidebar {
-  top: 140px;
+  top: 116px;
+  z-index: 5;
+  flex-direction: row;
+  justify-content: safe center;
+  gap: 8px;
+  overflow-x: auto;
+  border-right: 0;
+  border-bottom: 1px solid var(--pv-line);
+  padding: 8px 4px 12px;
+  margin-bottom: 24px;
+  background: var(--pv-bg);
 }
 .pv-a .pv-category-sidebar button {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 10px clamp(12px, 2.5vw, 28px);
+  text-align: center;
   border-radius: 8px;
 }
 .pv-a .pv-menu-grid .pv-menu-item {
@@ -680,10 +697,6 @@
   .pv-a .pv-menu-page {
     padding-top: 0;
   }
-  .pv-a .pv-category-sidebar {
-    top: 80px;
-    background: #f7efe8;
-  }
   .pv-a .pv-page-heading {
     padding: 28px 20px 10px;
   }
@@ -714,7 +727,7 @@
 }
 .pv-a .ya-overlay-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 .pv-a .ya-menu-card {
@@ -726,6 +739,10 @@
   background: #292524;
   box-shadow: 0 1px 3px #0001;
   isolation: isolate;
+}
+.pv-a .ya-menu-picture {
+  position: absolute;
+  inset: 0;
 }
 .pv-a .ya-menu-photo {
   object-fit: contain;
@@ -752,9 +769,8 @@
   inset: 0;
   display: flex;
   flex-direction: column;
-  padding: 16px 46% 16px 16px;
+  padding: 16px 60% 16px 16px;
   color: white;
-  background: linear-gradient(90deg, #171717b3, #17171759, transparent);
   text-shadow: 0 1px 3px #000b;
 }
 .pv-a .ya-menu-desktop h2 {
@@ -763,6 +779,7 @@
   line-height: 1.45;
 }
 .pv-a .ya-menu-desktop p {
+  white-space: pre-line;
   font-size: 14px;
   line-height: 1.6;
   margin-top: 8px;
@@ -783,9 +800,6 @@
 }
 
 @media (max-width: 1023px) {
-  .pv-a .ya-overlay-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
   .pv-a .ya-menu-card {
     perspective: 1000px;
     background: #1717171a;
@@ -853,6 +867,7 @@
     padding-right: 72px;
   }
   .pv-a .ya-menu-back p {
+    white-space: pre-line;
     margin: 8px 0;
     font-size: 14px;
     line-height: 1.65;
@@ -870,6 +885,14 @@
   }
 }
 @media (min-width: 1024px) {
+  .pv-a .ya-menu-card {
+    aspect-ratio: 3 / 2;
+    background: #171717;
+  }
+  .pv-a .ya-menu-picture {
+    inset-inline-start: 33.3333%;
+    mask-image: linear-gradient(90deg, transparent, #000 30%);
+  }
   .pv-a .pv-header {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -887,6 +910,10 @@
   }
   .pv-a .pv-category-sidebar {
     top: 68px;
+    gap: 4px;
+  }
+  .pv-a .pv-category-sidebar button {
+    flex-grow: 1;
   }
   .pv-a .pv-section.pv-menu-page {
     padding-inline: 16px;

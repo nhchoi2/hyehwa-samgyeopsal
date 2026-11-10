@@ -168,7 +168,11 @@ export default function Proposal({
               <div className="pv-hero-image">
                 <Photo
                   name={v.image}
-                  alt="혜화삼겹살대통령의 음식과 한 상"
+                  alt={
+                    variant === 'b'
+                      ? '불판 앞에서 대나무통에 든 삼겹살을 꺼내는 모습'
+                      : '혜화삼겹살대통령의 음식과 한 상'
+                  }
                   priority
                 />
               </div>
@@ -183,6 +187,25 @@ export default function Proposal({
                 </div>
               </div>
             </section>
+            {variant === 'b' && (
+              <section className="pv-section pv-bamboo-feature">
+                <div className="pv-bamboo-photo">
+                  <Photo name="grill" alt="불판 위에 노릇하게 구워진 삼겹살" />
+                </div>
+                <div>
+                  <p className="pv-kicker">대통령의 대표 메뉴</p>
+                  <h2>대나무통 구이 삼겹살</h2>
+                  <p className="pv-bamboo-description">
+                    대나무통에서 초벌해
+                    <br />
+                    삼겹살에 은은한 대나무 향을 더합니다.
+                  </p>
+                  <Link className="pv-text-link" href={`${base}/menu`}>
+                    메뉴와 가격 보기 ↗
+                  </Link>
+                </div>
+              </section>
+            )}
             <div className="pv-facts">
               <span>매일 11:30 — 23:00</span>
               <span>단체모임 · 가족모임 · 회식</span>
@@ -190,22 +213,24 @@ export default function Proposal({
                 서울 종로구 대학로14길 12-1 ↗
               </Link>
             </div>
-            <section className="pv-section pv-intro">
-              <div>
-                <p className="pv-kicker">A PLACE TO SHARE</p>
-                <h2>
-                  한 점의 즐거움이,
-                  <br />
-                  우리의 시간이 되도록.
-                </h2>
-              </div>
-              <div>
-                <p>{restaurant.introduction}</p>
-                <Link className="pv-text-link" href={`${base}/about`}>
-                  대통령의 공간 알아보기 ↗
-                </Link>
-              </div>
-            </section>
+            {variant === 'c' && (
+              <section className="pv-section pv-intro">
+                <div>
+                  <p className="pv-kicker">A PLACE TO SHARE</p>
+                  <h2>
+                    한 점의 즐거움이,
+                    <br />
+                    우리의 시간이 되도록.
+                  </h2>
+                </div>
+                <div>
+                  <p>{restaurant.introduction}</p>
+                  <Link className="pv-text-link" href={`${base}/about`}>
+                    대통령의 공간 알아보기 ↗
+                  </Link>
+                </div>
+              </section>
+            )}
             <section className="pv-section">
               <div className="pv-section-heading">
                 <div>

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import MenuName from '@/components/menu/MenuName';
 import Link from 'next/link';
 import { restaurant } from '@/data/restaurant';
 import { featuredMenus } from '@/data/menu';
@@ -37,7 +38,7 @@ const faqs = [
   {
     question: '어떤 메뉴부터 먹으면 좋을까요?',
     answer:
-      '대나무통구이삼겹살과 숙성삼겹살, 여러 가지 고기를 함께 즐기는 세트 메뉴를 준비했습니다. 메뉴 페이지에서 구성과 가격을 확인해 주세요.',
+      '대나무통 구이 삼겹살과 숙성 삼겹살, 여러 가지 고기를 함께 즐기는 세트 메뉴를 준비했습니다. 메뉴 페이지에서 구성과 가격을 확인해 주세요.',
   },
   {
     question: '단체 예약이나 대관이 가능한가요?',
@@ -111,8 +112,10 @@ export default function YongsHome() {
                 <span>대표 메뉴</span>
               </div>
               <div className="ya-featured-copy">
-                <h3>{menu.name}</h3>
-                <p>{menu.description}</p>
+                <h3>
+                  <MenuName name={menu.name} />
+                </h3>
+                <p className="whitespace-pre-line">{menu.description}</p>
                 <strong>{menu.price}</strong>
               </div>
             </article>

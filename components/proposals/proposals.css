@@ -426,6 +426,25 @@
   color: #fff;
   border-color: #ffffff70;
 }
+.pv-bamboo-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: clamp(32px, 6vw, 96px);
+  align-items: center;
+  background: #faf5e9;
+}
+.pv-bamboo-photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.pv-bamboo-photo .pv-photo {
+  object-position: center 72%;
+}
+.pv-bamboo-description {
+  margin: 0 0 24px;
+  line-height: 1.8;
+}
 .pv-b .pv-facts {
   background: #e2e6da;
 }
@@ -830,15 +849,22 @@
   }
   .pv-b .pv-hero-image {
     width: 100%;
-    height: 350px;
+    height: clamp(240px, 68vw, 420px);
     order: 0;
+  }
+  .pv-b .pv-hero-image .pv-photo {
+    object-position: center 35%;
   }
   .pv-b .pv-hero-copy {
     padding: 35px 6%;
     order: 1;
   }
   .pv-b .pv-hero h1 {
-    font-size: 40px;
+    font-size: clamp(32px, 8vw, 44px);
+  }
+  .pv-bamboo-feature {
+    grid-template-columns: 1fr;
+    gap: 26px;
   }
   .pv-b .pv-hero-bottom {
     margin-top: 30px;

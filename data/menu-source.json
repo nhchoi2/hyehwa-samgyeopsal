@@ -6,11 +6,11 @@
     {
       "id": "menu-01",
       "originalName": "대학로 맛집 한우투뿔세트 (3인)",
-      "name": "한우투뿔세트 (3인)",
+      "name": "한우 투뿔 세트 (3인)",
       "category": "세트 메뉴",
       "priceKrw": 99000,
       "price": "99,000원",
-      "description": "한우투뿔등심 2인분 + 한우투뿔차돌 1인분",
+      "description": "한우 투뿔 등심 2인분\n한우 투뿔 차돌박이 1인분",
       "image": "/images/materials/menu/menu-01.webp",
       "featured": true,
       "lunch": false
@@ -18,11 +18,11 @@
     {
       "id": "menu-02",
       "originalName": "혜화 맛집 A세트 (2~3인)",
-      "name": "A세트 (2~3인)",
+      "name": "A 세트 (2~3인)",
       "category": "세트 메뉴",
       "priceKrw": 54000,
       "price": "54,000원",
-      "description": "구이삼겹살 1인분 + 숙성삼겹살 1인분 + 한우육회100g + 프리미엄가니시2종",
+      "description": "구이 삼겹살 1인분\n숙성 삼겹살 1인분\n한우 육회 100g\n프리미엄 가니시 2종",
       "image": "/images/materials/menu/menu-02.webp",
       "featured": true,
       "lunch": false
@@ -30,11 +30,11 @@
     {
       "id": "menu-03",
       "originalName": "가성비 좋은 B세트 (2~3인)",
-      "name": "B세트 (2~3인)",
+      "name": "B 세트 (2~3인)",
       "category": "세트 메뉴",
       "priceKrw": 53000,
       "price": "53,000원",
-      "description": "구이삼겹살 1인분 + 숙성삼겹살 1인분 + 빨간돼지 1인분 + 프리미엄가니시2종",
+      "description": "구이 삼겹살 1인분\n숙성 삼겹살 1인분\n빨간 돼지 1인분\n프리미엄 가니시 2종",
       "image": "/images/materials/menu/menu-03.webp",
       "featured": true,
       "lunch": false
@@ -42,11 +42,11 @@
     {
       "id": "menu-04",
       "originalName": "삼겹살 맛집 C세트 (2~3인)",
-      "name": "C세트 (2~3인)",
+      "name": "C 세트 (2~3인)",
       "category": "세트 메뉴",
       "priceKrw": 62000,
       "price": "62,000원",
-      "description": "구이삼겹살 1인분 + 숙성삼겹살 1인분 + 차돌박이 1인분 + 프리미엄가니시2종",
+      "description": "구이 삼겹살 1인분\n숙성 삼겹살 1인분\n차돌박이 1인분\n프리미엄 가니시 2종",
       "image": "/images/materials/menu/menu-04.webp",
       "featured": true,
       "lunch": false
@@ -54,11 +54,11 @@
     {
       "id": "menu-05",
       "originalName": "혜화역 D세트 (3~4인)",
-      "name": "D세트 (3~4인)",
+      "name": "D 세트 (3~4인)",
       "category": "세트 메뉴",
       "priceKrw": 106000,
       "price": "106,000원",
-      "description": "구이삼겹살 2인분 + 숙성삼겹살 2인분 + 육회 200g + 프리미엄가니시2종",
+      "description": "구이 삼겹살 2인분\n숙성 삼겹살 2인분\n육회 200g\n프리미엄 가니시 2종",
       "image": "/images/materials/menu/menu-05.webp",
       "featured": true,
       "lunch": false
@@ -66,11 +66,11 @@
     {
       "id": "menu-06",
       "originalName": "혜화동 E세트 (한우투뿔등심)",
-      "name": "E세트 (한우투뿔등심)",
+      "name": "E 세트 (한우 투뿔 등심)",
       "category": "세트 메뉴",
       "priceKrw": 120000,
       "price": "120,000원",
-      "description": "한우투뿔등심 3인분 + 프리미엄가니시2종",
+      "description": "한우 투뿔 등심 3인분\n프리미엄 가니시 2종",
       "image": "/images/materials/menu/menu-06.webp",
       "featured": true,
       "lunch": false
@@ -78,11 +78,11 @@
     {
       "id": "menu-07",
       "originalName": "대나무통구이삼겹살 한돈1등급",
-      "name": "대나무통구이삼겹살 한돈1등급",
+      "name": "대나무통 구이 삼겹살 (한돈 1등급)",
       "category": "고기 메뉴",
       "priceKrw": 18000,
       "price": "18,000원",
-      "description": "대나무통에 고기를 넣고 초벌하여 대나무향을 물씬 풍기는 구이삼겹살",
+      "description": "대나무통에서 초벌해\n대나무 향을 더한 구이 삼겹살.",
       "image": "/images/materials/menu/menu-07.webp",
       "featured": true,
       "lunch": false
@@ -90,11 +90,11 @@
     {
       "id": "menu-08",
       "originalName": "점심-꽃게한마리칼국수 (공기밥서비스)",
-      "name": "꽃게한마리칼국수 (공기밥서비스)",
+      "name": "꽃게 한 마리 칼국수 (공기밥 제공)",
       "category": "식사 메뉴",
       "priceKrw": 19000,
       "price": "19,000원",
-      "description": "신선한 각종 해산물과 꽃게한마리가 들어간 시원칼칼한 칼국수 (2인분)",
+      "description": "신선한 해산물과 꽃게 한 마리를 넣은 시원하고 칼칼한 칼국수 (2인분).",
       "image": "/images/materials/menu/menu-08.webp",
       "featured": true,
       "lunch": true
@@ -102,11 +102,11 @@
     {
       "id": "menu-09",
       "originalName": "점심-김치찌개 (공기밥서비스)",
-      "name": "김치찌개 (공기밥서비스)",
+      "name": "김치찌개 (공기밥 제공)",
       "category": "식사 메뉴",
       "priceKrw": 9000,
       "price": "9,000원",
-      "description": "",
+      "description": "잘 익은 김치의 새콤함이 살아 있는\n칼칼한 김치찌개.",
       "image": "/images/materials/menu/menu-09.webp",
       "featured": true,
       "lunch": true
@@ -114,11 +114,11 @@
     {
       "id": "menu-10",
       "originalName": "콜키지 무료 free",
-      "name": "콜키지 무료 free",
+      "name": "콜키지 무료",
       "category": "이용 안내",
       "priceKrw": 0,
       "price": "무료",
-      "description": "가져오신 주류, 추가 비용 없이 편하게 즐기세요. 맛있는 삼겹살과 좋은 술이 함께하는 대통령 삼겹살 혜화 본점입니다.",
+      "description": "가져오신 주류를 추가 비용 없이 함께 즐길 수 있습니다.",
       "image": "/images/materials/menu/menu-10.webp",
       "featured": false,
       "lunch": false
@@ -126,11 +126,11 @@
     {
       "id": "menu-11",
       "originalName": "2차숙성삼겹살 한돈1등급",
-      "name": "2차숙성삼겹살 한돈1등급",
+      "name": "2차 숙성 삼겹살 (한돈 1등급)",
       "category": "고기 메뉴",
       "priceKrw": 18000,
       "price": "18,000원",
-      "description": "대나무 통에서 3일동안 저온숙성한 생삼겹살",
+      "description": "대나무통에서 3일 동안\n저온 숙성한 생삼겹살.",
       "image": "/images/materials/menu/menu-11.webp",
       "featured": false,
       "lunch": false
@@ -138,11 +138,11 @@
     {
       "id": "menu-12",
       "originalName": "꽃삼겹 한돈1등급",
-      "name": "꽃삼겹 한돈1등급",
+      "name": "꽃삼겹 (한돈 1등급)",
       "category": "고기 메뉴",
       "priceKrw": 18000,
       "price": "18,000원",
-      "description": "명품 한돈 삼겹살에 대통령만의 급랭 기술을 더해 가장 맛있는 두계로 썰어낸 꽃삼겹",
+      "description": "한돈 삼겹살을 대통령만의 기술로 급랭해\n가장 맛있는 두께로 썰어낸 꽃삼겹.",
       "image": "/images/materials/menu/menu-12.webp",
       "featured": false,
       "lunch": false
@@ -150,11 +150,11 @@
     {
       "id": "menu-13",
       "originalName": "벌꿀먹은빨간돼지 한돈1등급",
-      "name": "벌꿀먹은빨간돼지 한돈1등급",
+      "name": "벌꿀 먹은 빨간 돼지 (한돈 1등급)",
       "category": "고기 메뉴",
       "priceKrw": 18000,
       "price": "18,000원",
-      "description": "벌꿀과 과일로 단맛을 낸 고추장양념 삼겹살",
+      "description": "벌꿀과 과일로 단맛을 낸\n고추장 양념 삼겹살.",
       "image": "/images/materials/menu/menu-13.webp",
       "featured": false,
       "lunch": false
@@ -162,11 +162,11 @@
     {
       "id": "menu-14",
       "originalName": "한우 차돌박이 (한우투뿔)",
-      "name": "한우 차돌박이 (한우투뿔)",
+      "name": "한우 투뿔 차돌박이",
       "category": "고기 메뉴",
       "priceKrw": 27000,
       "price": "27,000원",
-      "description": "풍부한 육향과 고소한 기름향이 입안가득 느껴지는 한우",
+      "description": "고기 향이 풍부하고 고소한\n한우 차돌박이.",
       "image": "/images/materials/menu/menu-14.webp",
       "featured": false,
       "lunch": false
@@ -178,7 +178,7 @@
       "category": "고기 메뉴",
       "priceKrw": 48000,
       "price": "48,000원",
-      "description": "일정기간 숙성시켜 육즙이 진하고 씹히는 맛이 풍부하며 더 강한 풍미를 느낄수있는 한우꽃등심",
+      "description": "숙성해 육즙이 진하고\n씹을수록 풍미가 살아나는 한우 꽃등심.",
       "image": "/images/materials/menu/menu-15.webp",
       "featured": false,
       "lunch": false
@@ -186,11 +186,11 @@
     {
       "id": "menu-16",
       "originalName": "한우육회 100g",
-      "name": "한우육회 100g",
+      "name": "한우 육회 100g",
       "category": "고기 메뉴",
       "priceKrw": 19000,
       "price": "19,000원",
-      "description": "당일 작업한 신선한 소고기에 특제소스를 버무린 육회",
+      "description": "당일 손질한 신선한 소고기를\n특제 소스에 버무린 육회.",
       "image": "/images/materials/menu/menu-16.webp",
       "featured": false,
       "lunch": false
@@ -202,7 +202,7 @@
       "category": "식사 메뉴",
       "priceKrw": 5000,
       "price": "5,000원",
-      "description": "",
+      "description": "구이 한 점 뒤에 떠먹는\n구수하고 따뜻한 된장찌개.",
       "image": "/images/materials/menu/menu-17.webp",
       "featured": false,
       "lunch": false
@@ -214,7 +214,7 @@
       "category": "식사 메뉴",
       "priceKrw": 8000,
       "price": "8,000원",
-      "description": "",
+      "description": "시원한 국물에 쫄깃한 면발.\n고기 먹고 난 뒤 입안을 개운하게.",
       "image": "/images/materials/menu/menu-18.webp",
       "featured": false,
       "lunch": false
@@ -226,7 +226,7 @@
       "category": "식사 메뉴",
       "priceKrw": 8000,
       "price": "8,000원",
-      "description": "",
+      "description": "매콤새콤한 양념에 비빈 쫄깃한 면발.\n삼겹살 한 점을 얹어 먹기 좋아요.",
       "image": "/images/materials/menu/menu-19.webp",
       "featured": false,
       "lunch": false
@@ -234,11 +234,11 @@
     {
       "id": "menu-20",
       "originalName": "한우차돌된장찌개",
-      "name": "한우차돌된장찌개",
+      "name": "한우 차돌 된장찌개",
       "category": "식사 메뉴",
       "priceKrw": 10000,
       "price": "10,000원",
-      "description": "",
+      "description": "한우 차돌의 고소한 맛이\n구수한 된장 국물에 녹아든 찌개.",
       "image": "/images/materials/menu/menu-20.webp",
       "featured": false,
       "lunch": false
@@ -250,7 +250,7 @@
       "category": "식사 메뉴",
       "priceKrw": 12000,
       "price": "12,000원",
-      "description": "",
+      "description": "진한 된장 국물에 밥알이 푹 어우러져\n한 숟갈마다 구수하고 든든한 한 그릇.",
       "image": "/images/materials/menu/menu-21.webp",
       "featured": false,
       "lunch": false
@@ -258,11 +258,11 @@
     {
       "id": "menu-22",
       "originalName": "꽃게된장찌개",
-      "name": "꽃게된장찌개",
+      "name": "꽃게 된장찌개",
       "category": "식사 메뉴",
       "priceKrw": 10000,
       "price": "10,000원",
-      "description": "",
+      "description": "꽃게의 시원한 감칠맛과\n된장의 구수함이 어우러진 찌개.",
       "image": "/images/materials/menu/menu-22.webp",
       "featured": false,
       "lunch": false
@@ -270,11 +270,11 @@
     {
       "id": "menu-23",
       "originalName": "트러플청어알",
-      "name": "트러플청어알",
+      "name": "트러플 청어알",
       "category": "곁들임",
       "priceKrw": 3000,
       "price": "3,000원",
-      "description": "삼겹살의 깊은 풍미위에 트러플향과 청어알의 짭짤함이 어우러저 고기맛을 더 끌어올려줍니다",
+      "description": "트러플 향과\n청어알의 짭짤함이 어우러져\n삼겹살의 풍미를 더해 줍니다.",
       "image": "/images/materials/menu/menu-23.webp",
       "featured": false,
       "lunch": false
@@ -286,7 +286,7 @@
       "category": "곁들임",
       "priceKrw": 3000,
       "price": "3,000원",
-      "description": "청양고추의 알싸함과 멸치의 풍미가 어우러진 천연 감칠맛.",
+      "description": "청양고추의 알싸함과\n멸치의 감칠맛이 어우러진 곁들임.",
       "image": "/images/materials/menu/menu-24.webp",
       "featured": false,
       "lunch": false
@@ -298,7 +298,7 @@
       "category": "곁들임",
       "priceKrw": 8000,
       "price": "8,000원",
-      "description": "싱싱한 토마토에 벌꿀과 설탕을 더해 상큼하고 달콤한 요리",
+      "description": "신선한 토마토에 벌꿀과 설탕을 더한\n상큼하고 달콤한 곁들임.",
       "image": "/images/materials/menu/menu-25.webp",
       "featured": false,
       "lunch": false
@@ -306,11 +306,11 @@
     {
       "id": "menu-26",
       "originalName": "들기름 계란후라이",
-      "name": "들기름 계란후라이",
+      "name": "들기름 달걀프라이",
       "category": "곁들임",
       "priceKrw": 7000,
       "price": "7,000원",
-      "description": "싱싱한 계란에 질 좋은 들기름으로 맛깔나게 만들어낸 계란후라이",
+      "description": "신선한 달걀을\n고소한 들기름에 부쳐 낸 달걀프라이.",
       "image": "/images/materials/menu/menu-26.webp",
       "featured": false,
       "lunch": false
@@ -319,7 +319,7 @@
       "id": "menu-27",
       "originalName": "공기밥",
       "name": "공기밥",
-      "category": "식사 메뉴",
+      "category": "곁들임",
       "priceKrw": 1000,
       "price": "1,000원",
       "description": "",
@@ -330,11 +330,11 @@
     {
       "id": "menu-28",
       "originalName": "와인-라 풀 카베르네 소비뇽(Red)",
-      "name": "와인-라 풀 카베르네 소비뇽(Red)",
+      "name": "라 풀 카베르네 소비뇽 (Red)",
       "category": "주류",
       "priceKrw": 35000,
       "price": "35,000원",
-      "description": "대통령의 삼겹살과 만난 가장 완벽한 밸런스",
+      "description": "블랙커런트와 블루베리 향에\n은은한 오크 향이 어우러집니다.\n입안에는 진한 과실 풍미가 퍼집니다.",
       "image": "/images/materials/menu/menu-28.webp",
       "featured": false,
       "lunch": false
@@ -342,24 +342,12 @@
     {
       "id": "menu-29",
       "originalName": "와인-라 풀 샤르노네(White)",
-      "name": "와인-라 풀 샤르노네(White)",
+      "name": "라 풀 샤르도네 (White)",
       "category": "주류",
       "priceKrw": 35000,
       "price": "35,000원",
-      "description": "고기 한 점,와인 한 모금! 입안을 리셋하는 마법",
+      "description": "산뜻한 배 향에\n은은한 바닐라 향이 어우러집니다.\n끝에는 살짝 구운 오크 향이 남습니다.",
       "image": "/images/materials/menu/menu-29.webp",
-      "featured": false,
-      "lunch": false
-    },
-    {
-      "id": "menu-30",
-      "originalName": "홍초소주",
-      "name": "홍초소주",
-      "category": "주류",
-      "priceKrw": 12000,
-      "price": "12,000원",
-      "description": "",
-      "image": "/images/materials/menu/menu-30.webp",
       "featured": false,
       "lunch": false
     },
@@ -378,7 +366,7 @@
     {
       "id": "menu-32",
       "originalName": "막걸리 한주전자",
-      "name": "막걸리 한주전자",
+      "name": "막걸리 한 주전자",
       "category": "주류",
       "priceKrw": 6000,
       "price": "6,000원",
@@ -390,7 +378,7 @@
     {
       "id": "menu-33",
       "originalName": "대통 대잎술",
-      "name": "대통 대잎술",
+      "name": "대통주",
       "category": "주류",
       "priceKrw": 30000,
       "price": "30,000원",

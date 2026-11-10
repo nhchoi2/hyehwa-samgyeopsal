@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import MenuName from '@/components/menu/MenuName';
 import type { MenuItem } from '@/types/menu';
 import { content } from '@/data/content';
 export default function MenuCard({ menu }: { menu: MenuItem }) {
@@ -20,11 +21,15 @@ export default function MenuCard({ menu }: { menu: MenuItem }) {
       <div className="pt-5">
         {menu.featured && <span className="badge">대표 메뉴</span>}
         <div className="mt-2 flex items-start justify-between gap-4">
-          <h3>{menu.name}</h3>
+          <h3>
+            <MenuName name={menu.name} />
+          </h3>
           <span className="shrink-0">{menu.price || content.pending.info}</span>
         </div>
         {menu.description && (
-          <p className="muted mt-3 text-sm">{menu.description}</p>
+          <p className="muted mt-3 text-sm whitespace-pre-line">
+            {menu.description}
+          </p>
         )}
       </div>
     </article>

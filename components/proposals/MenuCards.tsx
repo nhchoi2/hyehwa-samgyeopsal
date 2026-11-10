@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import MenuName from '@/components/menu/MenuName';
 import type { MenuItem } from '@/types/menu';
 export function MenuCards({ items }: { items: MenuItem[] }) {
   return (
@@ -19,9 +20,13 @@ export function MenuCards({ items }: { items: MenuItem[] }) {
               {item.category}
               {item.featured ? ' · 대표 메뉴' : ''}
             </p>
-            <h3>{item.name}</h3>
+            <h3>
+              <MenuName name={item.name} />
+            </h3>
             <strong className="pv-menu-price">{item.price}</strong>
-            {item.description && <p>{item.description}</p>}
+            {item.description && (
+              <p className="whitespace-pre-line">{item.description}</p>
+            )}
           </div>
         </article>
       ))}

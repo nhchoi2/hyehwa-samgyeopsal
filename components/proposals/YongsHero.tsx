@@ -53,7 +53,7 @@ export default function YongsHero() {
         </p>
         <div className="ya-hero-points">
           <span>혜화 · 대학로</span>
-          <span>대표 메뉴 대나무통구이삼겹살</span>
+          <span>대표 메뉴 대나무통 구이 삼겹살</span>
         </div>
         <div className="ya-actions">
           <Link href="/a/menu" className="ya-action ya-white">
