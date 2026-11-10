@@ -754,7 +754,8 @@
   flex-direction: column;
   padding: 16px 46% 16px 16px;
   color: white;
-  background: linear-gradient(90deg, #171717de, #17171773, transparent);
+  background: linear-gradient(90deg, #171717b3, #17171759, transparent);
+  text-shadow: 0 1px 3px #000b;
 }
 .pv-a .ya-menu-desktop h2 {
   margin: 0;
@@ -813,7 +814,8 @@
   .pv-a .ya-menu-overlay {
     inset: auto 0 0;
     padding: 12px;
-    background: #000a;
+    background: #0008;
+    text-shadow: 0 1px 3px #000b;
   }
   .pv-a .ya-menu-overlay h2 {
     margin: 0;
