@@ -719,7 +719,7 @@
 }
 .pv-a .ya-menu-card {
   position: relative;
-  aspect-ratio: 16/9;
+  aspect-ratio: 1;
   overflow: hidden;
   border-radius: 16px;
   border: 1px solid #ffffff99;
@@ -728,7 +728,7 @@
   isolation: isolate;
 }
 .pv-a .ya-menu-photo {
-  object-fit: cover;
+  object-fit: contain;
 }
 .pv-a .ya-menu-badge {
   position: absolute;
@@ -783,7 +783,6 @@
 
 @media (max-width: 1023px) {
   .pv-a .ya-menu-card {
-    aspect-ratio: 4/3;
     perspective: 1000px;
     background: #1717171a;
   }
