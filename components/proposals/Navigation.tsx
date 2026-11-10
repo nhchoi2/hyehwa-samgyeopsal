@@ -2,6 +2,31 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { pages, variants, type Variant } from '@/data/proposals';
+export function ProposalSwitch({
+  variant,
+  page,
+}: {
+  variant: Variant;
+  page: string;
+}) {
+  return (
+    <div className={variant === 'a' ? 'pv-switch ya-switch' : 'pv-switch'}>
+      <Link href="/">시안 모아보기</Link>
+      <nav aria-label="디자인 비교">
+        {Object.keys(variants).map((v) => (
+          <Link
+            key={v}
+            href={`/${v}${page ? `/${page}` : ''}`}
+            aria-current={v === variant ? 'page' : undefined}
+          >
+            {v.toUpperCase()}
+            <span> 시안</span>
+          </Link>
+        ))}
+      </nav>
+    </div>
+  );
+}
 export default function Navigation({
   variant,
   page,
@@ -13,21 +38,7 @@ export default function Navigation({
   const base = `/${variant}`;
   return (
     <>
-      <div className="pv-switch">
-        <Link href="/">시안 모아보기</Link>
-        <nav aria-label="디자인 비교">
-          {Object.keys(variants).map((v) => (
-            <Link
-              key={v}
-              href={`/${v}${page ? `/${page}` : ''}`}
-              aria-current={v === variant ? 'page' : undefined}
-            >
-              {v.toUpperCase()}
-              <span> 시안</span>
-            </Link>
-          ))}
-        </nav>
-      </div>
+      {variant !== 'a' && <ProposalSwitch variant={variant} page={page} />}
       <header className="pv-header">
         {variant === 'a' && (
           <p className="ya-header-tagline">맛있는 한 점, 함께하는 좋은 시간.</p>

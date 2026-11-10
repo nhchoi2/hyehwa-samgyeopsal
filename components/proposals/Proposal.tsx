@@ -7,7 +7,7 @@ import { menus, featuredMenus } from '@/data/menu';
 import MenuGrid from './MenuGrid';
 import { MenuCards } from './MenuCards';
 import { links } from '@/data/links';
-import Navigation from './Navigation';
+import Navigation, { ProposalSwitch } from './Navigation';
 import { proposalPhotos } from '@/data/proposals';
 const phone = `tel:${restaurant.phone.replace(/[^+\d]/g, '')}`;
 export function Photo({
@@ -80,6 +80,66 @@ function Visit({ standalone = false }: { standalone?: boolean }) {
     </div>
   );
 }
+function YongsLocation() {
+  return (
+    <section className="ya-location">
+      <div className="ya-location-lead">
+        <h1>오시는 길</h1>
+        <p>{restaurant.address}</p>
+        <div className="ya-location-actions">
+          <a className="ya-action ya-red" href={phone}>
+            전화 예약 · 문의
+          </a>
+          <a
+            className="ya-action ya-menu-link"
+            href={links.naverMapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            네이버지도 길찾기 ↗
+          </a>
+        </div>
+      </div>
+      <div className="ya-location-grid">
+        <div className="ya-location-photo">
+          <Image
+            src="/images/materials/business/business-088.webp"
+            alt="혜화 삼겹살 대통령 매장 입구"
+            fill
+            sizes="(max-width:1023px) 94vw, 46vw"
+          />
+        </div>
+        <dl className="ya-location-info">
+          <div>
+            <dt>영업시간</dt>
+            <dd>{restaurant.businessHours}</dd>
+          </div>
+          <div>
+            <dt>전화</dt>
+            <dd>
+              <a href={phone}>{restaurant.phone}</a>
+            </dd>
+          </div>
+          <div>
+            <dt>주차 및 단체석</dt>
+            <dd>
+              {restaurant.parking} · 주차 방법과 단체 좌석은 방문 전 문의해
+              주세요.
+            </dd>
+          </div>
+          <div>
+            <dt>편의시설</dt>
+            <dd className="pv-amenities">
+              {restaurant.amenities.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  );
+}
 export default function Proposal({
   variant,
   page,
@@ -94,7 +154,10 @@ export default function Proposal({
     about: ['OUR STORY', '함께여서 더 좋은 공간.'],
   };
   return (
-    <div className={`pv pv-${variant}`}>
+    <div
+      className={`pv pv-${variant}`}
+      id={variant === 'a' ? 'ya-top' : undefined}
+    >
       <Navigation key={`${variant}-${page}`} variant={variant} page={page} />
       <main id="main-content">
         {!page && variant === 'a' ? (
@@ -230,20 +293,25 @@ export default function Proposal({
                 </div>
               </section>
             )}
-            {page === 'location' && (
-              <section className="pv-section pv-location-page">
-                <Visit standalone />
-                <div className="pv-location-note">
-                  <h2>방문 전 확인해 주세요</h2>
-                  <p>주차 방법과 단체 좌석은 방문 전에 전화로 문의해 주세요.</p>
-                  <div className="pv-amenities">
-                    {restaurant.amenities.map((x) => (
-                      <span key={x}>{x}</span>
-                    ))}
+            {page === 'location' &&
+              (variant === 'a' ? (
+                <YongsLocation />
+              ) : (
+                <section className="pv-section pv-location-page">
+                  <Visit standalone />
+                  <div className="pv-location-note">
+                    <h2>방문 전 확인해 주세요</h2>
+                    <p>
+                      주차 방법과 단체 좌석은 방문 전에 전화로 문의해 주세요.
+                    </p>
+                    <div className="pv-amenities">
+                      {restaurant.amenities.map((x) => (
+                        <span key={x}>{x}</span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </section>
-            )}
+                </section>
+              ))}
           </>
         )}
       </main>
@@ -270,12 +338,32 @@ export default function Proposal({
         </div>
         <small>© {new Date().getFullYear()} HYEHWA SAMGYEOPSAL PRESIDENT</small>
       </footer>
-      <div className="pv-mobile-contact">
-        <a href={phone}>전화 예약 · 문의</a>
-        <a href={links.naverMapUrl} target="_blank" rel="noopener noreferrer">
-          길찾기 ↗
-        </a>
-      </div>
+      {variant === 'a' && <ProposalSwitch variant={variant} page={page} />}
+      {variant === 'a' ? (
+        <nav className="ya-floating" aria-label="빠른 이동">
+          <a href={phone} aria-label="전화 예약">
+            ☎
+          </a>
+          <a
+            href={links.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="인스타그램"
+          >
+            ◎
+          </a>
+          <a href="#ya-top" aria-label="맨 위로 이동">
+            ⌃
+          </a>
+        </nav>
+      ) : (
+        <div className="pv-mobile-contact">
+          <a href={phone}>전화 예약 · 문의</a>
+          <a href={links.naverMapUrl} target="_blank" rel="noopener noreferrer">
+            길찾기 ↗
+          </a>
+        </div>
+      )}
     </div>
   );
 }
