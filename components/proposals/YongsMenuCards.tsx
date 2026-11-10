@@ -33,7 +33,7 @@ export default function YongsMenuCards({ items }: { items: MenuItem[] }) {
                   src={item.image}
                   alt=""
                   fill
-                  sizes="(max-width:639px) 92vw, (max-width:1023px) 46vw, 42vw"
+                  sizes="(max-width: 639px) calc(100vw - 32px), (max-width: 760px) calc(50vw - 28px), (max-width: 1023px) calc(50vw - 110px), (max-width: 1100px) calc(33.33vw - 81px), (max-width: 1279px) calc(33.33vw - 97px), 330px"
                   className="ya-menu-photo"
                 />
                 <div className="ya-menu-desktop">
