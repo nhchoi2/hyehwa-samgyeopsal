@@ -209,11 +209,11 @@
     },
     {
       "id": "menu-18",
-      "originalName": "열무냉면",
-      "name": "열무냉면",
+      "originalName": "냉면",
+      "name": "냉면",
       "category": "식사 메뉴",
-      "priceKrw": 10000,
-      "price": "10,000원",
+      "priceKrw": 8000,
+      "price": "8,000원",
       "description": "",
       "image": "/images/materials/menu/menu-18.webp",
       "featured": false,
@@ -221,15 +221,15 @@
     },
     {
       "id": "menu-19",
-      "originalName": "점심 특선냉면",
-      "name": "점심 특선냉면",
+      "originalName": "비빔냉면",
+      "name": "비빔냉면",
       "category": "식사 메뉴",
       "priceKrw": 8000,
       "price": "8,000원",
       "description": "",
       "image": "/images/materials/menu/menu-19.webp",
       "featured": false,
-      "lunch": true
+      "lunch": false
     },
     {
       "id": "menu-20",
