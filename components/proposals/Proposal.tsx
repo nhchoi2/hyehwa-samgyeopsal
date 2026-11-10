@@ -7,7 +7,7 @@ import { menus, featuredMenus } from '@/data/menu';
 import MenuGrid from './MenuGrid';
 import { MenuCards } from './MenuCards';
 import { links } from '@/data/links';
-import Navigation, { ProposalSwitch } from './Navigation';
+import Navigation from './Navigation';
 import { proposalPhotos } from '@/data/proposals';
 const phone = `tel:${restaurant.phone.replace(/[^+\d]/g, '')}`;
 export function Photo({
@@ -338,7 +338,6 @@ export default function Proposal({
         </div>
         <small>© {new Date().getFullYear()} HYEHWA SAMGYEOPSAL PRESIDENT</small>
       </footer>
-      {variant === 'a' && <ProposalSwitch variant={variant} page={page} />}
       {variant === 'a' ? (
         <nav className="ya-floating" aria-label="빠른 이동">
           <a href={phone} aria-label="전화 예약">

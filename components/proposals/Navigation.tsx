@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { pages, variants, type Variant } from '@/data/proposals';
-export function ProposalSwitch({
+function ProposalSwitch({
   variant,
   page,
 }: {
@@ -38,7 +38,7 @@ export default function Navigation({
   const base = `/${variant}`;
   return (
     <>
-      {variant !== 'a' && <ProposalSwitch variant={variant} page={page} />}
+      <ProposalSwitch variant={variant} page={page} />
       <header className="pv-header">
         {variant === 'a' && (
           <p className="ya-header-tagline">맛있는 한 점, 함께하는 좋은 시간.</p>
