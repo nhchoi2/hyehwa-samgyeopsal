@@ -20,10 +20,11 @@ export const variants = {
   c: {
     name: '오늘, 혜화',
     english: 'THE LOCAL',
-    description: '밝고 경쾌한 화면에서 메뉴와 방문 정보를 빠르게 찾습니다.',
-    title: '오늘의 약속은,\n혜화 대통령.',
-    note: '메뉴부터 길찾기까지, 편안하게',
-    image: 'pork',
+    description:
+      '금돼지식당의 중앙 정렬과 여백을 참고해 대통령의 대표 메뉴를 보여줍니다.',
+    title: '대나무통 구이 삼겹살',
+    note: '혜화 삼겹살 대통령의 대표 메뉴',
+    image: 'signature',
   },
 } as const;
 export type Variant = keyof typeof variants;
@@ -48,4 +49,5 @@ export const proposalPhotos: Record<string, string> = {
   pot: '/images/proposals/pot.webp',
   grill: '/images/proposals/grill.webp',
   bamboo: '/images/materials/business/business-052.webp',
+  signature: '/images/proposals/c-bamboo-grill.webp',
 };

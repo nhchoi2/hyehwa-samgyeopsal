@@ -6,6 +6,8 @@ export const links = {
   kakaoTalkUrl: '',
   instagramUrl: 'https://www.instagram.com/daetongryeong_hyehwa/',
   naverMapUrl: 'https://map.naver.com/p/entry/place/31403119',
+  naverReviewsUrl:
+    'https://m.place.naver.com/restaurant/31403119/review/visitor',
   kakaoMapUrl: '',
 };
 

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import MenuName from '@/components/menu/MenuName';
 import Link from 'next/link';
-import { restaurant } from '@/data/restaurant';
+import { restaurant, restaurantFaqs } from '@/data/restaurant';
 import { featuredMenus } from '@/data/menu';
 import YongsHero from './YongsHero';
 const stories = [
@@ -34,30 +34,6 @@ const stories = [
       restaurant.address + '\n맛있는 약속의 자리에서 기다리겠습니다.',
   },
 ];
-const faqs = [
-  {
-    question: '어떤 메뉴부터 먹으면 좋을까요?',
-    answer:
-      '대나무통 구이 삼겹살과 숙성 삼겹살, 여러 가지 고기를 함께 즐기는 세트 메뉴를 준비했습니다. 메뉴 페이지에서 구성과 가격을 확인해 주세요.',
-  },
-  {
-    question: '단체 예약이나 대관이 가능한가요?',
-    answer: restaurant.groupBooking,
-  },
-  {
-    question: '영업시간과 브레이크타임은 언제인가요?',
-    answer: restaurant.businessHours,
-  },
-  {
-    question: '주차가 가능한가요?',
-    answer: '주차가 가능합니다. 이용 방법은 방문 전 매장에 문의해 주세요.',
-  },
-  {
-    question: '아이와 함께 방문해도 되나요?',
-    answer:
-      '유아의자를 준비하고 있습니다. 필요한 좌석과 이용 사항은 예약 시 말씀해 주세요.',
-  },
-];
 export default function YongsHome() {
   return (
     <div className="ya-home">
@@ -76,7 +52,7 @@ export default function YongsHome() {
           </p>
         </div>
         <div className="ya-faq-list">
-          {faqs.map((faq, i) => (
+          {restaurantFaqs.map((faq, i) => (
             <details key={faq.question}>
               <summary>
                 <span>Q{String(i + 1).padStart(2, '0')}</span>

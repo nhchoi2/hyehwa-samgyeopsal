@@ -2,13 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { pages, variants, type Variant } from '@/data/proposals';
-function ProposalSwitch({
-  variant,
-  page,
-}: {
-  variant: Variant;
-  page: string;
-}) {
+function ProposalSwitch({ variant, page }: { variant: Variant; page: string }) {
   return (
     <div className={variant === 'a' ? 'pv-switch ya-switch' : 'pv-switch'}>
       <Link href="/">시안 모아보기</Link>
@@ -78,9 +72,11 @@ export default function Navigation({
               {p.label}
             </Link>
           ))}
-          <a className="pv-button" href="tel:027664405">
-            전화 예약 ↗
-          </a>
+          {variant !== 'c' && (
+            <a className="pv-button" href="tel:027664405">
+              전화 예약 ↗
+            </a>
+          )}
         </nav>
       </header>
     </>

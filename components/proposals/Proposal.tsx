@@ -2,10 +2,11 @@ import Image from 'next/image';
 import YongsHome from './YongsHome';
 import Link from 'next/link';
 import { variants, type Variant } from '@/data/proposals';
-import { restaurant } from '@/data/restaurant';
+import { cHomeFaqs, restaurant, reviews } from '@/data/restaurant';
 import { menus, featuredMenus } from '@/data/menu';
 import MenuGrid from './MenuGrid';
 import { MenuCards } from './MenuCards';
+import ReviewSlider from './ReviewSlider';
 import { links } from '@/data/links';
 import Navigation from './Navigation';
 import { proposalPhotos } from '@/data/proposals';
@@ -164,29 +165,63 @@ export default function Proposal({
           <YongsHome />
         ) : !page ? (
           <>
-            <section className="pv-hero">
-              <div className="pv-hero-image">
-                <Photo
-                  name={v.image}
-                  alt={
-                    variant === 'b'
-                      ? '불판 앞에서 대나무통에 든 삼겹살을 꺼내는 모습'
-                      : '혜화삼겹살대통령의 음식과 한 상'
-                  }
-                  priority
-                />
-              </div>
-              <div className="pv-hero-copy">
-                <p className="pv-kicker">HYEHWA · SAMGYEOPSAL PRESIDENT</p>
-                <h1>{v.title}</h1>
-                <p className="pv-hero-note">{v.note}</p>
-                <Actions base={base} />
-                <div className="pv-hero-bottom">
-                  <span>혜화 · 대학로 직영본점</span>
-                  <span>SCROLL TO DISCOVER ↓</span>
+            {variant === 'c' ? (
+              <section className="pv-c-showcase">
+                <h1 className="sr-only">{restaurant.name}</h1>
+                <div className="pv-c-showcase-mosaic">
+                  <div className="pv-c-mosaic-tile pv-c-mosaic-grill">
+                    <Image
+                      src={proposalPhotos[v.image]}
+                      alt="대나무통에서 삼겹살을 꺼내는 모습"
+                      fill
+                      sizes="(max-width: 760px) 57vw, (max-width: 1200px) 50vw, 600px"
+                      preload
+                      className="pv-photo"
+                    />
+                  </div>
+                  <div className="pv-c-mosaic-tile pv-c-mosaic-interior">
+                    <Image
+                      src="/images/proposals/c-interior.webp"
+                      alt="나무 테이블과 조명이 있는 매장 내부"
+                      fill
+                      sizes="(max-width: 760px) 57vw, (max-width: 1200px) 50vw, 600px"
+                      loading="eager"
+                      className="pv-photo"
+                    />
+                  </div>
+                  <div className="pv-c-mosaic-tile pv-c-mosaic-table">
+                    <Image
+                      src="/images/proposals/c-full-table.webp"
+                      alt="불판 위 삼겹살과 곁들임이 차려진 한 상"
+                      fill
+                      sizes="(max-width: 760px) 33vw, (max-width: 1200px) 30vw, 352px"
+                      loading="eager"
+                      className="pv-photo"
+                    />
+                  </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            ) : (
+              <section className="pv-hero">
+                <div className="pv-hero-image">
+                  <Photo
+                    name={v.image}
+                    alt="불판 앞에서 대나무통에 든 삼겹살을 꺼내는 모습"
+                    priority
+                  />
+                </div>
+                <div className="pv-hero-copy">
+                  <p className="pv-kicker">HYEHWA · SAMGYEOPSAL PRESIDENT</p>
+                  <h1>{v.title}</h1>
+                  <p className="pv-hero-note">{v.note}</p>
+                  <Actions base={base} />
+                  <div className="pv-hero-bottom">
+                    <span>혜화 · 대학로 직영본점</span>
+                    <span>SCROLL TO DISCOVER ↓</span>
+                  </div>
+                </div>
+              </section>
+            )}
             {variant === 'b' && (
               <section className="pv-section pv-bamboo-feature">
                 <div className="pv-bamboo-photo">
@@ -213,59 +248,85 @@ export default function Proposal({
                 서울 종로구 대학로14길 12-1 ↗
               </Link>
             </div>
-            {variant === 'c' && (
-              <section className="pv-section pv-intro">
-                <div>
-                  <p className="pv-kicker">A PLACE TO SHARE</p>
-                  <h2>
-                    한 점의 즐거움이,
-                    <br />
-                    우리의 시간이 되도록.
-                  </h2>
+            {variant === 'c' ? (
+              <section
+                className="pv-section pv-home-reviews"
+                aria-labelledby="c-reviews-heading"
+              >
+                <div className="pv-section-heading">
+                  <h2 id="c-reviews-heading">손님이 남긴 한 상</h2>
+                  <a
+                    className="pv-text-link"
+                    href={links.naverReviewsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    최신 리뷰 보기 ↗
+                  </a>
+                </div>
+                {reviews.length > 0 && <ReviewSlider items={reviews} />}
+              </section>
+            ) : (
+              <section className="pv-section">
+                <div className="pv-section-heading">
+                  <div>
+                    <p className="pv-kicker">ON THE TABLE</p>
+                    <h2>눈으로 먼저 만나는 한 상.</h2>
+                  </div>
+                  <Link className="pv-text-link" href={`${base}/menu`}>
+                    메뉴 안내 ↗
+                  </Link>
+                </div>
+                <MenuCards items={featuredMenus} />
+              </section>
+            )}
+            {variant === 'c' ? (
+              <section
+                className="pv-section pv-c-faq"
+                aria-labelledby="c-faq-heading"
+              >
+                <h2 id="c-faq-heading">자주 묻는 질문</h2>
+                <div className="pv-c-faq-list">
+                  {cHomeFaqs.map(({ question, answer, contact }) => (
+                    <details key={question} name="c-home-faq">
+                      <summary>{question}</summary>
+                      <p>{answer}</p>
+                      {contact && (
+                        <a className="pv-text-link" href={phone}>
+                          전화로 예약 문의 ↗
+                        </a>
+                      )}
+                    </details>
+                  ))}
+                </div>
+              </section>
+            ) : (
+              <section className="pv-gather">
+                <div className="pv-gather-photo">
+                  <Photo
+                    name="table"
+                    alt="고기와 다양한 곁들임이 차려진 대통령의 식탁"
+                  />
                 </div>
                 <div>
-                  <p>{restaurant.introduction}</p>
-                  <Link className="pv-text-link" href={`${base}/about`}>
-                    대통령의 공간 알아보기 ↗
-                  </Link>
+                  <p className="pv-kicker">GATHER AROUND</p>
+                  <h2>
+                    둘이서도, 여럿이서도.
+                    <br />
+                    반가운 모임의 자리.
+                  </h2>
+                  <p>{restaurant.groupBooking}</p>
+                  <a className="pv-text-link" href={phone}>
+                    모임 예약 문의 ↗
+                  </a>
                 </div>
               </section>
             )}
-            <section className="pv-section">
-              <div className="pv-section-heading">
-                <div>
-                  <p className="pv-kicker">ON THE TABLE</p>
-                  <h2>눈으로 먼저 만나는 한 상.</h2>
-                </div>
-                <Link className="pv-text-link" href={`${base}/menu`}>
-                  메뉴 안내 ↗
-                </Link>
-              </div>
-              <MenuCards items={featuredMenus} />
-            </section>
-            <section className="pv-gather">
-              <div className="pv-gather-photo">
-                <Photo
-                  name="table"
-                  alt="고기와 다양한 곁들임이 차려진 대통령의 식탁"
-                />
-              </div>
-              <div>
-                <p className="pv-kicker">GATHER AROUND</p>
-                <h2>
-                  둘이서도, 여럿이서도.
-                  <br />
-                  반가운 모임의 자리.
-                </h2>
-                <p>{restaurant.groupBooking}</p>
-                <a className="pv-text-link" href={phone}>
-                  모임 예약 문의 ↗
-                </a>
-              </div>
-            </section>
-            <section className="pv-section">
-              <Visit />
-            </section>
+            {variant === 'b' && (
+              <section className="pv-section">
+                <Visit />
+              </section>
+            )}
           </>
         ) : (
           <>
@@ -340,29 +401,6 @@ export default function Proposal({
           </>
         )}
       </main>
-      <footer className="pv-footer">
-        <div>
-          <Link className="pv-brand" href={base}>
-            <span>혜화 삼겹살</span>
-            <strong>대통령.</strong>
-          </Link>
-          <p>{restaurant.name}</p>
-          <p>{restaurant.address}</p>
-        </div>
-        <div>
-          <p>좋은 사람들과, 맛있는 한 자리.</p>
-          <a href={phone}>{restaurant.phone}</a>
-          <a
-            href={links.instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Instagram ↗
-          </a>
-          <Link href={`${base}/location`}>오시는 길 ↗</Link>
-        </div>
-        <small>© {new Date().getFullYear()} HYEHWA SAMGYEOPSAL PRESIDENT</small>
-      </footer>
       {variant === 'a' ? (
         <nav className="ya-floating" aria-label="빠른 이동">
           <a href={phone} aria-label="전화 예약">
