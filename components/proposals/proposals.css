@@ -1104,12 +1104,15 @@
   border-bottom: 1px solid var(--pv-line);
   padding-bottom: 22px;
 }
+.pv-b .pv-menu-grid,
 .pv-c .pv-menu-grid {
   align-items: stretch;
 }
+.pv-b .pv-menu-item,
 .pv-c .pv-menu-item {
   border-bottom: 1px solid var(--pv-line);
 }
+.pv-b .pv-menu-copy,
 .pv-c .pv-menu-copy {
   border-bottom: 0;
 }
