@@ -1119,10 +1119,17 @@
 .pv-c .pv-menu-copy {
   border-bottom: 0;
 }
-.pv-menu-copy .pv-kicker {
-  margin-bottom: 10px;
-  font-size: 10px;
-  letter-spacing: 0.06em;
+.pv-menu-featured-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 9px;
+  border-radius: 4px;
+  background: var(--pv-accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.4;
 }
 .pv .pv-menu-copy h3 {
   font-size: 23px;
@@ -1312,6 +1319,12 @@
 .pv-location-page .pv-visit .pv-button {
   margin-top: 22px;
 }
+.pv-location-entrance {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  margin-top: 24px;
+  overflow: hidden;
+}
 .pv-location-page .pv-location-note {
   margin-top: 32px;
   padding-top: 24px;
@@ -1330,4 +1343,12 @@
   .pv-location-page .pv-visit {
     gap: 24px;
   }
+}
+
+.pv-location-map {
+  width: 100%;
+  height: clamp(280px, 42vw, 420px);
+  margin-block: 24px;
+  overflow: hidden;
+  border-radius: 12px;
 }

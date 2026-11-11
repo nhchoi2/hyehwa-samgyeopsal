@@ -14,12 +14,11 @@ export function MenuCards({ items }: { items: MenuItem[] }) {
               sizes="(max-width:760px) 88vw, 29vw"
               className="pv-photo"
             />
+            {item.featured && (
+              <span className="pv-menu-featured-badge">대표 메뉴</span>
+            )}
           </div>
           <div className="pv-menu-copy">
-            <p className="pv-kicker">
-              {item.category}
-              {item.featured ? ' · 대표 메뉴' : ''}
-            </p>
             <h3>
               <MenuName name={item.name} />
             </h3>

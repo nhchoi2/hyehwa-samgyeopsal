@@ -9,6 +9,7 @@ import { MenuCards } from './MenuCards';
 import ReviewSlider from './ReviewSlider';
 import { links } from '@/data/links';
 import Navigation from './Navigation';
+import NaverLocationMap from './NaverLocationMap';
 import { proposalPhotos } from '@/data/proposals';
 const phone = `tel:${restaurant.phone.replace(/[^+\d]/g, '')}`;
 export function Photo({
@@ -43,7 +44,13 @@ function Actions({ base }: { base: string }) {
     </div>
   );
 }
-function Visit({ standalone = false }: { standalone?: boolean }) {
+function Visit({
+  standalone = false,
+  showEntrance = false,
+}: {
+  standalone?: boolean;
+  showEntrance?: boolean;
+}) {
   return (
     <div className="pv-visit">
       <div>
@@ -62,8 +69,19 @@ function Visit({ standalone = false }: { standalone?: boolean }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          네이버지도 길찾기 ↗
+          네이버지도에서 길찾기 ↗
         </a>
+        {showEntrance && (
+          <div className="pv-location-entrance">
+            <Image
+              src="/images/materials/business/business-088.webp"
+              alt="혜화 삼겹살 대통령 매장 입구"
+              fill
+              sizes="(max-width: 760px) 88vw, 45vw"
+              className="pv-photo"
+            />
+          </div>
+        )}
       </div>
       <dl>
         {[
@@ -391,7 +409,8 @@ export default function Proposal({
                 <YongsLocation />
               ) : (
                 <section className="pv-section pv-location-page">
-                  <Visit standalone />
+                  <Visit standalone showEntrance={variant === 'c'} />
+                  {variant === 'c' && <NaverLocationMap />}
                   <div className="pv-location-note">
                     <h2>방문 전 확인해 주세요</h2>
                     <p>
