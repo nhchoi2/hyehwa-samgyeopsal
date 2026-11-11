@@ -144,12 +144,13 @@ function YongsLocation() {
 export default function Proposal({
   variant,
   page,
+  base,
 }: {
   variant: Variant;
   page: string;
+  base: string;
 }) {
-  const v = variants[variant],
-    base = `/${variant}`;
+  const v = variants[variant];
   const titles: Record<string, [string, string]> = {
     menu: ['OUR TABLE', '맛있는 만남의 시작.'],
     about: ['OUR STORY', '함께여서 더 좋은 공간.'],
@@ -163,6 +164,7 @@ export default function Proposal({
         key={`${variant}-${page}`}
         variant={variant}
         page={page}
+        base={base}
         showProposalSwitch={process.env.SHOW_DRAFT_PROPOSALS === '1'}
       />
       <main id="main-content">

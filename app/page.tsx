@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 export default function Home() {
-  if (process.env.SHOW_DRAFT_PROPOSALS !== '1') redirect('/c');
+  if (process.env.SHOW_DRAFT_PROPOSALS !== '1') redirect('/a');
   return (
     <main id="main-content" className="pv-chooser">
       <header>

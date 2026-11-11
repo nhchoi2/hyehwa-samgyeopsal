@@ -24,14 +24,15 @@ function ProposalSwitch({ variant, page }: { variant: Variant; page: string }) {
 export default function Navigation({
   variant,
   page,
+  base,
   showProposalSwitch,
 }: {
   variant: Variant;
   page: string;
+  base: string;
   showProposalSwitch: boolean;
 }) {
   const [open, setOpen] = useState(false);
-  const base = `/${variant}`;
   return (
     <>
       {showProposalSwitch && <ProposalSwitch variant={variant} page={page} />}
