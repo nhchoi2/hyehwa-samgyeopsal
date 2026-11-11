@@ -16,7 +16,17 @@ type NaverMaps = {
 
 const clientId = process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID?.trim();
 
-export default function NaverLocationMap() {
+export default function NaverLocationMap({
+  latitude,
+  longitude,
+  center,
+  name,
+}: {
+  latitude: number;
+  longitude: number;
+  center?: { latitude: number; longitude: number };
+  name: string;
+}) {
   const container = useRef<HTMLDivElement>(null);
   const [maps, setMaps] = useState<NaverMaps>();
   const [failed, setFailed] = useState(false);
@@ -24,19 +34,21 @@ export default function NaverLocationMap() {
   useEffect(() => {
     if (!maps || !container.current) return;
 
-    const position = new maps.LatLng(37.5838458897522, 127.002705870434);
+    const position = new maps.LatLng(latitude, longitude);
     const map = new maps.Map(container.current, {
-      center: position,
+      center: center
+        ? new maps.LatLng(center.latitude, center.longitude)
+        : position,
       zoom: 17,
       scrollWheel: false,
     });
-    const marker = new maps.Marker({ position, map, title: '혜화 삼겹살 대통령' });
+    const marker = new maps.Marker({ position, map, title: name });
 
     return () => {
       marker.setMap(null);
       map.destroy();
     };
-  }, [maps]);
+  }, [maps, latitude, longitude, center, name]);
 
   if (!clientId || failed) return null;
 
@@ -45,7 +57,8 @@ export default function NaverLocationMap() {
       <Script
         src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${encodeURIComponent(clientId)}`}
         onReady={() => {
-          const api = (window as Window & { naver?: { maps?: NaverMaps } }).naver?.maps;
+          const api = (window as Window & { naver?: { maps?: NaverMaps } })
+            .naver?.maps;
           if (api?.Map && api.Marker && api.LatLng) setMaps(api);
           else setFailed(true);
         }}
@@ -55,7 +68,7 @@ export default function NaverLocationMap() {
         ref={container}
         className="pv-location-map"
         role="region"
-        aria-label="혜화 삼겹살 대통령 네이버 지도"
+        aria-label={`${name} 네이버 지도`}
       />
     </>
   );

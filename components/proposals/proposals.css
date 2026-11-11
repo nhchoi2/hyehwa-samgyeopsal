@@ -1319,10 +1319,6 @@
 .pv-location-page .pv-visit .pv-button {
   margin-top: 22px;
 }
-.pv-location-lead {
-  text-align: center;
-  margin-bottom: 32px;
-}
 .pv-location-entrance {
   position: relative;
   aspect-ratio: 16 / 10;
@@ -1350,28 +1346,59 @@
   }
 }
 
-.pv-visit-with-map {
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: clamp(24px, 5vw, 72px);
-}
-.pv-visit-with-map > dl:only-child {
-  grid-column: 1 / -1;
-}
-@media (max-width: 760px) {
-  .pv-visit-with-map {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 .pv-location-map {
   width: 100%;
-  align-self: stretch;
-  contain: size;
+  height: clamp(260px, 32vw, 360px);
   overflow: hidden;
   border-radius: 12px;
 }
+
+.pv-branch-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px clamp(20px, 4vw, 56px);
+  max-width: 1080px;
+  margin-inline: auto;
+}
+
+.pv-branch-card {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  text-align: center;
+}
+
+.pv-branch-card .pv-location-entrance {
+  width: 100%;
+}
+
+.pv-branch-info h2 {
+  margin: 0 0 22px;
+}
+
+.pv-branch-info dl {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.pv-branch-info dt {
+  font-weight: 700;
+}
+
+.pv-branch-info dd {
+  margin: 4px 0 0;
+  white-space: pre-line;
+}
+
 @media (max-width: 760px) {
-  .pv-location-map {
-    height: clamp(280px, 65vw, 420px);
+  .pv-branch-options {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;
+  }
+
+  .pv-branch-card + .pv-branch-card {
+    margin-top: 24px;
   }
 }

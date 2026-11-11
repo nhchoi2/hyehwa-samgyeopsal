@@ -9,7 +9,7 @@ import { MenuCards } from './MenuCards';
 import ReviewSlider from './ReviewSlider';
 import { links } from '@/data/links';
 import Navigation from './Navigation';
-import NaverLocationMap from './NaverLocationMap';
+import BranchLocations from './BranchLocations';
 import { proposalPhotos } from '@/data/proposals';
 const phone = `tel:${restaurant.phone.replace(/[^+\d]/g, '')}`;
 export function Photo({
@@ -44,17 +44,10 @@ function Actions({ base }: { base: string }) {
     </div>
   );
 }
-function Visit({
-  standalone = false,
-  showEntrance = false,
-}: {
-  standalone?: boolean;
-  showEntrance?: boolean;
-}) {
+function Visit({ standalone = false }: { standalone?: boolean }) {
   const details = (
     <dl>
       {[
-        ...(showEntrance ? [['주소', restaurant.address]] : []),
         ['영업시간', restaurant.businessHours],
         ['전화', restaurant.phone],
         ['주차', restaurant.parking],
@@ -68,46 +61,28 @@ function Visit({
     </dl>
   );
   return (
-    <>
-      {showEntrance && (
-        <div className="pv-location-lead">
-          <div className="pv-location-entrance">
-            <Image
-              src="/images/materials/business/business-088.webp"
-              alt="혜화 삼겹살 대통령 매장 입구"
-              fill
-              sizes="(max-width: 760px) 88vw, 45vw"
-              className="pv-photo"
-            />
-          </div>
-        </div>
-      )}
-      <div className={showEntrance ? 'pv-visit pv-visit-with-map' : 'pv-visit'}>
-        {showEntrance && <NaverLocationMap />}
-        {!showEntrance && (
-          <div>
-            {standalone ? (
-              <h1>오시는 길</h1>
-            ) : (
-              <>
-                <p className="pv-kicker">FIND US IN HYEHWA</p>
-                <h2>혜화에서 만나요.</h2>
-              </>
-            )}
-            <p>{restaurant.address}</p>
-            <a
-              className="pv-button"
-              href={links.naverMapUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              네이버지도에서 길찾기 ↗
-            </a>
-          </div>
+    <div className="pv-visit">
+      <div>
+        {standalone ? (
+          <h1>오시는 길</h1>
+        ) : (
+          <>
+            <p className="pv-kicker">FIND US IN HYEHWA</p>
+            <h2>혜화에서 만나요.</h2>
+          </>
         )}
-        {details}
+        <p>{restaurant.address}</p>
+        <a
+          className="pv-button"
+          href={links.naverMapUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          네이버지도에서 길찾기 ↗
+        </a>
       </div>
-    </>
+      {details}
+    </div>
   );
 }
 function YongsLocation() {
@@ -420,18 +395,20 @@ export default function Proposal({
                 <YongsLocation />
               ) : (
                 <section className="pv-section pv-location-page">
-                  <Visit standalone showEntrance={variant === 'c'} />
-                  <div className="pv-location-note">
-                    <h2>방문 전 확인해 주세요</h2>
-                    <p>
-                      주차 방법과 단체 좌석은 방문 전에 전화로 문의해 주세요.
-                    </p>
-                    <div className="pv-amenities">
-                      {restaurant.amenities.map((x) => (
-                        <span key={x}>{x}</span>
-                      ))}
+                  {variant === 'c' ? <BranchLocations /> : <Visit standalone />}
+                  {variant !== 'c' && (
+                    <div className="pv-location-note">
+                      <h2>방문 전 확인해 주세요</h2>
+                      <p>
+                        주차 방법과 단체 좌석은 방문 전에 전화로 문의해 주세요.
+                      </p>
+                      <div className="pv-amenities">
+                        {restaurant.amenities.map((x) => (
+                          <span key={x}>{x}</span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </section>
               ))}
           </>
