@@ -1,7 +1,14 @@
 'use client';
 
 import Script from 'next/script';
-import { useEffect, useRef, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
 
 type NaverMaps = {
   LatLng: new (latitude: number, longitude: number) => object;
@@ -16,6 +23,29 @@ type NaverMaps = {
 
 const clientId = process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID?.trim();
 
+const MapsContext = createContext<NaverMaps | null | undefined>(undefined);
+
+export function NaverMapsProvider({ children }: { children: ReactNode }) {
+  const [maps, setMaps] = useState<NaverMaps | null>();
+
+  return (
+    <MapsContext.Provider value={maps}>
+      {clientId && (
+        <Script
+          src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${encodeURIComponent(clientId)}`}
+          onReady={() => {
+            const api = (window as Window & { naver?: { maps?: NaverMaps } })
+              .naver?.maps;
+            setMaps(api?.Map && api.Marker && api.LatLng ? api : null);
+          }}
+          onError={() => setMaps(null)}
+        />
+      )}
+      {children}
+    </MapsContext.Provider>
+  );
+}
+
 export default function NaverLocationMap({
   latitude,
   longitude,
@@ -28,8 +58,7 @@ export default function NaverLocationMap({
   name: string;
 }) {
   const container = useRef<HTMLDivElement>(null);
-  const [maps, setMaps] = useState<NaverMaps>();
-  const [failed, setFailed] = useState(false);
+  const maps = useContext(MapsContext);
 
   useEffect(() => {
     if (!maps || !container.current) return;
@@ -50,26 +79,14 @@ export default function NaverLocationMap({
     };
   }, [maps, latitude, longitude, center, name]);
 
-  if (!clientId || failed) return null;
+  if (!clientId || maps === null) return null;
 
   return (
-    <>
-      <Script
-        src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${encodeURIComponent(clientId)}`}
-        onReady={() => {
-          const api = (window as Window & { naver?: { maps?: NaverMaps } })
-            .naver?.maps;
-          if (api?.Map && api.Marker && api.LatLng) setMaps(api);
-          else setFailed(true);
-        }}
-        onError={() => setFailed(true)}
-      />
-      <div
-        ref={container}
-        className="pv-location-map"
-        role="region"
-        aria-label={`${name} 네이버 지도`}
-      />
-    </>
+    <div
+      ref={container}
+      className="pv-location-map"
+      role="region"
+      aria-label={`${name} 네이버 지도`}
+    />
   );
 }

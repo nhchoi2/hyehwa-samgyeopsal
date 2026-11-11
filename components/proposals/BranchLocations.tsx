@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { restaurant } from '@/data/restaurant';
-import NaverLocationMap from './NaverLocationMap';
+import NaverLocationMap, { NaverMapsProvider } from './NaverLocationMap';
 
 const branches = [
   {
@@ -32,53 +32,55 @@ const branches = [
 
 export default function BranchLocations() {
   return (
-    <div className="pv-branch-options">
-      {branches.map((branch) => (
-        <article key={branch.name} className="pv-branch-card">
-          <h2>{branch.name}</h2>
-          <div className="pv-location-entrance">
-            <Image
-              src={branch.photo}
-              alt={branch.photoAlt}
-              fill
-              sizes="(max-width: 760px) 88vw, 42vw"
-              className="pv-photo"
+    <NaverMapsProvider>
+      <div className="pv-branch-options">
+        {branches.map((branch) => (
+          <article key={branch.name} className="pv-branch-card">
+            <h2>{branch.name}</h2>
+            <div className="pv-location-entrance">
+              <Image
+                src={branch.photo}
+                alt={branch.photoAlt}
+                fill
+                sizes="(max-width: 760px) 88vw, 42vw"
+                className="pv-photo"
+              />
+            </div>
+            <div className="pv-branch-info">
+              <dl>
+                <div>
+                  <dt>주소</dt>
+                  <dd>{branch.address}</dd>
+                </div>
+                <div>
+                  <dt>영업시간</dt>
+                  <dd>{branch.hours}</dd>
+                </div>
+                <div>
+                  <dt>전화</dt>
+                  <dd>
+                    <a href={`tel:${branch.phone}`}>{branch.phone}</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt>주차</dt>
+                  <dd>{branch.parking}</dd>
+                </div>
+                <div>
+                  <dt>모임 안내</dt>
+                  <dd>{branch.seating}</dd>
+                </div>
+              </dl>
+            </div>
+            <NaverLocationMap
+              name={branch.name}
+              latitude={branch.latitude}
+              longitude={branch.longitude}
+              center={branch.center}
             />
-          </div>
-          <div className="pv-branch-info">
-            <dl>
-              <div>
-                <dt>주소</dt>
-                <dd>{branch.address}</dd>
-              </div>
-              <div>
-                <dt>영업시간</dt>
-                <dd>{branch.hours}</dd>
-              </div>
-              <div>
-                <dt>전화</dt>
-                <dd>
-                  <a href={`tel:${branch.phone}`}>{branch.phone}</a>
-                </dd>
-              </div>
-              <div>
-                <dt>주차</dt>
-                <dd>{branch.parking}</dd>
-              </div>
-              <div>
-                <dt>모임 안내</dt>
-                <dd>{branch.seating}</dd>
-              </div>
-            </dl>
-          </div>
-          <NaverLocationMap
-            name={branch.name}
-            latitude={branch.latitude}
-            longitude={branch.longitude}
-            center={branch.center}
-          />
-        </article>
-      ))}
-    </div>
+          </article>
+        ))}
+      </div>
+    </NaverMapsProvider>
   );
 }

@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Nanum Brush Navigation';
+  src: url('/fonts/nanum-brush-navigation.woff') format('woff');
+  font-display: swap;
+}
+
 .pv {
   --pv-bg: #faf6f0;
   --pv-ink: #29221d;
@@ -483,6 +489,9 @@
   width: min(100%, 420px);
 }
 .pv-c .pv-nav > a:not(.pv-button) {
+  font-family: 'Nanum Brush Navigation', sans-serif;
+  font-size: 22px;
+  line-height: 1;
   position: relative;
   display: grid;
   place-items: center;
