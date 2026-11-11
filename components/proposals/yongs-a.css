@@ -985,26 +985,42 @@
   display: grid;
   gap: 10px;
 }
-.pv-a .ya-floating a {
+.pv-a .ya-floating > :is(a, .ya-floating-preview) {
   width: 44px;
   height: 44px;
-  border-radius: 50%;
+  border-radius: 14px;
   display: grid;
   place-items: center;
-  border: 1px solid #fed7aa;
-  background: #ffedd5;
-  color: #431407;
-  font-size: 22px;
-  box-shadow: 0 1px 3px #0002;
+  border: 1px solid #e7ddd3;
+  background: #fffaf5;
+  color: #29221d;
+  box-shadow: 0 3px 12px #29221d18;
+  line-height: 1;
 }
-.pv-a .ya-floating a:first-child {
-  background: #dc2626;
-  color: white;
-  border-color: #dc2626;
+.pv-a .ya-floating > a:hover {
+  border-color: #b9a99a;
 }
-.pv-a .ya-floating a:nth-child(2) {
-  background: linear-gradient(135deg, #833ab4, #e1306c, #fcb045);
-  color: white;
+.pv-a .ya-floating > .ya-floating-phone {
+  background: #a82722;
+  border-color: #a82722;
+  color: #fff;
+  font-size: 21px;
+}
+.pv-a .ya-floating > .ya-floating-top {
+  align-content: center;
+  gap: 5px;
+  margin-top: 4px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+.pv-a .ya-floating-top::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-left: 2px solid currentColor;
+  transform: translateY(2px) rotate(45deg);
 }
 @media (max-width: 1023px) {
   .pv-a .ya-location-grid {

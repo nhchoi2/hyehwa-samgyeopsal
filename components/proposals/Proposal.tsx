@@ -403,19 +403,79 @@ export default function Proposal({
       </main>
       {variant === 'a' ? (
         <nav className="ya-floating" aria-label="빠른 이동">
-          <a href={phone} aria-label="전화 예약">
-            ☎
-          </a>
           <a
             href={links.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="인스타그램"
+            title="인스타그램"
           >
-            ◎
+            <Image
+              src="/images/brands/instagram.svg"
+              width={20}
+              height={20}
+              alt=""
+            />
           </a>
-          <a href="#ya-top" aria-label="맨 위로 이동">
-            ⌃
+          {links.facebookUrl ? (
+            <a
+              href={links.facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="페이스북"
+              title="페이스북"
+            >
+              <Image
+                src="/images/brands/facebook.svg"
+                width={20}
+                height={20}
+                alt=""
+              />
+            </a>
+          ) : (
+            <span
+              className="ya-floating-preview"
+              role="img"
+              aria-label="페이스북"
+              title="페이스북"
+            >
+              <Image
+                src="/images/brands/facebook.svg"
+                width={20}
+                height={20}
+                alt=""
+              />
+            </span>
+          )}
+          <a
+            href={links.naverReservationUrl || links.naverMapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="네이버 플레이스"
+            title="네이버 플레이스"
+          >
+            <Image
+              src="/images/brands/naver.svg"
+              width={20}
+              height={20}
+              alt=""
+            />
+          </a>
+          <a
+            className="ya-floating-phone"
+            href={phone}
+            aria-label="전화 예약"
+            title="전화 예약"
+          >
+            <span aria-hidden="true">☎</span>
+          </a>
+          <a
+            className="ya-floating-top"
+            href="#ya-top"
+            aria-label="맨 위로 이동"
+            title="맨 위로 이동"
+          >
+            <span aria-hidden="true">TOP</span>
           </a>
         </nav>
       ) : (
