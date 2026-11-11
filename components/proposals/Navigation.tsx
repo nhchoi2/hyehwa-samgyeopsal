@@ -24,15 +24,17 @@ function ProposalSwitch({ variant, page }: { variant: Variant; page: string }) {
 export default function Navigation({
   variant,
   page,
+  showProposalSwitch,
 }: {
   variant: Variant;
   page: string;
+  showProposalSwitch: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const base = `/${variant}`;
   return (
     <>
-      <ProposalSwitch variant={variant} page={page} />
+      {showProposalSwitch && <ProposalSwitch variant={variant} page={page} />}
       <header className="pv-header">
         {variant === 'a' && (
           <p className="ya-header-tagline">맛있는 한 점, 함께하는 좋은 시간.</p>

@@ -7,7 +7,9 @@ import '@/components/proposals/yongs-a.css';
 type Props = { params: Promise<{ variant: string; path?: string[] }> };
 export const dynamicParams = false;
 export function generateStaticParams() {
-  return Object.keys(variants).flatMap((variant) => [
+  const visibleVariants =
+    process.env.SHOW_DRAFT_PROPOSALS === '1' ? Object.keys(variants) : ['c'];
+  return visibleVariants.flatMap((variant) => [
     ...pages.map((page) => ({ variant, path: page.slug ? [page.slug] : [] })),
     { variant, path: ['lunch'] },
   ]);
@@ -28,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 export default async function Page({ params }: Props) {
   const { variant, path = [] } = await params;
+  if (variant !== 'c' && process.env.SHOW_DRAFT_PROPOSALS !== '1') notFound();
   if (isVariant(variant) && path.length === 1 && path[0] === 'lunch')
     redirect(`/${variant}/menu`);
   if (

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 import type { Metadata } from 'next';
 import { variants, type Variant } from '@/data/proposals';
 import { Photo } from '@/components/proposals/Proposal';
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 export default function Home() {
+  if (process.env.SHOW_DRAFT_PROPOSALS !== '1') redirect('/c');
   return (
     <main id="main-content" className="pv-chooser">
       <header>

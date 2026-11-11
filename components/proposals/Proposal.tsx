@@ -159,7 +159,12 @@ export default function Proposal({
       className={`pv pv-${variant}`}
       id={variant === 'a' ? 'ya-top' : undefined}
     >
-      <Navigation key={`${variant}-${page}`} variant={variant} page={page} />
+      <Navigation
+        key={`${variant}-${page}`}
+        variant={variant}
+        page={page}
+        showProposalSwitch={process.env.SHOW_DRAFT_PROPOSALS === '1'}
+      />
       <main id="main-content">
         {!page && variant === 'a' ? (
           <YongsHome />
@@ -179,20 +184,20 @@ export default function Proposal({
                       className="pv-photo"
                     />
                   </div>
-                  <div className="pv-c-mosaic-tile pv-c-mosaic-interior">
-                    <Image
-                      src="/images/proposals/c-interior.webp"
-                      alt="나무 테이블과 조명이 있는 매장 내부"
-                      fill
-                      sizes="(max-width: 760px) 57vw, (max-width: 1200px) 50vw, 600px"
-                      loading="eager"
-                      className="pv-photo"
-                    />
-                  </div>
                   <div className="pv-c-mosaic-tile pv-c-mosaic-table">
                     <Image
                       src="/images/proposals/c-full-table.webp"
                       alt="불판 위 삼겹살과 곁들임이 차려진 한 상"
+                      fill
+                      sizes="(max-width: 760px) 33vw, (max-width: 1200px) 30vw, 352px"
+                      loading="eager"
+                      className="pv-photo"
+                    />
+                  </div>
+                  <div className="pv-c-mosaic-tile pv-c-mosaic-interior">
+                    <Image
+                      src="/images/proposals/c-interior.webp"
+                      alt="나무 테이블과 조명이 있는 매장 내부"
                       fill
                       sizes="(max-width: 760px) 33vw, (max-width: 1200px) 30vw, 352px"
                       loading="eager"

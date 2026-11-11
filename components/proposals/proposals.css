@@ -513,7 +513,7 @@
   grid-template-rows: repeat(2, minmax(0, 1fr));
   grid-template-areas:
     'grill table'
-    'interior table';
+    'grill interior';
   gap: 8px;
   width: min(100%, 80vw, 960px);
   aspect-ratio: 16 / 9;
@@ -538,7 +538,7 @@
   grid-area: table;
 }
 .pv-c-mosaic-table .pv-photo {
-  object-position: 55% center;
+  object-position: 55% 53%;
 }
 .pv-c .pv-facts {
   margin: 0 5%;
@@ -1025,6 +1025,9 @@
     gap: 4px;
     width: 100%;
     aspect-ratio: 4 / 3;
+  }
+  .pv-c-mosaic-grill .pv-photo {
+    object-position: 64% center;
   }
   .pv-c .pv-facts {
     font-size: 11px;
