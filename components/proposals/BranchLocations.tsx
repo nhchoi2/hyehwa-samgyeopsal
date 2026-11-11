@@ -35,6 +35,7 @@ export default function BranchLocations() {
     <div className="pv-branch-options">
       {branches.map((branch) => (
         <article key={branch.name} className="pv-branch-card">
+          <h2>{branch.name}</h2>
           <div className="pv-location-entrance">
             <Image
               src={branch.photo}
@@ -45,7 +46,6 @@ export default function BranchLocations() {
             />
           </div>
           <div className="pv-branch-info">
-            <h2>{branch.name}</h2>
             <dl>
               <div>
                 <dt>주소</dt>

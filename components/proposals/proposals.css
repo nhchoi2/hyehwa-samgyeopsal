@@ -515,7 +515,7 @@
     'grill table'
     'grill interior';
   gap: 8px;
-  width: min(100%, 80vw, 960px);
+  width: 100%;
   aspect-ratio: 16 / 9;
 }
 .pv-c-mosaic-tile {
@@ -633,7 +633,7 @@
   font-weight: 700;
   border-bottom: 2px solid #232323;
 }
-.pv-c-faq {
+.pv-c main {
   background-color: var(--pv-bg);
   background-image:
     linear-gradient(to right, #3046380a 1px, transparent 1px),
@@ -687,8 +687,12 @@
 .pv-c-faq details .pv-text-link {
   margin: 0 0 20px;
 }
-.pv-c .pv-page-heading {
-  background: #e9e9de;
+.pv-c .pv-page-heading,
+.pv-c .pv-food-photo,
+.pv-c .pv-menu-grid .pv-food-photo,
+.pv-c .pv-review-photo,
+.pv-c .pv-review-preview-fallback {
+  background: transparent;
 }
 .pv-chooser {
   min-height: 100vh;
@@ -1364,7 +1368,7 @@
 .pv-branch-card {
   display: grid;
   grid-template-rows: subgrid;
-  grid-row: span 3;
+  grid-row: span 4;
   text-align: center;
 }
 
@@ -1372,8 +1376,8 @@
   width: 100%;
 }
 
-.pv-branch-info h2 {
-  margin: 0 0 22px;
+.pv-branch-card > h2 {
+  margin: 0;
 }
 
 .pv-branch-info dl {
@@ -1400,5 +1404,46 @@
 
   .pv-branch-card + .pv-branch-card {
     margin-top: 24px;
+  }
+}
+
+.pv-brand-story {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+  max-width: 860px;
+  margin: 0 auto 48px;
+}
+
+.pv-brand-story img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  margin-inline: auto;
+}
+
+@media (max-width: 760px) {
+  .pv-brand-story {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.pv-c main {
+  --pv-content-gutter: max(10%, calc((100% - 960px) / 2));
+}
+
+.pv-c main > :is(.pv-c-showcase, .pv-section, .pv-page-heading) {
+  padding-inline: var(--pv-content-gutter);
+}
+
+.pv-c .pv-facts {
+  margin-inline: var(--pv-content-gutter);
+}
+
+@media (max-width: 760px) {
+  .pv-c main {
+    --pv-content-gutter: 5%;
   }
 }

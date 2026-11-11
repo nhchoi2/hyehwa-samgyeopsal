@@ -361,6 +361,27 @@ export default function Proposal({
             )}
             {page === 'about' && (
               <section className="pv-section">
+                {variant === 'c' && (
+                  <section className="pv-brand-story">
+                    <Image
+                      src="/images/materials/business/hyehwa-brand-sign.webp"
+                      alt="대통령 삼겹살의 이름과 대나무통 초벌 방식을 소개하는 매장 현판"
+                      width={688}
+                      height={1542}
+                    />
+                    <div>
+                      <h2>대나무통에서 시작된 삼겹살</h2>
+                      <p>
+                        매장 현판에는 ‘대통령’이라는 이름에 담긴 뜻이 적혀
+                        있습니다. 대나무의 ‘대’, 대롱의 ‘통’, 제로의 ‘령’입니다.
+                      </p>
+                      <p>
+                        삼겹살을 대나무통에 넣어 오븐에서 초벌합니다. 대나무의
+                        은은한 향이 배어드는 대통령 삼겹살의 방식입니다.
+                      </p>
+                    </div>
+                  </section>
+                )}
                 <div className="pv-about-image">
                   <Photo
                     name="table"
