@@ -266,14 +266,6 @@ export default function Proposal({
               >
                 <div className="pv-section-heading">
                   <h2 id="c-reviews-heading">손님이 남긴 한 상</h2>
-                  <a
-                    className="pv-text-link"
-                    href={links.naverReviewsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    최신 리뷰 보기 ↗
-                  </a>
                 </div>
                 {reviews.length > 0 && <ReviewSlider items={reviews} />}
               </section>
@@ -341,7 +333,7 @@ export default function Proposal({
           </>
         ) : (
           <>
-            {page !== 'menu' && page !== 'location' && (
+            {variant !== 'c' && page !== 'menu' && page !== 'location' && (
               <section className="pv-page-heading">
                 <p className="pv-kicker">{titles[page][0]}</p>
                 <h1>{titles[page][1]}</h1>
@@ -360,25 +352,55 @@ export default function Proposal({
               </section>
             )}
             {page === 'about' && (
-              <section className="pv-section">
+              <section className="pv-section pv-about-page">
                 {variant === 'c' && (
-                  <section className="pv-brand-story">
-                    <Image
-                      src="/images/materials/business/hyehwa-brand-sign.webp"
-                      alt="대통령 삼겹살의 이름과 대나무통 초벌 방식을 소개하는 매장 현판"
-                      width={688}
-                      height={1542}
-                    />
-                    <div>
-                      <h2>대나무통에서 시작된 삼겹살</h2>
+                  <section
+                    className="pv-brand-story"
+                    aria-label="대통령 삼겹살 이야기"
+                  >
+                    <dl
+                      className="pv-brand-name"
+                      aria-label="대통령 이름의 유래"
+                    >
+                      <div>
+                        <dt>대나무 (竹)</dt>
+                        <dd>대</dd>
+                      </div>
+                      <div>
+                        <dt>대롱 (筒)</dt>
+                        <dd>통</dd>
+                      </div>
+                      <div>
+                        <dt>제로 (zero)</dt>
+                        <dd>령</dd>
+                      </div>
+                    </dl>
+                    <div className="pv-brand-copy">
+                      <p>대통령 삼겹살이 맛있는 건강을 책임집니다</p>
                       <p>
-                        매장 현판에는 ‘대통령’이라는 이름에 담긴 뜻이 적혀
-                        있습니다. 대나무의 ‘대’, 대롱의 ‘통’, 제로의 ‘령’입니다.
+                        우리나라 국민 영양식 삼겹살이
+                        <br />
+                        대나무 진액을 만나 보양식으로 다시 태어났습니다.
                       </p>
                       <p>
-                        삼겹살을 대나무통에 넣어 오븐에서 초벌합니다. 대나무의
-                        은은한 향이 배어드는 대통령 삼겹살의 방식입니다.
+                        대나무의 대롱 안에 국내산 최고 등급 삼겹살을 넣고
+                        <br />
+                        오븐에서 맛깔나게 구워 내는 대통령 삼겹살.
                       </p>
+                      <p>
+                        오븐의 조리과정에서 나오는 대나무 진액(죽력)은
+                        <br />
+                        전통 의학에서는 몸속의 노폐물을 씻어주고
+                        <br />
+                        혈압을 조절하는 효과가 있다고 전해집니다.
+                      </p>
+                      <p>
+                        대나무 진액이 삼겹살을 만나
+                        <br />
+                        기름기, 잡냄새, 발암물질을 제로(0)로 만듭니다.
+                      </p>
+                      <p>향과 맛도 OK, 건강도 OK!</p>
+                      <p>건강한 보양식 이제 대통령 삼겹살입니다.</p>
                     </div>
                   </section>
                 )}

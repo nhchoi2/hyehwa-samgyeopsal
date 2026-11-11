@@ -38,6 +38,7 @@ export default function ReviewSlider({ items }: { items: PhotoReview[] }) {
           slideLabelMessage: '후기 {{index}} / {{slidesLength}}',
         }}
         loop={items.length > 5}
+        loopPreventsSliding={false}
         slidesPerView={2}
         spaceBetween={10}
         breakpoints={{
@@ -81,17 +82,43 @@ export default function ReviewSlider({ items }: { items: PhotoReview[] }) {
         ))}
       </Swiper>
       {multiple && (
-        <button
-          className="pv-review-playback"
-          type="button"
-          onClick={() => {
-            if (!swiper) return;
-            if (swiper.autoplay.running) swiper.autoplay.stop();
-            else swiper.autoplay.start();
-          }}
+        <div
+          className="pv-review-controls"
+          role="group"
+          aria-label="리뷰 슬라이드 조작"
         >
-          {playing ? '자동 넘김 일시정지' : '자동 넘김 재생'}
-        </button>
+          <button
+            type="button"
+            aria-label="이전 리뷰"
+            onClick={() => {
+              swiper?.autoplay.stop();
+              swiper?.slidePrev(300);
+            }}
+          >
+            <span aria-hidden="true">‹</span>
+          </button>
+          <button
+            type="button"
+            aria-label={playing ? '자동 넘김 일시정지' : '자동 넘김 재생'}
+            onClick={() => {
+              if (!swiper) return;
+              if (swiper.autoplay.running) swiper.autoplay.stop();
+              else swiper.autoplay.start();
+            }}
+          >
+            <span aria-hidden="true">{playing ? 'Ⅱ' : '▶'}</span>
+          </button>
+          <button
+            type="button"
+            aria-label="다음 리뷰"
+            onClick={() => {
+              swiper?.autoplay.stop();
+              swiper?.slideNext(300);
+            }}
+          >
+            <span aria-hidden="true">›</span>
+          </button>
+        </div>
       )}
     </>
   );
