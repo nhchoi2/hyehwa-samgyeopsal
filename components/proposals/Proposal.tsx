@@ -51,27 +51,26 @@ function Visit({
   standalone?: boolean;
   showEntrance?: boolean;
 }) {
+  const details = (
+    <dl>
+      {[
+        ...(showEntrance ? [['주소', restaurant.address]] : []),
+        ['영업시간', restaurant.businessHours],
+        ['전화', restaurant.phone],
+        ['주차', restaurant.parking],
+        ['모임 안내', restaurant.seating],
+      ].map(([label, value]) => (
+        <div key={label}>
+          <dt>{label}</dt>
+          <dd>{label === '전화' ? <a href={phone}>{value}</a> : value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
   return (
-    <div className="pv-visit">
-      <div>
-        {standalone ? (
-          <h1>오시는 길</h1>
-        ) : (
-          <>
-            <p className="pv-kicker">FIND US IN HYEHWA</p>
-            <h2>혜화에서 만나요.</h2>
-          </>
-        )}
-        <p>{restaurant.address}</p>
-        <a
-          className="pv-button"
-          href={links.naverMapUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          네이버지도에서 길찾기 ↗
-        </a>
-        {showEntrance && (
+    <>
+      {showEntrance && (
+        <div className="pv-location-lead">
           <div className="pv-location-entrance">
             <Image
               src="/images/materials/business/business-088.webp"
@@ -81,22 +80,34 @@ function Visit({
               className="pv-photo"
             />
           </div>
-        )}
-      </div>
-      <dl>
-        {[
-          ['영업시간', restaurant.businessHours],
-          ['전화', restaurant.phone],
-          ['주차', restaurant.parking],
-          ['모임 안내', restaurant.seating],
-        ].map(([label, value]) => (
-          <div key={label}>
-            <dt>{label}</dt>
-            <dd>{label === '전화' ? <a href={phone}>{value}</a> : value}</dd>
+        </div>
+      )}
+      <div className={showEntrance ? 'pv-visit pv-visit-with-map' : 'pv-visit'}>
+        {showEntrance && <NaverLocationMap />}
+        {!showEntrance && (
+          <div>
+            {standalone ? (
+              <h1>오시는 길</h1>
+            ) : (
+              <>
+                <p className="pv-kicker">FIND US IN HYEHWA</p>
+                <h2>혜화에서 만나요.</h2>
+              </>
+            )}
+            <p>{restaurant.address}</p>
+            <a
+              className="pv-button"
+              href={links.naverMapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              네이버지도에서 길찾기 ↗
+            </a>
           </div>
-        ))}
-      </dl>
-    </div>
+        )}
+        {details}
+      </div>
+    </>
   );
 }
 function YongsLocation() {
@@ -410,7 +421,6 @@ export default function Proposal({
               ) : (
                 <section className="pv-section pv-location-page">
                   <Visit standalone showEntrance={variant === 'c'} />
-                  {variant === 'c' && <NaverLocationMap />}
                   <div className="pv-location-note">
                     <h2>방문 전 확인해 주세요</h2>
                     <p>

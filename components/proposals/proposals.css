@@ -1311,7 +1311,7 @@
   padding-top: 36px;
   padding-bottom: 48px;
 }
-.pv-location-page .pv-visit h1 {
+.pv-location-page h1 {
   font-size: 30px;
   line-height: 1.4;
   margin: 0 0 20px;
@@ -1319,10 +1319,15 @@
 .pv-location-page .pv-visit .pv-button {
   margin-top: 22px;
 }
+.pv-location-lead {
+  text-align: center;
+  margin-bottom: 32px;
+}
 .pv-location-entrance {
   position: relative;
   aspect-ratio: 16 / 10;
-  margin-top: 24px;
+  max-width: 760px;
+  margin-inline: auto;
   overflow: hidden;
 }
 .pv-location-page .pv-location-note {
@@ -1337,7 +1342,7 @@
   .pv .pv-section.pv-location-page {
     padding-top: 24px;
   }
-  .pv-location-page .pv-visit h1 {
+  .pv-location-page h1 {
     font-size: 26px;
   }
   .pv-location-page .pv-visit {
@@ -1345,10 +1350,28 @@
   }
 }
 
+.pv-visit-with-map {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(24px, 5vw, 72px);
+}
+.pv-visit-with-map > dl:only-child {
+  grid-column: 1 / -1;
+}
+@media (max-width: 760px) {
+  .pv-visit-with-map {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .pv-location-map {
   width: 100%;
-  height: clamp(280px, 42vw, 420px);
-  margin-block: 24px;
+  align-self: stretch;
+  contain: size;
   overflow: hidden;
   border-radius: 12px;
+}
+@media (max-width: 760px) {
+  .pv-location-map {
+    height: clamp(280px, 65vw, 420px);
+  }
 }
