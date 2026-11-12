@@ -480,11 +480,10 @@
   width: min(100%, 420px);
 }
 .pv-c .pv-nav > a:not(.pv-button) {
-  font-family: 'Nanum Brush Navigation', sans-serif;
-  font-size: clamp(24px, 4vw, 27px);
+  font-size: 16px;
+  font-weight: 600;
   color: var(--pv-ink);
-  -webkit-text-stroke: 0.35px currentColor;
-  line-height: 1;
+  line-height: 1.4;
   position: relative;
   display: grid;
   place-items: center;
