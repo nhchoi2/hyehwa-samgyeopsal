@@ -642,10 +642,29 @@
   border-bottom: 2px solid #232323;
 }
 .pv.pv-c {
+  isolation: isolate;
   background-color: var(--pv-bg);
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22288%22%20height%3D%22154%22%20viewBox%3D%220%200%20288%20154%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%2354773C%22%20stroke-opacity%3D%22.12%22%20d%3D%22M26%20-107%20C27.8%20-63%2027.8%203%2026%2047%20C27.8%2091%2027.8%20157%2026%20201%20M36%20-107%20C34.2%20-63%2034.2%203%2036%2047%20C34.2%2091%2034.2%20157%2036%20201%20M120%20-42%20C121.8%202%20121.8%2068%20120%20112%20C121.8%20156%20121.8%20222%20120%20266%20M128%20-42%20C126.2%202%20126.2%2068%20128%20112%20C126.2%20156%20126.2%20222%20128%20266%20M216%20-81%20C217.8%20-37%20217.8%2029%20216%2073%20C217.8%20117%20217.8%20183%20216%20227%20M228%20-81%20C226.2%20-37%20226.2%2029%20228%2073%20C226.2%20117%20226.2%20183%20228%20227%22%2F%3E%3Cellipse%20cx%3D%2231%22%20cy%3D%2247%22%20rx%3D%227%22%20ry%3D%221.5%22%20fill%3D%22%2354773C%22%20fill-opacity%3D%22.19%22%2F%3E%3Cellipse%20cx%3D%22124%22%20cy%3D%22112%22%20rx%3D%226%22%20ry%3D%221.5%22%20fill%3D%22%2354773C%22%20fill-opacity%3D%22.19%22%2F%3E%3Cellipse%20cx%3D%22222%22%20cy%3D%2273%22%20rx%3D%228%22%20ry%3D%221.5%22%20fill%3D%22%2354773C%22%20fill-opacity%3D%22.19%22%2F%3E%3C%2Fsvg%3E");
   background-size: 288px 154px;
   background-position: center top;
+}
+.pv.pv-c::before {
+  --bamboo-leaves: url("/bamboo-leaves.svg");
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: var(--bamboo-leaves), var(--bamboo-leaves), var(--bamboo-leaves), var(--bamboo-leaves);
+  background-repeat: no-repeat;
+  background-size: 150px auto, 118px auto, 128px auto, 140px auto;
+  background-position: left 12%, right 29%, left 68%, right 87%;
+}
+@media (max-width: 700px) {
+  .pv.pv-c::before {
+    background-size: 92px auto, 80px auto, 0 0, 86px auto;
+    background-position: left 16%, right 46%, left 68%, right 88%;
+  }
 }
 .pv-c-faq h2 {
   margin: 0 0 clamp(28px, 5vw, 64px);
@@ -1271,6 +1290,38 @@
 }
 .pv-menu-browser .pv-menu-copy h3 {
   font-size: 20px;
+}
+.pv-c .pv-menu-browser .pv-menu-item {
+  overflow: hidden;
+  border: 1px solid #b8c9a8;
+  border-radius: 8px;
+  background: var(--pv-bg);
+}
+.pv-c .pv-menu-browser .pv-menu-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 8px;
+  padding: clamp(10px, 2vw, 20px);
+}
+.pv-c .pv-menu-browser .pv-menu-copy h3 {
+  margin: 0;
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+}
+.pv-c .pv-menu-browser .pv-menu-price {
+  text-align: right;
+  white-space: nowrap;
+  font-size: clamp(12px, 1.6vw, 20px);
+}
+.pv-c .pv-menu-browser .pv-menu-copy > p:last-child:not(.pv-kicker) {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+@media (max-width: 360px) {
+  .pv-c .pv-menu-browser .pv-menu-grid.pv-food-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 @media (min-width: 761px) and (max-width: 1100px) {
   .pv-menu-browser {
