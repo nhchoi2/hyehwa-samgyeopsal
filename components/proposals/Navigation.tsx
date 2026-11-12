@@ -2,6 +2,8 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { pages, variants, type Variant } from '@/data/proposals';
+const publicNavLabels: Partial<Record<string, string>> = { about: '소개', location: '위치' };
+
 function ProposalSwitch({ variant, page }: { variant: Variant; page: string }) {
   return (
     <div className={variant === 'a' ? 'pv-switch ya-switch' : 'pv-switch'}>
@@ -72,7 +74,7 @@ export default function Navigation({
               aria-current={p.slug === page ? 'page' : undefined}
               onClick={() => setOpen(false)}
             >
-              {p.label}
+              {variant === 'c' ? (publicNavLabels[p.slug] ?? p.label) : p.label}
             </Link>
           ))}
           {variant !== 'c' && (
