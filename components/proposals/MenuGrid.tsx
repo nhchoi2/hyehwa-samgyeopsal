@@ -67,7 +67,7 @@ export default function MenuGrid({
           {overlay ? (
             <YongsMenuCards key={selected} items={visibleItems} />
           ) : (
-            <MenuCards items={visibleItems} />
+            <MenuCards items={visibleItems} splitPrice />
           )}
         </section>
         {selected === '주류' && (

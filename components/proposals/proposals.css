@@ -1297,24 +1297,33 @@
   border-radius: 8px;
   background: var(--pv-bg);
 }
-.pv-c .pv-menu-browser .pv-menu-copy {
+.pv .pv-menu-browser .pv-menu-copy-split {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: baseline;
   gap: 8px;
   padding: clamp(10px, 2vw, 20px);
 }
-.pv-c .pv-menu-browser .pv-menu-copy h3 {
+.pv .pv-menu-browser .pv-menu-copy-split h3 {
+  grid-column: 1 / -1;
   margin: 0;
   overflow-wrap: anywhere;
   word-break: keep-all;
 }
-.pv-c .pv-menu-browser .pv-menu-price {
+.pv-menu-copy-split .pv-menu-note {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 0.9375rem;
+  word-break: keep-all;
+}
+.pv-menu-copy-split .pv-menu-price {
+  grid-column: 2;
+  grid-row: 2;
   text-align: right;
   white-space: nowrap;
   font-size: clamp(12px, 1.6vw, 20px);
 }
-.pv-c .pv-menu-browser .pv-menu-copy > p:last-child:not(.pv-kicker) {
+.pv-menu-copy-split > p:last-child:not(.pv-kicker) {
   grid-column: 1 / -1;
   margin: 0;
 }
@@ -1445,7 +1454,6 @@
 .pv-branch-card > h2 {
   margin: 0;
   color: var(--pv-accent);
-  font-family: 'Nanum Brush Navigation', sans-serif;
   font-size: calc(clamp(1.65rem, 3vw, 2.3rem) - 2px);
   font-weight: 400;
 }
@@ -1493,6 +1501,16 @@
   font-family: 'Nanum Brush Story';
   src: url('/fonts/nanum-brush-story.woff') format('woff');
   font-display: swap;
+}
+
+@font-face {
+  font-family: 'Miryang Arirang';
+  src: url('/fonts/miryang-arirang.otf') format('opentype');
+  font-display: swap;
+}
+
+.pv-c .pv-about-page :is(.pv-brand-name, .pv-brand-copy) {
+  font-family: 'Miryang Arirang', 'Nanum Brush Story', Batang, serif;
 }
 
 .pv-brand-name,

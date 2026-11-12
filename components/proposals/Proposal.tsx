@@ -377,9 +377,7 @@ export default function Proposal({
                     </dl>
                     <div className="pv-brand-copy">
                       <p>
-                        <strong>
-                          대통령 삼겹살이 맛있는 건강을 책임집니다
-                        </strong>
+                        <strong>대통령</strong> 삼겹살이 맛있는 건강을 책임집니다
                       </p>
                       <p>
                         우리나라 국민 영양식 삼겹살이
@@ -387,11 +385,9 @@ export default function Proposal({
                         대나무 진액을 만나 보양식으로 다시 태어났습니다.
                       </p>
                       <p>
-                        <strong>
-                          대나무의 대롱 안에 국내산 최고 등급 삼겹살을 넣고
-                        </strong>
+                        대나무의 대롱 안에 국내산 최고 등급 삼겹살을 넣고
                         <br />
-                        오븐에서 맛깔나게 구워 내는 대통령 삼겹살.
+                        오븐에서 맛깔나게 구워 내는 <strong>대통령</strong> 삼겹살.
                       </p>
                       <p>
                         오븐의 조리과정에서 나오는 대나무 진액(죽력)은
@@ -406,9 +402,9 @@ export default function Proposal({
                         기름기, 잡냄새, 발암물질을 제로(0)로 만듭니다.
                       </p>
                       <p>
-                        <strong>향과 맛도 OK, 건강도 OK!</strong>
+                        향과 맛도 OK, 건강도 OK!
                       </p>
-                      <p>건강한 보양식 이제 대통령 삼겹살입니다.</p>
+                      <p>건강한 보양식 이제 <strong>대통령</strong> 삼겹살입니다.</p>
                     </div>
                   </section>
                 )}
