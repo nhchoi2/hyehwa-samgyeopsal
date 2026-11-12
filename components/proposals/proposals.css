@@ -1327,7 +1327,13 @@
   grid-column: 1 / -1;
   margin: 0;
 }
-@media (max-width: 360px) {
+@media (390px <= width <= 414px) {
+  .pv .pv-menu-browser .pv-menu-copy-split {
+    column-gap: 4px;
+    padding-inline: 6px;
+  }
+}
+@media (max-width: 389px) {
   .pv-c .pv-menu-browser .pv-menu-grid.pv-food-grid {
     grid-template-columns: minmax(0, 1fr);
   }
