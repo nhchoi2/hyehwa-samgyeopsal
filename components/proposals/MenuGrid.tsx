@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import type { MenuItem } from '@/types/menu';
-import { corkage, menuSource } from '@/data/menu';
+import { corkage } from '@/data/menu';
 import { MenuCards } from './MenuCards';
 import YongsMenuCards from './YongsMenuCards';
 
@@ -97,12 +97,6 @@ export default function MenuGrid({
             점심 메뉴를 주문할 수 있는 시간은 매장에 문의해 주세요.
           </p>
         )}
-        <p className="pv-menu-source">
-          메뉴·가격 자료 기준: {menuSource.collectedDate} ·{' '}
-          <a href={menuSource.url} target="_blank" rel="noopener noreferrer">
-            네이버 플레이스 ↗
-          </a>
-        </p>
       </div>
     </div>
   );
