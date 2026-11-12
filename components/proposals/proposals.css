@@ -481,7 +481,9 @@
 }
 .pv-c .pv-nav > a:not(.pv-button) {
   font-family: 'Nanum Brush Navigation', sans-serif;
-  font-size: 22px;
+  font-size: clamp(24px, 4vw, 27px);
+  color: var(--pv-ink);
+  -webkit-text-stroke: 0.35px currentColor;
   line-height: 1;
   position: relative;
   display: grid;
@@ -492,6 +494,7 @@
 }
 .pv-c .pv-nav a[aria-current] {
   border-bottom: 0;
+  color: var(--pv-accent);
 }
 .pv-c .pv-nav a[aria-current]::after {
   content: '';
@@ -499,7 +502,7 @@
   inset-inline: 0;
   bottom: 0;
   width: 24px;
-  height: 1px;
+  height: 2px;
   margin-inline: auto;
   background: currentColor;
 }
