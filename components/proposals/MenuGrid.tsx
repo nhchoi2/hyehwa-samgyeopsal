@@ -7,11 +7,27 @@ import { MenuCards } from './MenuCards';
 import YongsMenuCards from './YongsMenuCards';
 
 const categoryOptions = [
-  { label: '세트', value: '세트 메뉴' },
-  { label: '고기', value: '고기 메뉴' },
-  { label: '식사', value: '식사 메뉴' },
-  { label: '곁들임', value: '곁들임' },
-  { label: '주류', value: '주류' },
+  {
+    label: '세트',
+    value: '세트 메뉴',
+    intro: '좋아하는 고기를 한 상에, 여럿이 함께 즐겨보세요.',
+  },
+  {
+    label: '고기',
+    value: '고기 메뉴',
+    intro: '대나무 향을 입힌 삼겹살부터 고소한 한우까지.',
+  },
+  {
+    label: '식사',
+    value: '식사 메뉴',
+    intro: '시원한 냉면부터 따끈한 찌개까지, 든든하게 한 끼.',
+  },
+  {
+    label: '곁들임',
+    value: '곁들임',
+    intro: '고기 한 점에 곁들여, 한입의 맛을 더해보세요.',
+  },
+  { label: '주류', value: '주류', intro: '고기 한 점에 어울리는 술 한 잔.' },
 ];
 export default function MenuGrid({
   items,
@@ -20,7 +36,8 @@ export default function MenuGrid({
   items: MenuItem[];
   overlay?: boolean;
 }) {
-  const [selected, setSelected] = useState('세트 메뉴');
+  const [category, setCategory] = useState(categoryOptions[0]);
+  const selected = category.value;
   const visibleItems = items.filter((item) => item.category === selected);
   return (
     <div className="pv-menu-browser">
@@ -31,7 +48,7 @@ export default function MenuGrid({
             type="button"
             aria-pressed={selected === category.value}
             aria-controls="menu-results"
-            onClick={() => setSelected(category.value)}
+            onClick={() => setCategory(category)}
           >
             {category.label}
           </button>
@@ -43,8 +60,9 @@ export default function MenuGrid({
           aria-labelledby="menu-category-title"
         >
           <div className={overlay ? 'ya-sr-only' : 'pv-section-heading'}>
-            <h1 id="menu-category-title">{selected}</h1>
-            <span aria-live="polite">메뉴 {visibleItems.length}개</span>
+            <h1 id="menu-category-title" aria-live="polite">
+              {overlay ? selected : category.intro}
+            </h1>
           </div>
           {overlay ? (
             <YongsMenuCards key={selected} items={visibleItems} />

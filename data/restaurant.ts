@@ -174,9 +174,4 @@ export const reviews: PhotoReview[] = [
     thumbnailUrl:
       'https://blogthumb.pstatic.net/MjAyNjEwMThfNzAg/MDAxNzkyMzIwMzcwNTEz.RfeDdCuKqqF3kLqgxRTGblJt9ngHwXb1VTW0sYEYrSQg.qUhs7_F2xThBr4vbdVC8qbKos91ghVgCeqzc1NmL_awg.GIF/4050629641.gif?type=w2',
   },
-  {
-    title: '네이버 카페 게시글 보기',
-    url: 'https://cafe.naver.com/secretmatzip/4',
-    source: '네이버 카페',
-  },
 ];
