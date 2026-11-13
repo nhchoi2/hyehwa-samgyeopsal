@@ -29,17 +29,17 @@ const categoryOptions = [
     value: '곁들임',
     intro: copy.sidesIntro,
   },
-  { label: copy.drinks, value: '주류', intro: copy.drinksIntro },
+  { label: copy.drinks, value: '주류', intro: null },
 ];
 const softDrinks = [
-  { name: drinkNames.lemonAde, price: '6,000원' },
-  { name: drinkNames.grapefruitAde, price: '6,000원' },
-  { name: drinkNames.singha, price: '4,000원' },
-  { name: drinkNames.coke, price: '3,000원' },
-  { name: drinkNames.cokeZero, price: '3,000원' },
-  { name: drinkNames.sprite, price: '3,000원' },
-  { name: drinkNames.fanta, price: '3,000원' },
-  { name: drinkNames.tonic, price: '3,000원' },
+  { name: drinkNames.lemonAde, price: '6,000원', image: '/images/menu/lemon-ade.webp' },
+  { name: drinkNames.grapefruitAde, price: '6,000원', image: '/images/menu/grapefruit-ade.webp' },
+  { name: drinkNames.singha, price: '4,000원', image: '/images/menu/singha-sparkling.webp' },
+  { name: drinkNames.coke, price: '3,000원', image: '/images/menu/coca-cola.webp' },
+  { name: drinkNames.cokeZero, price: '3,000원', image: '/images/menu/coca-cola-zero.webp' },
+  { name: drinkNames.sprite, price: '3,000원', image: '/images/menu/sprite.webp' },
+  { name: drinkNames.fanta, price: '3,000원', image: '/images/menu/fanta-pineapple.webp' },
+  { name: drinkNames.tonic, price: '3,000원', image: '/images/menu/tonic-water.webp' },
 ];
 
 const drinkGroups: {
@@ -47,6 +47,16 @@ const drinkGroups: {
   items: { name: string; price: string; image?: string }[];
   photoIds?: string[];
 }[] = [
+  { title: copy.wine, photoIds: ['menu-28', 'menu-29'], items: [] },
+  {
+    title: copy.sake,
+    items: [
+      { name: drinkNames.banshaku, price: '7,000원', image: '/images/menu/banshaku.webp' },
+      { name: drinkNames.hotTokkuri, price: '7,000원', image: '/images/menu/hot-tokkuri.webp' },
+      { name: drinkNames.junmai, price: '38,000원', image: '/images/menu/junmai-pack.webp' },
+      { name: drinkNames.kijuro, price: '49,000원', image: '/images/menu/kijuro.webp' },
+    ],
+  },
   {
     title: copy.beer,
     items: [
@@ -55,7 +65,7 @@ const drinkGroups: {
       { name: drinkNames.cassZero, price: '4,000원', image: '/images/menu/cass-zero.webp' },
       { name: drinkNames.cassZeroLemon, price: '4,000원', image: '/images/menu/cass-zero-lemon.webp' },
       { name: drinkNames.cass, price: '6,000원', image: '/images/menu/cass.webp' },
-      { name: drinkNames.hanmac, price: '6,000원' },
+      { name: drinkNames.hanmac, price: '6,000원', image: '/images/menu/hanmac.webp' },
       { name: drinkNames.budweiser, price: '6,000원', image: '/images/menu/budweiser.webp' },
       { name: drinkNames.stella, price: '6,000원', image: '/images/menu/stella.webp' },
     ],
@@ -88,21 +98,11 @@ const drinkGroups: {
     ],
   },
   {
-    title: copy.sake,
-    items: [
-      { name: drinkNames.banshaku, price: '7,000원', image: '/images/menu/banshaku.webp' },
-      { name: drinkNames.hotTokkuri, price: '7,000원', image: '/images/menu/hot-tokkuri.webp' },
-      { name: drinkNames.junmai, price: '38,000원', image: '/images/menu/junmai-pack.webp' },
-      { name: drinkNames.kijuro, price: '49,000원', image: '/images/menu/kijuro.webp' },
-    ],
-  },
-  {
     title: copy.highball,
     items: [
       { name: drinkNames.highball, price: '8,000원', image: '/images/menu/hwayo-highball.webp' },
     ],
   },
-  { title: copy.wine, photoIds: ['menu-28', 'menu-29'], items: [] },
   { title: copy.softDrinks, items: softDrinks },
 ];
 
@@ -150,9 +150,9 @@ export default function MenuGrid({
           className="pv-menu-category"
           aria-labelledby="menu-category-title"
         >
-          <div className={overlay ? 'ya-sr-only' : 'pv-section-heading'}>
+          <div className={overlay || !category.intro ? 'ya-sr-only' : 'pv-section-heading'}>
             <h1 id="menu-category-title" aria-live="polite">
-              {overlay ? selected : category.intro}
+              {overlay ? selected : (category.intro ?? category.label)}
             </h1>
           </div>
           {selected !== '주류' && (
@@ -174,7 +174,10 @@ export default function MenuGrid({
             }
             const textItems = group.items.filter((item) => !item.image);
             return (
-              <section className="pv-soft-drinks" key={group.title}>
+              <section
+                className={group.title === copy.wine ? 'pv-soft-drinks pv-wine' : 'pv-soft-drinks'}
+                key={group.title}
+              >
                 <h2>{group.title}</h2>
                 {photos.length > 0 && <MenuPhotos items={photos} splitPrice />}
                 {textItems.length > 0 && (

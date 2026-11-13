@@ -1194,6 +1194,25 @@
 .pv-soft-drinks {
   margin-block: 28px;
 }
+.pv-menu-category > .pv-soft-drinks:first-of-type {
+  margin-block-start: 0;
+}
+.pv-menu-browser .ya-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.pv-menu-browser .pv-soft-drinks > h2 {
+  font-size: 15px;
+  font-weight: 600;
+}
 /* Keep drink cards compact across the menu's responsive layouts. */
 .pv-c .pv-menu-browser .pv-soft-drinks .pv-menu-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1207,6 +1226,9 @@
   .pv-c .pv-menu-browser .pv-soft-drinks .pv-menu-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+}
+.pv-c .pv-menu-browser .pv-soft-drinks.pv-wine .pv-menu-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .pv-soft-drinks ul {
   margin: 0;
@@ -1318,7 +1340,8 @@
   margin-bottom: 25px;
 }
 .pv-menu-browser .pv-section-heading h1 {
-  font-size: clamp(18px, 2.5vw, 24px);
+  font-size: 16px;
+  font-weight: 600;
   word-break: keep-all;
   line-height: 1.4;
   margin: 0;
@@ -1762,20 +1785,23 @@
   }
 }
 
+.pv-c .pv-soft-drinks .pv-menu-note {
+  font-size: calc(0.9375rem - 1px);
+}
 .pv-c .pv-menu-browser .pv-soft-drinks .pv-menu-copy h3 {
-  font-size: 19px;
+  font-size: 18px;
 }
 .pv-c .pv-soft-drinks .pv-menu-copy-split .pv-menu-price {
-  font-size: calc(clamp(12px, 1.6vw, 20px) - 1px);
+  font-size: calc(clamp(12px, 1.6vw, 20px) - 2px);
 }
 .pv-c .pv-soft-drinks li {
-  font-size: calc(1em - 1px);
+  font-size: calc(1em - 2px);
 }
 @media (max-width: 760px) {
   .pv-c .pv-menu-browser .pv-soft-drinks .pv-menu-copy h3 {
-    font-size: 15px;
+    font-size: 14px;
   }
   .pv-c .pv-soft-drinks .pv-menu-copy-split .pv-menu-price {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
