@@ -469,6 +469,11 @@
   color: var(--pv-accent);
   text-align: center;
 }
+.pv-brand-logo {
+  display: block;
+  width: clamp(214.2px, 35.7vw, 290.7px);
+  height: auto;
+}
 .pv-c .pv-brand strong {
   font-size: clamp(34px, 4vw, 50px);
 }
@@ -1186,6 +1191,25 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+.pv-soft-drinks {
+  margin-block: 28px;
+}
+.pv-soft-drinks ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pv-soft-drinks li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-block: 10px;
+  border-bottom: 1px solid var(--pv-line);
+}
+.pv-soft-drinks strong {
+  color: var(--pv-accent);
+  white-space: nowrap;
+}
 .pv-corkage {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -1310,6 +1334,9 @@
   overflow-wrap: anywhere;
   word-break: keep-all;
 }
+.pv-menu-meta {
+  display: contents;
+}
 .pv-menu-copy-split .pv-menu-note {
   grid-column: 1;
   grid-row: 2;
@@ -1359,6 +1386,32 @@
   .pv-c .pv-menu-browser .pv-menu-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px 12px;
+  }
+
+  .pv.pv-c .pv-menu-browser .pv-menu-copy-split {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+  }
+
+  .pv-c .pv-menu-copy-split .pv-menu-meta {
+    display: flex;
+    flex: 1 0 auto;
+    align-items: baseline;
+    gap: 4px;
+  }
+
+  .pv-c .pv-menu-copy-split .pv-menu-note {
+    white-space: nowrap;
+  }
+
+  .pv-c .pv-menu-copy-split .pv-menu-price {
+    margin-inline-start: auto;
+    font-size: 15px;
+  }
+
+  .pv-c .pv-menu-copy-split > p:last-child:not(.pv-kicker) {
+    flex-basis: 100%;
   }
 
   .pv-c .pv-menu-browser .pv-menu-copy h3 {

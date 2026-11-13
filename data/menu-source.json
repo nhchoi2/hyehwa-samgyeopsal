@@ -292,18 +292,6 @@
       "lunch": false
     },
     {
-      "id": "menu-25",
-      "originalName": "벌꿀 먹은 토마토",
-      "name": "벌꿀 먹은 토마토",
-      "category": "곁들임",
-      "priceKrw": 8000,
-      "price": "8,000원",
-      "description": "신선한 토마토에 벌꿀과 설탕을 더한\n상큼하고 달콤한 곁들임.",
-      "image": "/images/materials/menu/menu-25.webp",
-      "featured": false,
-      "lunch": false
-    },
-    {
       "id": "menu-26",
       "originalName": "들기름 계란후라이",
       "name": "들기름 달걀프라이",
@@ -384,6 +372,18 @@
       "price": "30,000원",
       "description": "",
       "image": "/images/materials/menu/menu-33.webp",
+      "featured": false,
+      "lunch": false
+    },
+    {
+      "id": "mixed-vegetables",
+      "originalName": "모듬 야채",
+      "name": "모듬 야채",
+      "category": "곁들임",
+      "priceKrw": 3000,
+      "price": "3,000원",
+      "description": "",
+      "image": "/images/menu/mixed-vegetables.webp",
       "featured": false,
       "lunch": false
     }

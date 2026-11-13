@@ -22,8 +22,10 @@ export function MenuCards({ items, splitPrice = false }: { items: MenuItem[]; sp
             </div>
             <div className={splitPrice ? 'pv-menu-copy pv-menu-copy-split' : 'pv-menu-copy'}>
               <h3>{splitPrice ? (name ?? item.name) : <MenuName name={item.name} />}</h3>
-              {note && <span className="pv-menu-note">{note}</span>}
-              <strong className="pv-menu-price">{item.price}</strong>
+              <div className="pv-menu-meta">
+                {note && <span className="pv-menu-note">{note}</span>}
+                <strong className="pv-menu-price">{item.price}</strong>
+              </div>
               {item.description && (
                 <p className="whitespace-pre-line">{item.description}</p>
               )}

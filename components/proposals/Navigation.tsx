@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { pages, variants, type Variant } from '@/data/proposals';
@@ -43,10 +44,23 @@ export default function Navigation({
           <p className="ya-header-tagline">맛있는 한 점, 함께하는 좋은 시간.</p>
         )}
         <Link className="pv-brand" href={base}>
-          <span>혜화 삼겹살</span>
-          <strong>
-            대통령<span className="pv-brand-dot">.</span>
-          </strong>
+          {variant === 'c' ? (
+            <Image
+              className="pv-brand-logo"
+              src="/images/logo/daetongryeong.svg"
+              width={278}
+              height={149}
+              alt="혜화 대통령 삼겹살 홈"
+              unoptimized
+            />
+          ) : (
+            <>
+                <span>혜화 삼겹살</span>
+                <strong>
+                  대통령<span className="pv-brand-dot">.</span>
+                </strong>
+            </>
+          )}
         </Link>
         <button
           className="pv-toggle"

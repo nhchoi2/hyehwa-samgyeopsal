@@ -162,7 +162,7 @@ export default function Proposal({
   return (
     <div
       className={`pv pv-${variant}`}
-      id={variant === 'a' ? 'ya-top' : undefined}
+      id={variant !== 'b' ? 'ya-top' : undefined}
     >
       <Navigation
         key={`${variant}-${page}`}
@@ -416,7 +416,6 @@ export default function Proposal({
                   />
                 </div>
                 <div className="pv-intro">
-                  <h2>혜화의 맛있는 약속.</h2>
                   <p>{restaurant.introduction}</p>
                 </div>
                 <div className="pv-about-details">
@@ -461,7 +460,7 @@ export default function Proposal({
           </>
         )}
       </main>
-      {variant === 'a' ? (
+      {variant !== 'b' && (
         <nav className="ya-floating" aria-label="빠른 이동">
           <a
             href={links.instagramUrl}
@@ -492,7 +491,7 @@ export default function Proposal({
                 alt=""
               />
             </a>
-          ) : (
+          ) : variant === 'a' ? (
             <span
               className="ya-floating-preview"
               role="img"
@@ -506,7 +505,7 @@ export default function Proposal({
                 alt=""
               />
             </span>
-          )}
+          ) : null}
           <a
             href={links.naverReservationUrl || links.naverMapUrl}
             target="_blank"
@@ -538,7 +537,8 @@ export default function Proposal({
             <span aria-hidden="true">TOP</span>
           </a>
         </nav>
-      ) : (
+      )}
+      {variant !== 'a' && (
         <div className="pv-mobile-contact">
           <a href={phone}>전화 예약 · 문의</a>
           <a href={links.naverMapUrl} target="_blank" rel="noopener noreferrer">

@@ -977,7 +977,7 @@
   white-space: pre-line;
   font-size: 14px;
 }
-.pv-a .ya-floating {
+:is(.pv-a, .pv-c) .ya-floating {
   position: fixed;
   z-index: 35;
   right: 16px;
@@ -985,7 +985,7 @@
   display: grid;
   gap: 10px;
 }
-.pv-a .ya-floating > :is(a, .ya-floating-preview) {
+:is(.pv-a, .pv-c) .ya-floating > :is(a, .ya-floating-preview) {
   width: 44px;
   height: 44px;
   border-radius: 14px;
@@ -997,16 +997,16 @@
   box-shadow: 0 3px 12px #29221d18;
   line-height: 1;
 }
-.pv-a .ya-floating > a:hover {
+:is(.pv-a, .pv-c) .ya-floating > a:hover {
   border-color: #b9a99a;
 }
-.pv-a .ya-floating > .ya-floating-phone {
+:is(.pv-a, .pv-c) .ya-floating > .ya-floating-phone {
   background: #a82722;
   border-color: #a82722;
   color: #fff;
   font-size: 21px;
 }
-.pv-a .ya-floating > .ya-floating-top {
+:is(.pv-a, .pv-c) .ya-floating > .ya-floating-top {
   align-content: center;
   gap: 5px;
   margin-top: 4px;
@@ -1014,7 +1014,7 @@
   font-weight: 800;
   letter-spacing: 0.06em;
 }
-.pv-a .ya-floating-top::before {
+:is(.pv-a, .pv-c) .ya-floating-top::before {
   content: '';
   width: 8px;
   height: 8px;
@@ -1042,8 +1042,18 @@
   .pv-a .ya-location-grid {
     margin-top: 40px;
   }
-  .pv-a .ya-floating {
+  :is(.pv-a, .pv-c) .ya-floating {
     right: 8px;
     gap: 8px;
+  }
+}
+
+.pv-c .ya-floating > .ya-floating-phone {
+  background: var(--pv-accent);
+  border-color: var(--pv-accent);
+}
+@media (max-width: 760px) {
+  .pv-c .ya-floating {
+    bottom: calc(68px + env(safe-area-inset-bottom));
   }
 }
