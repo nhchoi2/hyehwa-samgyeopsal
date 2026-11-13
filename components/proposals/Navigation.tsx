@@ -1,15 +1,16 @@
 'use client';
+import copy from '@/data/locales/ko/navigation.json';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { pages, variants, type Variant } from '@/data/proposals';
-const publicNavLabels: Partial<Record<string, string>> = { about: '소개', location: '위치' };
+const publicNavLabels: Partial<Record<string, string>> = { about: copy.about, location: copy.location };
 
 function ProposalSwitch({ variant, page }: { variant: Variant; page: string }) {
   return (
     <div className={variant === 'a' ? 'pv-switch ya-switch' : 'pv-switch'}>
-      <Link href="/">시안 모아보기</Link>
-      <nav aria-label="디자인 비교">
+      <Link href="/">{copy.proposalIndex}</Link>
+      <nav aria-label={copy.compare}>
         {Object.keys(variants).map((v) => (
           <Link
             key={v}
@@ -17,7 +18,7 @@ function ProposalSwitch({ variant, page }: { variant: Variant; page: string }) {
             aria-current={v === variant ? 'page' : undefined}
           >
             {v.toUpperCase()}
-            <span> 시안</span>
+            <span>{copy.proposalSuffix}</span>
           </Link>
         ))}
       </nav>
@@ -41,7 +42,7 @@ export default function Navigation({
       {showProposalSwitch && <ProposalSwitch variant={variant} page={page} />}
       <header className="pv-header">
         {variant === 'a' && (
-          <p className="ya-header-tagline">맛있는 한 점, 함께하는 좋은 시간.</p>
+          <p className="ya-header-tagline">{copy.tagline}</p>
         )}
         <Link className="pv-brand" href={base}>
           {variant === 'c' ? (
@@ -50,14 +51,14 @@ export default function Navigation({
               src="/images/logo/daetongryeong.svg"
               width={278}
               height={149}
-              alt="혜화 대통령 삼겹살 홈"
+              alt={copy.brandHome}
               unoptimized
             />
           ) : (
             <>
-                <span>혜화 삼겹살</span>
+                <span>{copy.brandPrefix}</span>
                 <strong>
-                  대통령<span className="pv-brand-dot">.</span>
+                  {copy.brand}<span className="pv-brand-dot">.</span>
                 </strong>
             </>
           )}
@@ -71,12 +72,12 @@ export default function Navigation({
             if (e.key === 'Escape') setOpen(false);
           }}
         >
-          {open ? '닫기 ✕' : '메뉴 ☰'}
+          {open ? copy.close : copy.open}
         </button>
         <nav
           id="proposal-navigation"
           className={open ? 'pv-nav is-open' : 'pv-nav'}
-          aria-label="주요 메뉴"
+          aria-label={copy.primary}
           onKeyDown={(e) => {
             if (e.key === 'Escape') setOpen(false);
           }}
@@ -93,7 +94,7 @@ export default function Navigation({
           ))}
           {variant !== 'c' && (
             <a className="pv-button" href="tel:027664405">
-              전화 예약 ↗
+              {copy.phoneBooking}
             </a>
           )}
         </nav>

@@ -1,3 +1,6 @@
+import location from '@/data/locales/ko/location.json';
+import buttons from '@/data/locales/ko/buttons.json';
+import about from '@/data/locales/ko/about.json';
 import Image from 'next/image';
 import YongsHome from './YongsHome';
 import Link from 'next/link';
@@ -36,10 +39,10 @@ function Actions({ base }: { base: string }) {
   return (
     <div className="pv-actions">
       <Link className="pv-button" href={`${base}/menu`}>
-        메뉴 살펴보기 <span>↗</span>
+        {buttons.browseMenu} <span>↗</span>
       </Link>
       <a className="pv-button pv-outline" href={phone}>
-        전화 예약 · 문의 ↗
+        {buttons.callInquiryArrow}
       </a>
     </div>
   );
@@ -48,14 +51,14 @@ function Visit({ standalone = false }: { standalone?: boolean }) {
   const details = (
     <dl>
       {[
-        ['영업시간', restaurant.businessHours],
-        ['전화', restaurant.phone],
-        ['주차', restaurant.parking],
-        ['모임 안내', restaurant.seating],
+        [location.hours, restaurant.businessHours],
+        [location.phone, restaurant.phone],
+        [location.parking, restaurant.parking],
+        [location.seating, restaurant.seating],
       ].map(([label, value]) => (
         <div key={label}>
           <dt>{label}</dt>
-          <dd>{label === '전화' ? <a href={phone}>{value}</a> : value}</dd>
+          <dd>{label === location.phone ? <a href={phone}>{value}</a> : value}</dd>
         </div>
       ))}
     </dl>
@@ -64,11 +67,11 @@ function Visit({ standalone = false }: { standalone?: boolean }) {
     <div className="pv-visit">
       <div>
         {standalone ? (
-          <h1>오시는 길</h1>
+          <h1>{location.heading}</h1>
         ) : (
           <>
             <p className="pv-kicker">FIND US IN HYEHWA</p>
-            <h2>혜화에서 만나요.</h2>
+            <h2>{location.welcome}</h2>
           </>
         )}
         <p>{restaurant.address}</p>
@@ -78,7 +81,7 @@ function Visit({ standalone = false }: { standalone?: boolean }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          네이버지도에서 길찾기 ↗
+          {buttons.naverDirections}
         </a>
       </div>
       {details}
@@ -89,11 +92,11 @@ function YongsLocation() {
   return (
     <section className="ya-location">
       <div className="ya-location-lead">
-        <h1>오시는 길</h1>
+        <h1>{location.heading}</h1>
         <p>{restaurant.address}</p>
         <div className="ya-location-actions">
           <a className="ya-action ya-red" href={phone}>
-            전화 예약 · 문의
+            {buttons.callInquiry}
           </a>
           <a
             className="ya-action ya-menu-link"
@@ -101,7 +104,7 @@ function YongsLocation() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            네이버지도 길찾기 ↗
+            {buttons.naverDirectionsShort}
           </a>
         </div>
       </div>
@@ -109,31 +112,30 @@ function YongsLocation() {
         <div className="ya-location-photo">
           <Image
             src="/images/materials/business/business-088.webp"
-            alt="혜화 삼겹살 대통령 매장 입구"
+            alt={location.entrancePhoto}
             fill
             sizes="(max-width:1023px) 94vw, 46vw"
           />
         </div>
         <dl className="ya-location-info">
           <div>
-            <dt>영업시간</dt>
+            <dt>{location.hours}</dt>
             <dd>{restaurant.businessHours}</dd>
           </div>
           <div>
-            <dt>전화</dt>
+            <dt>{location.phone}</dt>
             <dd>
               <a href={phone}>{restaurant.phone}</a>
             </dd>
           </div>
           <div>
-            <dt>주차 및 단체석</dt>
+            <dt>{location.parkingAndSeating}</dt>
             <dd>
-              {restaurant.parking} · 주차 방법과 단체 좌석은 방문 전 문의해
-              주세요.
+              {restaurant.parking} · {location.parkingInquiry}
             </dd>
           </div>
           <div>
-            <dt>편의시설</dt>
+            <dt>{location.amenities}</dt>
             <dd className="pv-amenities">
               {restaurant.amenities.map((item) => (
                 <span key={item}>{item}</span>
@@ -157,7 +159,7 @@ export default function Proposal({
   const v = variants[variant];
   const titles: Record<string, [string, string]> = {
     menu: ['OUR TABLE', '맛있는 만남의 시작.'],
-    about: ['OUR STORY', '함께여서 더 좋은 공간.'],
+    about: ['OUR STORY', about.aboutHeading],
   };
   return (
     <div
@@ -247,7 +249,7 @@ export default function Proposal({
                     삼겹살에 은은한 대나무 향을 더합니다.
                   </p>
                   <Link className="pv-text-link" href={`${base}/menu`}>
-                    메뉴와 가격 보기 ↗
+                    {buttons.menuPrices}
                   </Link>
                 </div>
               </section>
@@ -277,7 +279,7 @@ export default function Proposal({
                     <h2>눈으로 먼저 만나는 한 상.</h2>
                   </div>
                   <Link className="pv-text-link" href={`${base}/menu`}>
-                    메뉴 안내 ↗
+                    {buttons.menuGuide}
                   </Link>
                 </div>
                 <MenuCards items={featuredMenus} />
@@ -288,7 +290,7 @@ export default function Proposal({
                 className="pv-section pv-c-faq"
                 aria-labelledby="c-faq-heading"
               >
-                <h2 id="c-faq-heading">자주 묻는 질문</h2>
+                <h2 id="c-faq-heading">{about.faqHeading}</h2>
                 <div className="pv-c-faq-list">
                   {cHomeFaqs.map(({ question, answer, contact }) => (
                     <details key={question} name="c-home-faq">
@@ -296,7 +298,7 @@ export default function Proposal({
                       <p>{answer}</p>
                       {contact && (
                         <a className="pv-text-link" href={phone}>
-                          전화로 예약 문의 ↗
+                          {buttons.callReservation}
                         </a>
                       )}
                     </details>
@@ -320,7 +322,7 @@ export default function Proposal({
                   </h2>
                   <p>{restaurant.groupBooking}</p>
                   <a className="pv-text-link" href={phone}>
-                    모임 예약 문의 ↗
+                    {buttons.groupReservation}
                   </a>
                 </div>
               </section>
@@ -356,62 +358,42 @@ export default function Proposal({
                 {variant === 'c' && (
                   <section
                     className="pv-brand-story"
-                    aria-label="대통령 삼겹살 이야기"
+                    aria-label={about.storyLabel}
                   >
                     <dl
                       className="pv-brand-name"
-                      aria-label="대통령 이름의 유래"
+                      aria-label={about.nameOrigin}
                     >
                       <div>
-                        <dt>대나무 (竹)</dt>
-                        <dd>대</dd>
+                        <dt>{about.bamboo}</dt>
+                        <dd>{about.dae}</dd>
                       </div>
                       <div>
-                        <dt>대롱 (筒)</dt>
-                        <dd>통</dd>
+                        <dt>{about.tube}</dt>
+                        <dd>{about.tong}</dd>
                       </div>
                       <div>
-                        <dt>제로 (zero)</dt>
-                        <dd>령</dd>
+                        <dt>{about.zero}</dt>
+                        <dd>{about.ryeong}</dd>
                       </div>
                     </dl>
                     <div className="pv-brand-copy">
-                      <p>
-                        <strong>대통령</strong> 삼겹살이 맛있는 건강을 책임집니다
-                      </p>
-                      <p>
-                        우리나라 국민 영양식 삼겹살이
-                        <br />
-                        대나무 진액을 만나 보양식으로 다시 태어났습니다.
-                      </p>
-                      <p>
-                        대나무의 대롱 안에 국내산 최고 등급 삼겹살을 넣고
-                        <br />
-                        오븐에서 맛깔나게 구워 내는 <strong>대통령</strong> 삼겹살.
-                      </p>
-                      <p>
-                        오븐의 조리과정에서 나오는 대나무 진액(죽력)은
-                        <br />
-                        전통 의학에서는 몸속의 노폐물을 씻어주고
-                        <br />
-                        혈압을 조절하는 효과가 있다고 전해집니다.
-                      </p>
-                      <p>
-                        대나무 진액이 삼겹살을 만나
-                        <br />
-                        기름기, 잡냄새, 발암물질을 제로(0)로 만듭니다.
-                      </p>
-                      <p>
-                        향과 맛도 OK, 건강도 OK!
-                      </p>
-                      <p>건강한 보양식 이제 <strong>대통령</strong> 삼겹살입니다.</p>
+                      {Object.entries(about.paragraphs).map(([key, paragraph]) => (
+                        <p key={key} style={{ whiteSpace: 'pre-line' }}>
+                          {paragraph.split(/(\{[^{}]+\})/g).map((part, index) =>
+                            part.startsWith('{') ? (
+                              <strong key={index}>{part.slice(1, -1)}</strong>
+                            ) : part
+                          )}
+                        </p>
+                      ))}
                     </div>
                   </section>
                 )}
                 <div className="pv-about-image">
                   <Photo
                     name="table"
-                    alt="대통령의 고기와 곁들임 한 상"
+                    alt={about.tablePhoto}
                     priority
                   />
                 </div>
@@ -428,10 +410,10 @@ export default function Proposal({
                   ))}
                 </div>
                 <div className="pv-menu-notice">
-                  <h2>모임의 크기에 맞춰 준비합니다.</h2>
+                  <h2>{about.groupHeading}</h2>
                   <p>{restaurant.groupBooking}</p>
                   <a className="pv-button" href={phone}>
-                    단체 예약 상담 ↗
+                    {buttons.groupConsultation}
                   </a>
                 </div>
               </section>
@@ -444,9 +426,9 @@ export default function Proposal({
                   {variant === 'c' ? <BranchLocations /> : <Visit standalone />}
                   {variant !== 'c' && (
                     <div className="pv-location-note">
-                      <h2>방문 전 확인해 주세요</h2>
+                      <h2>{location.visitHeading}</h2>
                       <p>
-                        주차 방법과 단체 좌석은 방문 전에 전화로 문의해 주세요.
+                        {location.visitInquiry}
                       </p>
                       <div className="pv-amenities">
                         {restaurant.amenities.map((x) => (
@@ -461,13 +443,13 @@ export default function Proposal({
         )}
       </main>
       {variant !== 'b' && (
-        <nav className="ya-floating" aria-label="빠른 이동">
+        <nav className="ya-floating" aria-label={buttons.quickLinks}>
           <a
             href={links.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="인스타그램"
-            title="인스타그램"
+            aria-label={buttons.instagram}
+            title={buttons.instagram}
           >
             <Image
               src="/images/brands/instagram.svg"
@@ -481,8 +463,8 @@ export default function Proposal({
               href={links.facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="페이스북"
-              title="페이스북"
+              aria-label={buttons.facebook}
+              title={buttons.facebook}
             >
               <Image
                 src="/images/brands/facebook.svg"
@@ -495,8 +477,8 @@ export default function Proposal({
             <span
               className="ya-floating-preview"
               role="img"
-              aria-label="페이스북"
-              title="페이스북"
+              aria-label={buttons.facebook}
+              title={buttons.facebook}
             >
               <Image
                 src="/images/brands/facebook.svg"
@@ -510,8 +492,8 @@ export default function Proposal({
             href={links.naverReservationUrl || links.naverMapUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="네이버 플레이스"
-            title="네이버 플레이스"
+            aria-label={buttons.naverPlace}
+            title={buttons.naverPlace}
           >
             <Image
               src="/images/brands/naver.svg"
@@ -523,26 +505,26 @@ export default function Proposal({
           <a
             className="ya-floating-phone"
             href={phone}
-            aria-label="전화 예약"
-            title="전화 예약"
+            aria-label={buttons.phoneReservation}
+            title={buttons.phoneReservation}
           >
             <span aria-hidden="true">☎</span>
           </a>
           <a
             className="ya-floating-top"
             href="#ya-top"
-            aria-label="맨 위로 이동"
-            title="맨 위로 이동"
+            aria-label={buttons.backToTop}
+            title={buttons.backToTop}
           >
-            <span aria-hidden="true">TOP</span>
+            <span aria-hidden="true">{buttons.top}</span>
           </a>
         </nav>
       )}
       {variant !== 'a' && (
         <div className="pv-mobile-contact">
-          <a href={phone}>전화 예약 · 문의</a>
+          <a href={phone}>{buttons.callInquiry}</a>
           <a href={links.naverMapUrl} target="_blank" rel="noopener noreferrer">
-            길찾기 ↗
+            {buttons.directions}
           </a>
         </div>
       )}

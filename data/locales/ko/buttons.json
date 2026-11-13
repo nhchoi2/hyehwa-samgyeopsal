@@ -1,0 +1,20 @@
+{
+  "browseMenu": "메뉴 살펴보기",
+  "callInquiry": "전화 예약 · 문의",
+  "callInquiryArrow": "전화 예약 · 문의 ↗",
+  "naverDirections": "네이버지도에서 길찾기 ↗",
+  "naverDirectionsShort": "네이버지도 길찾기 ↗",
+  "menuPrices": "메뉴와 가격 보기 ↗",
+  "menuGuide": "메뉴 안내 ↗",
+  "callReservation": "전화로 예약 문의 ↗",
+  "groupReservation": "모임 예약 문의 ↗",
+  "groupConsultation": "단체 예약 상담 ↗",
+  "quickLinks": "빠른 이동",
+  "instagram": "인스타그램",
+  "facebook": "페이스북",
+  "naverPlace": "네이버 플레이스",
+  "phoneReservation": "전화 예약",
+  "backToTop": "맨 위로 이동",
+  "directions": "길찾기 ↗",
+  "top": "TOP"
+}

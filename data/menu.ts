@@ -1,10 +1,11 @@
 import type { MenuItem } from '@/types/menu';
 import source from './menu-source.json';
+import menuCopy from './locales/ko/menu.json';
 import { menuImages } from './menu-images';
 
 // One source of truth for every design and the original routes.
 const menuItems = source.items.map((item) => ({
-  ...item,
+  ...item, ...menuCopy[item.id as keyof typeof menuCopy],
   image: menuImages[item.image] ?? item.image,
 }));
 export const menus: MenuItem[] = menuItems.filter((item) => item.priceKrw > 0);

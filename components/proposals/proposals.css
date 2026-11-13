@@ -1194,6 +1194,20 @@
 .pv-soft-drinks {
   margin-block: 28px;
 }
+/* Keep drink cards compact across the menu's responsive layouts. */
+.pv-c .pv-menu-browser .pv-soft-drinks .pv-menu-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 900px) {
+  .pv-c .pv-menu-browser .pv-soft-drinks .pv-menu-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1200px) {
+  .pv-c .pv-menu-browser .pv-soft-drinks .pv-menu-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
 .pv-soft-drinks ul {
   margin: 0;
   padding: 0;
@@ -1361,7 +1375,7 @@
   }
 }
 @media (max-width: 389px) {
-  .pv-c .pv-menu-browser .pv-menu-grid.pv-food-grid {
+  .pv-c .pv-menu-browser .pv-menu-category > .pv-menu-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 }
@@ -1745,5 +1759,23 @@
 
   .pv-c-mosaic-interior {
     transition: inset-inline-start 420ms ease, width 420ms ease, translate 420ms ease;
+  }
+}
+
+.pv-c .pv-menu-browser .pv-soft-drinks .pv-menu-copy h3 {
+  font-size: 19px;
+}
+.pv-c .pv-soft-drinks .pv-menu-copy-split .pv-menu-price {
+  font-size: calc(clamp(12px, 1.6vw, 20px) - 1px);
+}
+.pv-c .pv-soft-drinks li {
+  font-size: calc(1em - 1px);
+}
+@media (max-width: 760px) {
+  .pv-c .pv-menu-browser .pv-soft-drinks .pv-menu-copy h3 {
+    font-size: 15px;
+  }
+  .pv-c .pv-soft-drinks .pv-menu-copy-split .pv-menu-price {
+    font-size: 14px;
   }
 }

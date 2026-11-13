@@ -1,5 +1,7 @@
 'use client';
-import { useState } from 'react';
+import copy from '@/data/locales/ko/menu-ui.json';
+import drinkNames from '@/data/locales/ko/drinks.json';
+import { useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import type { MenuItem } from '@/types/menu';
 import { corkage } from '@/data/menu';
@@ -8,38 +10,36 @@ import YongsMenuCards from './YongsMenuCards';
 
 const categoryOptions = [
   {
-    label: '세트',
+    label: copy.sets,
     value: '세트 메뉴',
-    intro: '좋아하는 고기를 한 상에, 여럿이 함께 즐겨보세요.',
+    intro: copy.setsIntro,
   },
   {
-    label: '고기',
+    label: copy.meat,
     value: '고기 메뉴',
-    intro: '대나무 향을 입힌 삼겹살부터 고소한 한우까지.',
+    intro: copy.meatIntro,
   },
   {
-    label: '식사',
+    label: copy.meals,
     value: '식사 메뉴',
-    intro: '시원한 냉면부터 따끈한 찌개까지, 든든하게 한 끼.',
+    intro: copy.mealsIntro,
   },
   {
-    label: '곁들임',
+    label: copy.sides,
     value: '곁들임',
-    intro: '고기 한 점에 곁들여, 한입의 맛을 더해보세요.',
+    intro: copy.sidesIntro,
   },
-  { label: '주류·음료', value: '주류', intro: '고기 한 점에 어울리는 술 한 잔.' },
+  { label: copy.drinks, value: '주류', intro: copy.drinksIntro },
 ];
 const softDrinks = [
-  { name: '레몬에이드', price: '6,000원' },
-  { name: '자몽에이드', price: '6,000원' },
-  { name: '싱하 탄산수', price: '4,000원' },
-  { name: '코카콜라', price: '3,000원' },
-  { name: '코카콜라 제로', price: '3,000원' },
-  { name: '스프라이트', price: '3,000원' },
-  { name: '환타 파인애플', price: '3,000원' },
-  { name: '토닉워터', price: '3,000원' },
-  { name: '카스 제로', price: '4,000원' },
-  { name: '카스 제로 레몬', price: '4,000원' },
+  { name: drinkNames.lemonAde, price: '6,000원' },
+  { name: drinkNames.grapefruitAde, price: '6,000원' },
+  { name: drinkNames.singha, price: '4,000원' },
+  { name: drinkNames.coke, price: '3,000원' },
+  { name: drinkNames.cokeZero, price: '3,000원' },
+  { name: drinkNames.sprite, price: '3,000원' },
+  { name: drinkNames.fanta, price: '3,000원' },
+  { name: drinkNames.tonic, price: '3,000원' },
 ];
 
 const drinkGroups: {
@@ -48,60 +48,62 @@ const drinkGroups: {
   photoIds?: string[];
 }[] = [
   {
-    title: '맥주',
+    title: copy.beer,
     items: [
-      { name: '생맥주 300mL', price: '3,000원' },
-      { name: '생맥주 420mL', price: '5,000원' },
-      { name: '카스', price: '6,000원' },
-      { name: '한맥', price: '6,000원' },
-      { name: '버드와이저', price: '6,000원' },
-      { name: '스텔라', price: '6,000원' },
+      { name: drinkNames.draft300, price: '3,000원', image: '/images/menu/draft-300cc.webp' },
+      { name: drinkNames.hanmac420, price: '5,000원', image: '/images/menu/hanmac-420cc.webp' },
+      { name: drinkNames.cassZero, price: '4,000원', image: '/images/menu/cass-zero.webp' },
+      { name: drinkNames.cassZeroLemon, price: '4,000원', image: '/images/menu/cass-zero-lemon.webp' },
+      { name: drinkNames.cass, price: '6,000원', image: '/images/menu/cass.webp' },
+      { name: drinkNames.hanmac, price: '6,000원' },
+      { name: drinkNames.budweiser, price: '6,000원', image: '/images/menu/budweiser.webp' },
+      { name: drinkNames.stella, price: '6,000원', image: '/images/menu/stella.webp' },
     ],
   },
   {
-    title: '소주·증류주',
+    title: copy.spirits,
     photoIds: ['menu-31', 'menu-33'],
     items: [
-      { name: '참이슬 오리지널', price: '5,000원' },
-      { name: '참이슬 후레쉬', price: '5,000원' },
-      { name: '새로 오미자', price: '5,000원' },
-      { name: '새로', price: '5,000원' },
-      { name: '진로', price: '5,000원' },
-      { name: '찰랑', price: '5,000원' },
-      { name: '처음처럼', price: '5,000원' },
-      { name: '일품진로', price: '30,000원', image: '/images/menu/ilpoom-jinro.webp' },
-      { name: '화요', price: '30,000원', image: '/images/menu/hwayo.webp' },
+      { name: drinkNames.chamisulOriginal, price: '5,000원', image: '/images/menu/chamisul-original.webp' },
+      { name: drinkNames.chamisulFresh, price: '5,000원', image: '/images/menu/chamisul-fresh.webp' },
+      { name: drinkNames.saeroOmija, price: '5,000원', image: '/images/menu/saero-omija.webp' },
+      { name: drinkNames.saero, price: '5,000원', image: '/images/menu/saero.webp' },
+      { name: drinkNames.jinro, price: '5,000원', image: '/images/menu/jinro-is-back.webp' },
+      { name: drinkNames.challang, price: '5,000원', image: '/images/menu/challang.webp' },
+      { name: drinkNames.chumChurum, price: '5,000원', image: '/images/menu/chum-churum.webp' },
+      { name: drinkNames.ilpoomJinro, price: '30,000원', image: '/images/menu/ilpoom-jinro.webp' },
+      { name: drinkNames.hwayo, price: '30,000원', image: '/images/menu/hwayo.webp' },
     ],
   },
   {
-    title: '전통주·청주',
+    title: copy.traditional,
     photoIds: ['menu-32'],
     items: [
-      { name: '산사춘', price: '10,000원' },
-      { name: '복분자', price: '15,000원' },
-      { name: '백세주', price: '10,000원' },
-      { name: '매화수', price: '6,000원' },
-      { name: '청하', price: '7,000원' },
-      { name: '밀담 360mL', price: '5,000원' },
+      { name: drinkNames.sansachun, price: '10,000원', image: '/images/menu/sansachun.webp' },
+      { name: drinkNames.bokbunja, price: '15,000원', image: '/images/menu/bokbunja.webp' },
+      { name: drinkNames.baekseju, price: '10,000원', image: '/images/menu/baekseju.webp' },
+      { name: drinkNames.maehwasoo, price: '6,000원', image: '/images/menu/maehwasoo.webp' },
+      { name: drinkNames.chungha, price: '7,000원', image: '/images/menu/chungha.webp' },
+      { name: drinkNames.mildam, price: '10,000원', image: '/images/menu/mildam.webp' },
     ],
   },
   {
-    title: '사케',
+    title: copy.sake,
     items: [
-      { name: '반샤쿠', price: '7,000원' },
-      { name: '핫 도쿠리', price: '7,000원' },
-      { name: '준마이 팩', price: '38,000원', image: '/images/menu/junmai-pack.webp' },
-      { name: '키쥬로', price: '49,000원', image: '/images/menu/kijuro.webp' },
+      { name: drinkNames.banshaku, price: '7,000원', image: '/images/menu/banshaku.webp' },
+      { name: drinkNames.hotTokkuri, price: '7,000원', image: '/images/menu/hot-tokkuri.webp' },
+      { name: drinkNames.junmai, price: '38,000원', image: '/images/menu/junmai-pack.webp' },
+      { name: drinkNames.kijuro, price: '49,000원', image: '/images/menu/kijuro.webp' },
     ],
   },
   {
-    title: '하이볼',
+    title: copy.highball,
     items: [
-      { name: '화요 하이볼', price: '8,000원' },
+      { name: drinkNames.highball, price: '8,000원', image: '/images/menu/hwayo-highball.webp' },
     ],
   },
-  { title: '와인', photoIds: ['menu-28', 'menu-29'], items: [] },
-  { title: '음료', items: softDrinks },
+  { title: copy.wine, photoIds: ['menu-28', 'menu-29'], items: [] },
+  { title: copy.softDrinks, items: softDrinks },
 ];
 
 export default function MenuGrid({
@@ -113,11 +115,24 @@ export default function MenuGrid({
 }) {
   const [category, setCategory] = useState(categoryOptions[0]);
   const selected = category.value;
+  const menuBrowser = useRef<HTMLDivElement>(null);
+  const previousCategory = useRef(selected);
+
+  useLayoutEffect(() => {
+    if (previousCategory.current === selected) return;
+    previousCategory.current = selected;
+
+    const browser = menuBrowser.current;
+    if (browser && browser.getBoundingClientRect().top < 0) {
+      browser.scrollIntoView({ block: 'start', behavior: 'instant' });
+    }
+  }, [selected]);
+
   const visibleItems = items.filter((item) => item.category === selected);
   const MenuPhotos = overlay ? YongsMenuCards : MenuCards;
   return (
-    <div className="pv-menu-browser">
-      <nav className="pv-category-sidebar" aria-label="메뉴 분류">
+    <div className="pv-menu-browser" ref={menuBrowser}>
+      <nav className="pv-category-sidebar" aria-label={copy.categories}>
         {categoryOptions.map((category) => (
           <button
             key={category.value}
@@ -181,26 +196,25 @@ export default function MenuGrid({
             <div className="pv-corkage-image">
               <Image
                 src={corkage.image}
-                alt="콜키지 무료 안내"
+                alt={copy.corkagePhoto}
                 fill
                 sizes="(max-width:760px) 88vw, 240px"
                 className="pv-photo"
               />
             </div>
             <div>
-              <p className="pv-kicker">BRING YOUR OWN BOTTLE</p>
-              <h2>콜키지 무료</h2>
-              <p>가져오신 주류를 추가 비용 없이 함께 즐기세요.</p>
+              <p className="pv-kicker">{copy.corkageKicker}</p>
+              <h2>{copy.corkageHeading}</h2>
+              <p>{copy.corkageDescription}</p>
               <p>
-                최대 1병까지 이용할 수 있습니다. 자세한 조건은 예약 시 확인해
-                주세요.
+                {copy.corkageLimit}
               </p>
             </div>
           </section>
         )}
         {selected === '식사 메뉴' && (
           <p className="pv-menu-source">
-            점심 메뉴를 주문할 수 있는 시간은 매장에 문의해 주세요.
+            {copy.lunchHours}
           </p>
         )}
       </div>

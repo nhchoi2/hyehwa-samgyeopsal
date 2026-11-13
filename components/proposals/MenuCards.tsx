@@ -1,3 +1,4 @@
+import copy from '@/data/locales/ko/menu-ui.json';
 import Image from 'next/image';
 import MenuName from '@/components/menu/MenuName';
 import type { MenuItem } from '@/types/menu';
@@ -17,7 +18,7 @@ export function MenuCards({ items, splitPrice = false }: { items: MenuItem[]; sp
                 className="pv-photo"
               />
               {item.featured && (
-                <span className="pv-menu-featured-badge">대표 메뉴</span>
+                <span className="pv-menu-featured-badge">{copy.featured}</span>
               )}
             </div>
             <div className={splitPrice ? 'pv-menu-copy pv-menu-copy-split' : 'pv-menu-copy'}>

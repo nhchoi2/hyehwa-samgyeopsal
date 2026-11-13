@@ -1,80 +1,81 @@
+import copy from './locales/ko/restaurant.json';
 import type { Restaurant, RestaurantImage } from '@/types/restaurant';
 
 export const restaurant: Restaurant = {
-  name: '혜화삼겹살대통령직영본점',
+  name: copy.restaurant.name,
   englishName: 'Hyehwa Samgyeopsal President',
   phone: '02-766-4405',
-  address: '서울 종로구 대학로14길 12-1 1층',
-  lotAddress: '서울 종로구 혜화동 197-1',
+  address: copy.restaurant.address,
+  lotAddress: copy.restaurant.lotAddress,
   businessHours:
-    '매일 11:30–23:00\n월~금 브레이크타임 15:00–16:00\n토·일 브레이크타임 없음',
+    copy.restaurant.businessHours,
   closedDays: '',
-  parking: '주차 가능',
+  parking: copy.restaurant.parking,
   amenities: [
-    '예약',
-    '단체 이용 가능',
-    '포장',
-    '무선 인터넷',
-    '남/녀 화장실 구분',
-    '유아의자',
-    '주차',
+    copy.restaurant.amenitiesReservation,
+    copy.restaurant.amenitiesGroup,
+    copy.restaurant.amenitiesTakeout,
+    copy.restaurant.amenitiesWifi,
+    copy.restaurant.amenitiesRestrooms,
+    copy.restaurant.amenitiesHighChair,
+    copy.restaurant.amenitiesParking,
   ],
   seating:
-    '룸: 100명 이하\n단체석: 100명 이하\n이용 가능 인원과 좌석 구성은 예약 시 문의해 주세요.',
+    copy.restaurant.seating,
   groupBooking:
-    '단체모임, 회식, 행사, 청첩장 모임, 가족모임, 학교·기업 행사, 외국인 관광단체 등 다양한 모임 및 대관이 가능합니다. 가능 인원과 메뉴 등 맞춤 상담이 가능하며, 주말 및 단독 대관은 사전에 문의해 주세요.',
+    copy.restaurant.groupBooking,
   introduction:
-    '넓고 편안한 공간에서 삼겹살과 함께 즐거운 모임을 가져보세요. 혜화·대학로·종로·동대문·중구의 다양한 단체모임을 위한 공간과 맞춤 상담을 제공합니다.',
+    copy.restaurant.introduction,
   story: '',
   philosophy: '',
   space:
-    '룸과 단체석을 갖추고 있으며, 각 항목의 안내 인원은 100명 이하입니다. 실제 이용 가능 인원과 좌석 구성은 사전 문의해 주세요.',
+    copy.restaurant.space,
   ingredients: '',
   features: [
     {
-      title: '단체모임 및 대관',
+      title: copy.restaurant.groupTitle,
       description:
-        '회식부터 가족모임, 학교·기업 행사, 외국인 관광단체까지 다양한 모임을 상담해 드립니다. 주말 및 단독 대관은 사전 문의해 주세요.',
+        copy.restaurant.groupDescription,
     },
     {
-      title: '편리한 매장 이용',
+      title: copy.restaurant.amenitiesTitle,
       description:
-        '예약, 포장, 무선 인터넷, 남/녀 화장실 구분, 유아의자를 지원합니다.',
+        copy.restaurant.amenitiesDescription,
     },
     {
-      title: '주차 가능',
+      title: copy.restaurant.parkingTitle,
       description:
-        '주차가 가능합니다. 이용 방법은 방문 전 매장에 문의해 주세요.',
+        copy.restaurant.parkingDescription,
     },
   ],
   coordinates: null,
 };
 
 const menuFaq = {
-  question: '어떤 메뉴부터 먹으면 좋을까요?',
+  question: copy.faq.menu.question,
   answer:
-    '대나무통 구이 삼겹살과 숙성 삼겹살, 여러 가지 고기를 함께 즐기는 세트 메뉴를 준비했습니다. 메뉴 페이지에서 구성과 가격을 확인해 주세요.',
+    copy.faq.menu.answer,
 };
 
 const parkingFaq = {
-  question: '주차가 가능한가요?',
-  answer: '주차가 가능합니다. 이용 방법은 방문 전 매장에 문의해 주세요.',
+  question: copy.faq.parking.question,
+  answer: copy.faq.parking.answer,
 };
 
 const childrenFaq = {
-  question: '아이와 함께 방문해도 되나요?',
+  question: copy.faq.children.question,
   answer:
-    '유아의자를 준비하고 있습니다. 필요한 좌석과 이용 사항은 예약 시 말씀해 주세요.',
+    copy.faq.children.answer,
 };
 
 export const restaurantFaqs = [
   menuFaq,
   {
-    question: '단체 예약이나 대관이 가능한가요?',
+    question: copy.faq.groupBooking.question,
     answer: restaurant.groupBooking,
   },
   {
-    question: '영업시간과 브레이크타임은 언제인가요?',
+    question: copy.faq.hours.question,
     answer: restaurant.businessHours,
   },
   parkingFaq,
@@ -87,19 +88,19 @@ export const cHomeFaqs: {
   contact?: boolean;
 }[] = [
   {
-    question: '예약은 어떻게 하나요?',
-    answer: '매장으로 전화해 방문 날짜와 시간, 인원을 알려주세요.',
+    question: copy.faq.reservation.question,
+    answer: copy.faq.reservation.answer,
     contact: true,
   },
   {
-    question: '단체 모임은 몇 명까지 가능한가요?',
+    question: copy.faq.capacity.question,
     answer:
-      '룸과 단체석은 100명 이하로 안내하고 있어요. 날짜와 좌석 배치에 따라 이용 가능한 인원이 달라질 수 있으니 예약할 때 확인해 주세요.',
+      copy.faq.capacity.answer,
   },
   {
-    question: '콜키지가 가능한가요?',
+    question: copy.faq.corkage.question,
     answer:
-      '콜키지는 무료입니다. 가져오실 주류의 종류와 병 수는 방문 전에 매장에 문의해 주세요.',
+      copy.faq.corkage.answer,
   },
   menuFaq,
   parkingFaq,

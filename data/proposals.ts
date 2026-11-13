@@ -1,3 +1,4 @@
+import copy from './locales/ko/navigation.json';
 export const variants = {
   a: {
     name: '용스 다이닝 스타일',
@@ -29,10 +30,10 @@ export const variants = {
 } as const;
 export type Variant = keyof typeof variants;
 export const pages = [
-  { slug: '', label: '홈' },
-  { slug: 'menu', label: '메뉴' },
-  { slug: 'about', label: '매장 소개' },
-  { slug: 'location', label: '오시는 길' },
+  { slug: '', label: copy.home },
+  { slug: 'menu', label: copy.menu },
+  { slug: 'about', label: copy.aboutFull },
+  { slug: 'location', label: copy.locationFull },
 ] as const;
 export const foodPhotos = [
   { image: 'grill', label: '불판 위의 한 상' },

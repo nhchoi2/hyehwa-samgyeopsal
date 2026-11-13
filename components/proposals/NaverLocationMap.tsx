@@ -1,4 +1,5 @@
 'use client';
+import location from '@/data/locales/ko/location.json';
 
 import Script from 'next/script';
 import {
@@ -86,7 +87,7 @@ export default function NaverLocationMap({
       ref={container}
       className="pv-location-map"
       role="region"
-      aria-label={`${name} 네이버 지도`}
+      aria-label={`${name} ${location.naverMap}`}
     />
   );
 }
