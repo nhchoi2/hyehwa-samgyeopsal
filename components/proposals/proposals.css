@@ -1805,3 +1805,10 @@
     font-size: 13px;
   }
 }
+
+.pv-about-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: clamp(24px, 4vw, 48px);
+}

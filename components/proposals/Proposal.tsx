@@ -356,6 +356,19 @@ export default function Proposal({
             {page === 'about' && (
               <section className="pv-section pv-about-page">
                 {variant === 'c' && (
+                  <video
+                    className="pv-about-video"
+                    aria-label="대나무통에서 시작된 한 상"
+                    src="/videos/hyehwa-about-web.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    controls
+                    preload="metadata"
+                  />
+                )}
+                {variant === 'c' && (
                   <section
                     className="pv-brand-story"
                     aria-label={about.storyLabel}
@@ -409,13 +422,6 @@ export default function Proposal({
                     </article>
                   ))}
                 </div>
-                <div className="pv-menu-notice">
-                  <h2>{about.groupHeading}</h2>
-                  <p>{restaurant.groupBooking}</p>
-                  <a className="pv-button" href={phone}>
-                    {buttons.groupConsultation}
-                  </a>
-                </div>
               </section>
             )}
             {page === 'location' &&
@@ -445,6 +451,7 @@ export default function Proposal({
       {variant !== 'b' && (
         <nav className="ya-floating" aria-label={buttons.quickLinks}>
           <a
+            className="ya-floating-instagram"
             href={links.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -452,9 +459,9 @@ export default function Proposal({
             title={buttons.instagram}
           >
             <Image
-              src="/images/brands/instagram.svg"
-              width={20}
-              height={20}
+              src="/images/brands/instagram-rounded.svg"
+              width={44}
+              height={44}
               alt=""
             />
           </a>

@@ -986,6 +986,14 @@ pv-a .ya-overlay-grid {
   box-shadow: 0 3px 12px #29221d18;
   line-height: 1;
 }
+:is(.pv-a, .pv-c) .ya-floating > .ya-floating-instagram {
+  overflow: hidden;
+}
+.ya-floating-instagram img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 :is(.pv-a, .pv-c) .ya-floating > a:hover {
   border-color: #b9a99a;
 }
