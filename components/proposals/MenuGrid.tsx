@@ -152,7 +152,7 @@ export default function MenuGrid({
         >
           <div className={overlay || !category.intro ? 'ya-sr-only' : 'pv-section-heading'}>
             <h1 id="menu-category-title" aria-live="polite">
-              {overlay ? selected : (category.intro ?? category.label)}
+              {overlay ? category.label : (category.intro ?? category.label)}
             </h1>
           </div>
           {selected !== '주류' && (

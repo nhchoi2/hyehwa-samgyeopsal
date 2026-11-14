@@ -1,5 +1,6 @@
 'use client';
 
+import copy from '@/data/locales/ko/reviews.json';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import type { Swiper as SwiperInstance } from 'swiper';
@@ -35,7 +36,7 @@ export default function ReviewSlider({ items }: { items: PhotoReview[] }) {
         speed={6300}
         autoplay={multiple ? { delay: 0, disableOnInteraction: false } : false}
         a11y={{
-          slideLabelMessage: '후기 {{index}} / {{slidesLength}}',
+          slideLabelMessage: copy.slideLabel,
         }}
         loop={items.length > 5}
         loopPreventsSliding={false}
@@ -85,11 +86,11 @@ export default function ReviewSlider({ items }: { items: PhotoReview[] }) {
         <div
           className="pv-review-controls"
           role="group"
-          aria-label="리뷰 슬라이드 조작"
+          aria-label={copy.controls}
         >
           <button
             type="button"
-            aria-label="이전 리뷰"
+            aria-label={copy.previous}
             onClick={() => {
               swiper?.autoplay.stop();
               swiper?.slidePrev(300);
@@ -99,7 +100,7 @@ export default function ReviewSlider({ items }: { items: PhotoReview[] }) {
           </button>
           <button
             type="button"
-            aria-label={playing ? '자동 넘김 일시정지' : '자동 넘김 재생'}
+            aria-label={playing ? copy.pause : copy.play}
             onClick={() => {
               if (!swiper) return;
               if (swiper.autoplay.running) swiper.autoplay.stop();
@@ -110,7 +111,7 @@ export default function ReviewSlider({ items }: { items: PhotoReview[] }) {
           </button>
           <button
             type="button"
-            aria-label="다음 리뷰"
+            aria-label={copy.next}
             onClick={() => {
               swiper?.autoplay.stop();
               swiper?.slideNext(300);

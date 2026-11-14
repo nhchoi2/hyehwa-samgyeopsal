@@ -1,0 +1,9 @@
+{
+  "naverBlog": "네이버 블로그",
+  "slideLabel": "후기 {{index}} / {{slidesLength}}",
+  "controls": "리뷰 슬라이드 조작",
+  "previous": "이전 리뷰",
+  "pause": "자동 넘김 일시정지",
+  "play": "자동 넘김 재생",
+  "next": "다음 리뷰"
+}

@@ -1,3 +1,4 @@
+import home from '@/data/locales/ko/home.json';
 import location from '@/data/locales/ko/location.json';
 import buttons from '@/data/locales/ko/buttons.json';
 import about from '@/data/locales/ko/about.json';
@@ -185,7 +186,7 @@ export default function Proposal({
                   <div className="pv-c-mosaic-tile pv-c-mosaic-grill">
                     <Image
                       src={proposalPhotos[v.image]}
-                      alt="대나무통에서 삼겹살을 꺼내는 모습"
+                      alt={home.bambooPhoto}
                       fill
                       sizes="(max-width: 760px) 57vw, (max-width: 1200px) 50vw, 600px"
                       preload
@@ -195,7 +196,7 @@ export default function Proposal({
                   <div className="pv-c-mosaic-tile pv-c-mosaic-table">
                     <Image
                       src="/images/proposals/c-full-table.webp"
-                      alt="불판 위 삼겹살과 곁들임이 차려진 한 상"
+                      alt={home.tablePhoto}
                       fill
                       sizes="(max-width: 760px) 33vw, (max-width: 1200px) 30vw, 352px"
                       loading="eager"
@@ -205,7 +206,7 @@ export default function Proposal({
                   <div className="pv-c-mosaic-tile pv-c-mosaic-interior">
                     <Image
                       src="/images/proposals/c-interior.webp"
-                      alt="나무 테이블과 조명이 있는 매장 내부"
+                      alt={home.interiorPhoto}
                       fill
                       sizes="(max-width: 760px) 33vw, (max-width: 1200px) 30vw, 352px"
                       loading="eager"
@@ -255,10 +256,10 @@ export default function Proposal({
               </section>
             )}
             <div className="pv-facts">
-              <span>매일 11:30 — 23:00</span>
-              <span>단체모임 · 가족모임 · 회식</span>
+              <span>{home.hoursSummary}</span>
+              <span>{home.occasionSummary}</span>
               <Link href={`${base}/location`}>
-                서울 종로구 대학로14길 12-1 ↗
+                {home.addressLink}
               </Link>
             </div>
             {variant === 'c' ? (
@@ -267,7 +268,7 @@ export default function Proposal({
                 aria-labelledby="c-reviews-heading"
               >
                 <div className="pv-section-heading">
-                  <h2 id="c-reviews-heading">손님이 남긴 한 상</h2>
+                  <h2 id="c-reviews-heading">{home.reviewsHeading}</h2>
                 </div>
                 {reviews.length > 0 && <ReviewSlider items={reviews} />}
               </section>
@@ -358,7 +359,7 @@ export default function Proposal({
                 {variant === 'c' && (
                   <video
                     className="pv-about-video"
-                    aria-label="대나무통에서 시작된 한 상"
+                    aria-label={about.videoLabel}
                     src="/videos/hyehwa-about-web.mp4"
                     autoPlay
                     muted
