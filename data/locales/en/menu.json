@@ -1,0 +1,130 @@
+{
+  "menu-01": {
+    "name": "Hanwoo 1++ Set (3 people)",
+    "description": "Hanwoo 1++ ribeye · 2 servings\nHanwoo 1++ brisket · 1 serving"
+  },
+  "menu-02": {
+    "name": "Set A (2–3 people)",
+    "description": "Bamboo-roasted pork belly · 1 serving\nAged pork belly · 1 serving\nHanwoo beef tartare · 100 g\nPremium sides · 2 kinds"
+  },
+  "menu-03": {
+    "name": "Set B (2–3 people)",
+    "description": "Bamboo-roasted pork belly · 1 serving\nAged pork belly · 1 serving\nHoney & gochujang pork belly · 1 serving\nPremium sides · 2 kinds"
+  },
+  "menu-04": {
+    "name": "Set C (2–3 people)",
+    "description": "Bamboo-roasted pork belly · 1 serving\nAged pork belly · 1 serving\nBrisket · 1 serving\nPremium sides · 2 kinds"
+  },
+  "menu-05": {
+    "name": "Set D (3–4 people)",
+    "description": "Bamboo-roasted pork belly · 2 servings\nAged pork belly · 2 servings\nBeef tartare · 200 g\nPremium sides · 2 kinds"
+  },
+  "menu-06": {
+    "name": "Set E (Hanwoo 1++ Ribeye)",
+    "description": "Hanwoo 1++ ribeye · 3 servings\nPremium sides · 2 kinds"
+  },
+  "menu-07": {
+    "name": "Bamboo-Roasted Pork Belly (Grade 1 Korean Pork)",
+    "description": "Pork belly first roasted in bamboo for a subtle aroma."
+  },
+  "menu-08": {
+    "name": "Whole Swimming Crab Kalguksu (Rice Included)",
+    "description": "Knife-cut noodles in a bright, spicy broth with fresh seafood and a whole swimming crab (serves 2)."
+  },
+  "menu-09": {
+    "name": "Kimchi Stew (Rice Included)",
+    "description": "A spicy stew with the tang of well-fermented kimchi."
+  },
+  "menu-10": {
+    "name": "Free Corkage",
+    "description": "Bring your own drinks with no corkage fee."
+  },
+  "menu-11": {
+    "name": "Double-Aged Pork Belly (Grade 1 Korean Pork)",
+    "description": "Fresh pork belly chilled and aged in bamboo for three days."
+  },
+  "menu-12": {
+    "name": "Thin-Sliced Pork Belly (Grade 1 Korean Pork)",
+    "description": "We flash-freeze Korean pork belly using our own technique and slice it to just the right thickness."
+  },
+  "menu-13": {
+    "name": "Honey & Gochujang Pork Belly (Grade 1 Korean Pork)",
+    "description": "Pork belly marinated in gochujang, honey and fruit."
+  },
+  "menu-14": {
+    "name": "Hanwoo 1++ Brisket",
+    "description": "Rich, savory cuts of Hanwoo brisket."
+  },
+  "menu-15": {
+    "name": "Hanwoo 1++ Ribeye",
+    "description": "Aged Hanwoo ribeye with rich juices and flavor."
+  },
+  "menu-16": {
+    "name": "Hanwoo Beef Tartare 100 g",
+    "description": "Fresh raw Hanwoo beef, prepared the same day and tossed in our house sauce."
+  },
+  "menu-17": {
+    "name": "Doenjang Stew (After barbecue)",
+    "description": "Warm soybean paste stew to finish your barbecue."
+  },
+  "menu-18": {
+    "name": "Cold Noodles in Broth",
+    "description": "Chewy noodles in chilled broth, refreshing after barbecue."
+  },
+  "menu-19": {
+    "name": "Spicy Mixed Cold Noodles",
+    "description": "Chewy noodles in a tangy, spicy sauce. Try them with pork belly."
+  },
+  "menu-20": {
+    "name": "Hanwoo Brisket Doenjang Stew",
+    "description": "Soybean paste stew enriched with savory Hanwoo brisket."
+  },
+  "menu-21": {
+    "name": "Rice in Doenjang Stew",
+    "description": "Rice simmered in a hearty soybean paste broth."
+  },
+  "menu-22": {
+    "name": "Swimming Crab Doenjang Stew",
+    "description": "Sweet crab and savory soybean paste in a warming stew."
+  },
+  "menu-23": {
+    "name": "Truffle Herring Roe",
+    "description": "Fragrant truffle and salty herring roe complement the pork belly."
+  },
+  "menu-24": {
+    "name": "Minced Cheongyang Chilies & Anchovies",
+    "description": "Spicy Cheongyang chilies and savory anchovies."
+  },
+  "menu-26": {
+    "name": "Fried Egg with Perilla Oil",
+    "description": "A fresh egg fried in nutty perilla oil."
+  },
+  "menu-27": {
+    "name": "Steamed Rice",
+    "description": ""
+  },
+  "menu-28": {
+    "name": "La Poule Cabernet Sauvignon (Red)",
+    "description": "Blackcurrant and blueberry with gentle oak and a rich fruit finish."
+  },
+  "menu-29": {
+    "name": "La Poule Chardonnay (White)",
+    "description": "Fresh pear and soft vanilla with a lightly toasted oak finish."
+  },
+  "menu-31": {
+    "name": "Cucumber Soju",
+    "description": ""
+  },
+  "menu-32": {
+    "name": "Pitcher of Makgeolli",
+    "description": ""
+  },
+  "menu-33": {
+    "name": "Daetongju",
+    "description": ""
+  },
+  "mixed-vegetables": {
+    "name": "Mixed Vegetables",
+    "description": ""
+  }
+}

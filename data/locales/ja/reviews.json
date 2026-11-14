@@ -1,0 +1,9 @@
+{
+  "slideLabel": "レビュー {{index}} / {{slidesLength}}",
+  "controls": "レビューの操作",
+  "previous": "前のレビュー",
+  "pause": "自動再生を一時停止",
+  "play": "自動再生を開始",
+  "next": "次のレビュー",
+  "naverBlog": "NAVERブログ"
+}

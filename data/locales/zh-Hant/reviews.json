@@ -1,0 +1,9 @@
+{
+  "slideLabel": "評論 {{index}} / {{slidesLength}}",
+  "controls": "評論輪播控制",
+  "previous": "上一則評論",
+  "pause": "暫停自動播放",
+  "play": "開始自動播放",
+  "next": "下一則評論",
+  "naverBlog": "NAVER 部落格"
+}

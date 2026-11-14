@@ -1,6 +1,6 @@
 'use client';
 
-import copy from '@/data/locales/ko/reviews.json';
+import korean from '@/data/locales/ko/reviews.json';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import type { Swiper as SwiperInstance } from 'swiper';
@@ -9,7 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import type { PhotoReview } from '@/data/restaurant';
 import 'swiper/css';
 
-export default function ReviewSlider({ items }: { items: PhotoReview[] }) {
+export default function ReviewSlider({ items, copy = korean }: { copy?: typeof korean; items: PhotoReview[] }) {
   const [swiper, setSwiper] = useState<SwiperInstance | null>(null);
   const [playing, setPlaying] = useState(false);
   const multiple = items.length > 1;

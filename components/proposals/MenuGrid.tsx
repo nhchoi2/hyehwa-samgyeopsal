@@ -1,6 +1,6 @@
 'use client';
-import copy from '@/data/locales/ko/menu-ui.json';
-import drinkNames from '@/data/locales/ko/drinks.json';
+import koreanMenu from '@/data/locales/ko/menu-ui.json';
+import koreanDrinks from '@/data/locales/ko/drinks.json';
 import { useLayoutEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import type { MenuItem } from '@/types/menu';
@@ -8,7 +8,7 @@ import { corkage } from '@/data/menu';
 import { MenuCards } from './MenuCards';
 import YongsMenuCards from './YongsMenuCards';
 
-const categoryOptions = [
+function getCategories(copy: typeof koreanMenu) { return [
   {
     label: copy.sets,
     value: '세트 메뉴',
@@ -31,6 +31,8 @@ const categoryOptions = [
   },
   { label: copy.drinks, value: '주류', intro: null },
 ];
+}
+function getDrinkGroups(copy: typeof koreanMenu, drinkNames: typeof koreanDrinks) {
 const softDrinks = [
   { name: drinkNames.lemonAde, price: '6,000원', image: '/images/menu/lemon-ade.webp' },
   { name: drinkNames.grapefruitAde, price: '6,000원', image: '/images/menu/grapefruit-ade.webp' },
@@ -42,7 +44,7 @@ const softDrinks = [
   { name: drinkNames.tonic, price: '3,000원', image: '/images/menu/tonic-water.webp' },
 ];
 
-const drinkGroups: {
+const groups: {
   title: string;
   items: { name: string; price: string; image?: string }[];
   photoIds?: string[];
@@ -106,15 +108,24 @@ const drinkGroups: {
   { title: copy.softDrinks, items: softDrinks },
 ];
 
+return groups;
+}
+
 export default function MenuGrid({
   items,
   overlay = false,
+  copy = koreanMenu,
+  drinkNames = koreanDrinks,
 }: {
   items: MenuItem[];
   overlay?: boolean;
+  copy?: typeof koreanMenu;
+  drinkNames?: typeof koreanDrinks;
 }) {
-  const [category, setCategory] = useState(categoryOptions[0]);
-  const selected = category.value;
+  const categoryOptions = getCategories(copy);
+  const drinkGroups = getDrinkGroups(copy, drinkNames);
+  const [selected, setCategory] = useState(categoryOptions[0].value);
+  const category = categoryOptions.find(({ value }) => value === selected)!;
   const menuBrowser = useRef<HTMLDivElement>(null);
   const previousCategory = useRef(selected);
 
@@ -139,7 +150,7 @@ export default function MenuGrid({
             type="button"
             aria-pressed={selected === category.value}
             aria-controls="menu-results"
-            onClick={() => setCategory(category)}
+            onClick={() => setCategory(category.value)}
           >
             {category.label}
           </button>
@@ -156,7 +167,7 @@ export default function MenuGrid({
             </h1>
           </div>
           {selected !== '주류' && (
-            <MenuPhotos key={selected} items={visibleItems} splitPrice />
+            <MenuPhotos key={selected} items={visibleItems} splitPrice featuredLabel={copy.featured} />
           )}
           {selected === '주류' && drinkGroups.map((group) => {
             const photos = visibleItems.filter((item) => group.photoIds?.includes(item.id));
@@ -179,7 +190,7 @@ export default function MenuGrid({
                 key={group.title}
               >
                 <h2>{group.title}</h2>
-                {photos.length > 0 && <MenuPhotos items={photos} splitPrice />}
+                {photos.length > 0 && <MenuPhotos items={photos} splitPrice featuredLabel={copy.featured} />}
                 {textItems.length > 0 && (
                   <ul>
                     {textItems.map(({ name, price }) => (

@@ -1,0 +1,9 @@
+{
+  "slideLabel": "评论 {{index}} / {{slidesLength}}",
+  "controls": "评论轮播控制",
+  "previous": "上一条评论",
+  "pause": "暂停自动播放",
+  "play": "开始自动播放",
+  "next": "下一条评论",
+  "naverBlog": "NAVER 博客"
+}

@@ -1,0 +1,9 @@
+{
+  "slideLabel": "Review {{index}} / {{slidesLength}}",
+  "controls": "Review carousel controls",
+  "previous": "Previous review",
+  "pause": "Pause autoplay",
+  "play": "Play reviews",
+  "next": "Next review",
+  "naverBlog": "Naver Blog"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "question": "如何預約？",
+    "answer": "請致電門市告知到店日期、時間和人數。",
+    "contact": true
+  },
+  {
+    "question": "團體最多可容納多少人？",
+    "answer": "包廂和團體座位最多100人，實際人數視日期及座位安排而定，請於預約時確認。",
+    "contact": false
+  },
+  {
+    "question": "可以自帶酒水嗎？",
+    "answer": "免開瓶費，酒類及瓶數請於到店前洽詢。",
+    "contact": false
+  },
+  {
+    "question": "推薦先點什麼？",
+    "answer": "推薦竹筒烤五花肉、熟成五花肉或多種肉品搭配的套餐。詳情和價格請查看菜單。",
+    "contact": false
+  },
+  {
+    "question": "可以停車嗎？",
+    "answer": "可以停車，詳情請於到店前洽詢。",
+    "contact": false
+  },
+  {
+    "question": "可以帶孩子來嗎？",
+    "answer": "備有兒童座椅，預約時請告知座位需求。",
+    "contact": false
+  }
+]

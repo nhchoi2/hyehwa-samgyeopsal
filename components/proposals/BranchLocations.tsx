@@ -1,8 +1,9 @@
-import copy from '@/data/locales/ko/location.json';
+import korean from '@/data/locales/ko/location.json';
 import Image from 'next/image';
 import { restaurant } from '@/data/restaurant';
 import NaverLocationMap, { NaverMapsProvider } from './NaverLocationMap';
 
+export default function BranchLocations({ copy = korean, details = restaurant }: { copy?: typeof korean; details?: Pick<typeof restaurant, 'address' | 'businessHours' | 'parking' | 'seating'> }) {
 const branches = [
   {
     id: 'hyehwa',
@@ -12,11 +13,11 @@ const branches = [
     latitude: 37.5838458897522,
     longitude: 127.002705870434,
     center: { latitude: 37.5832, longitude: 127.0025 },
-    address: restaurant.address,
-    hours: restaurant.businessHours,
+    address: details.address,
+    hours: details.businessHours,
     phone: restaurant.phone,
-    parking: restaurant.parking,
-    seating: restaurant.seating,
+    parking: details.parking,
+    seating: details.seating,
   },
   {
     id: 'sinnonhyeon',
@@ -33,7 +34,6 @@ const branches = [
   },
 ];
 
-export default function BranchLocations() {
   return (
     <NaverMapsProvider>
       <div className="pv-branch-options">
@@ -77,6 +77,7 @@ export default function BranchLocations() {
             </div>
             <NaverLocationMap
               name={branch.name}
+              mapLabel={copy.naverMap}
               latitude={branch.latitude}
               longitude={branch.longitude}
               center={branch.center}

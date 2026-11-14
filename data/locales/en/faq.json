@@ -1,0 +1,32 @@
+[
+  {
+    "question": "How do I make a reservation?",
+    "answer": "Call the restaurant with your preferred date, time and party size.",
+    "contact": true
+  },
+  {
+    "question": "How large a group can you seat?",
+    "answer": "Private rooms and group seats are listed for up to 100 guests. Confirm availability for your date and seating layout when booking.",
+    "contact": false
+  },
+  {
+    "question": "Can I bring my own drinks?",
+    "answer": "There is no corkage fee. Please ask about the type and number of bottles before visiting.",
+    "contact": false
+  },
+  {
+    "question": "What do you recommend ordering first?",
+    "answer": "Try our bamboo-roasted pork belly, aged pork belly or a set with several cuts. See the menu for details and prices.",
+    "contact": false
+  },
+  {
+    "question": "Is there parking?",
+    "answer": "Parking is available. Please contact the restaurant for details before visiting.",
+    "contact": false
+  },
+  {
+    "question": "Can I bring children?",
+    "answer": "High chairs are available. Please mention your seating needs when booking.",
+    "contact": false
+  }
+]

@@ -2,9 +2,108 @@
 import copy from '@/data/locales/ko/navigation.json';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { pages, variants, type Variant } from '@/data/proposals';
-const publicNavLabels: Partial<Record<string, string>> = { about: copy.about, location: copy.location };
+
+
+const languagePreferenceKey = 'hyehwa-language';
+const languageCodes: Record<string, string> = {
+  ko: 'KO', en: 'EN', ja: 'JA', 'zh-Hans': '简', 'zh-Hant': '繁',
+};
+const languageSuggestions: Record<string, string> = {
+  en: 'View in English',
+  ja: '日本語で見る',
+  'zh-Hans': '查看简体中文',
+  'zh-Hant': '查看繁體中文',
+};
+
+function preferredLanguage(tags: readonly string[]) {
+  for (const tag of tags) {
+    const parts = tag.toLowerCase().split('-');
+    const [language] = parts;
+    if (language === 'ko' || language === 'en' || language === 'ja') return language;
+    if (language === 'zh') {
+      return parts.includes('hant') || (!parts.includes('hans') && parts.some((part) => ['tw', 'hk', 'mo'].includes(part)))
+        ? 'zh-Hant'
+        : 'zh-Hans';
+    }
+  }
+  return 'en';
+}
+
+function LanguagePicker({ links, locale, label }: {
+  links: { code: string; label: string; href: string }[];
+  locale: string;
+  label: string;
+}) {
+  const [suggestion, setSuggestion] = useState<string>();
+  useEffect(() => {
+    if (locale !== 'ko') return;
+    const timer = window.setTimeout(() => {
+      let saved: string | null = null;
+      try {
+        saved = localStorage.getItem(languagePreferenceKey);
+        if (sessionStorage.getItem('hyehwa-language-dismissed')) return;
+      } catch {
+        // The browser may restrict storage access.
+      }
+      const preferred = saved || preferredLanguage(navigator.languages.length ? navigator.languages : [navigator.language]);
+      if (preferred !== 'ko') setSuggestion(preferred);
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [locale]);
+
+  function choose(code: string) {
+    try {
+      localStorage.setItem(languagePreferenceKey, code);
+      sessionStorage.removeItem('hyehwa-language-dismissed');
+    } catch {
+      // Language links still work without storage.
+    }
+    setSuggestion(undefined);
+  }
+
+  function dismiss() {
+    try {
+      sessionStorage.setItem('hyehwa-language-dismissed', '1');
+    } catch {
+      // The suggestion can still be closed for this page.
+    }
+    setSuggestion(undefined);
+  }
+
+  const suggested = links.find(({ code }) => code === suggestion);
+  return (
+    <div className="pv-language">
+      <details onToggle={(event) => { if (event.currentTarget.open) dismiss(); }}>
+        <summary aria-label={label}>
+          <svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.4">
+            <circle cx="10" cy="10" r="8" />
+            <ellipse cx="10" cy="10" rx="3.5" ry="8" />
+            <path d="M2 10h16" />
+          </svg> {languageCodes[locale]}
+        </summary>
+        <div className="pv-language-options">
+          {links.map(({ code, label, href }) => (
+            <Link key={code} href={href} hrefLang={code} lang={code}
+              aria-current={code === locale ? 'true' : undefined}
+              onClick={(event) => { event.currentTarget.closest('details')?.removeAttribute('open'); choose(code); }}>
+              {label}
+            </Link>
+          ))}
+        </div>
+      </details>
+      {suggested && (
+        <div className="pv-language-suggestion">
+          <Link href={suggested.href} hrefLang={suggested.code} lang={suggested.code} onClick={() => choose(suggested.code)}>
+            {languageSuggestions[suggested.code]}
+          </Link>
+          <button type="button" onClick={dismiss} aria-label={copy.close.replace(' ✕', '')}>×</button>
+        </div>
+      )}
+    </div>
+  );
+}
 
 function ProposalSwitch({ variant, page }: { variant: Variant; page: string }) {
   return (
@@ -30,11 +129,17 @@ export default function Navigation({
   page,
   base,
   showProposalSwitch,
+  copy: labels,
+  languageLinks,
+  locale,
 }: {
   variant: Variant;
   page: string;
   base: string;
   showProposalSwitch: boolean;
+  copy: typeof copy & { language?: string };
+  languageLinks: { code: string; label: string; href: string }[];
+  locale: string;
 }) {
   const [open, setOpen] = useState(false);
   return (
@@ -51,7 +156,7 @@ export default function Navigation({
               src="/images/logo/daetongryeong.svg"
               width={278}
               height={149}
-              alt={copy.brandHome}
+              alt={labels.brandHome}
               unoptimized
             />
           ) : (
@@ -77,7 +182,7 @@ export default function Navigation({
         <nav
           id="proposal-navigation"
           className={open ? 'pv-nav is-open' : 'pv-nav'}
-          aria-label={copy.primary}
+          aria-label={labels.primary}
           onKeyDown={(e) => {
             if (e.key === 'Escape') setOpen(false);
           }}
@@ -89,7 +194,7 @@ export default function Navigation({
               aria-current={p.slug === page ? 'page' : undefined}
               onClick={() => setOpen(false)}
             >
-              {variant === 'c' ? (publicNavLabels[p.slug] ?? p.label) : p.label}
+              {variant === 'c' ? (labels[(p.slug || 'home') as 'home' | 'menu' | 'about' | 'location'] ?? p.label) : p.label}
             </Link>
           ))}
           {variant !== 'c' && (
@@ -98,6 +203,9 @@ export default function Navigation({
             </a>
           )}
         </nav>
+        {languageLinks.length > 0 && (
+          <LanguagePicker links={languageLinks} locale={locale} label={labels.language ?? '언어 선택'} />
+        )}
       </header>
     </>
   );

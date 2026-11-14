@@ -52,11 +52,13 @@ export default function NaverLocationMap({
   longitude,
   center,
   name,
+  mapLabel = location.naverMap,
 }: {
   latitude: number;
   longitude: number;
   center?: { latitude: number; longitude: number };
   name: string;
+  mapLabel?: string;
 }) {
   const container = useRef<HTMLDivElement>(null);
   const maps = useContext(MapsContext);
@@ -87,7 +89,7 @@ export default function NaverLocationMap({
       ref={container}
       className="pv-location-map"
       role="region"
-      aria-label={`${name} ${location.naverMap}`}
+      aria-label={`${name} ${mapLabel}`}
     />
   );
 }

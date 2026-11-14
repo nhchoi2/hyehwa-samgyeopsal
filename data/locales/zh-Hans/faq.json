@@ -1,0 +1,32 @@
+[
+  {
+    "question": "如何预约？",
+    "answer": "请致电门店告知到店日期、时间和人数。",
+    "contact": true
+  },
+  {
+    "question": "团体最多可以容纳多少人？",
+    "answer": "包间和团体座位最多100人，实际人数视日期及座位安排而定，请在预约时确认。",
+    "contact": false
+  },
+  {
+    "question": "可以自带酒水吗？",
+    "answer": "免开瓶费，酒类及瓶数请在到店前咨询。",
+    "contact": false
+  },
+  {
+    "question": "推荐先点什么？",
+    "answer": "推荐竹筒烤五花肉、熟成五花肉或多种肉搭配的套餐。详情和价格请查看菜单。",
+    "contact": false
+  },
+  {
+    "question": "可以停车吗？",
+    "answer": "可以停车，详情请在到店前咨询。",
+    "contact": false
+  },
+  {
+    "question": "可以带孩子来吗？",
+    "answer": "备有儿童座椅，预约时请说明座位需求。",
+    "contact": false
+  }
+]

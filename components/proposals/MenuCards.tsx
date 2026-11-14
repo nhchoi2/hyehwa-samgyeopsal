@@ -2,7 +2,7 @@ import copy from '@/data/locales/ko/menu-ui.json';
 import Image from 'next/image';
 import MenuName from '@/components/menu/MenuName';
 import type { MenuItem } from '@/types/menu';
-export function MenuCards({ items, splitPrice = false }: { items: MenuItem[]; splitPrice?: boolean }) {
+export function MenuCards({ items, splitPrice = false, featuredLabel = copy.featured }: { items: MenuItem[]; splitPrice?: boolean; featuredLabel?: string }) {
   return (
     <div className="pv-food-grid pv-menu-grid">
       {items.map((item) => {
@@ -18,7 +18,7 @@ export function MenuCards({ items, splitPrice = false }: { items: MenuItem[]; sp
                 className="pv-photo"
               />
               {item.featured && (
-                <span className="pv-menu-featured-badge">{copy.featured}</span>
+                <span className="pv-menu-featured-badge">{featuredLabel}</span>
               )}
             </div>
             <div className={splitPrice ? 'pv-menu-copy pv-menu-copy-split' : 'pv-menu-copy'}>

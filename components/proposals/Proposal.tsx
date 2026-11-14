@@ -1,7 +1,6 @@
-import home from '@/data/locales/ko/home.json';
+import { getCopy, languageNames, type Locale } from '@/data/locales';
 import location from '@/data/locales/ko/location.json';
 import buttons from '@/data/locales/ko/buttons.json';
-import about from '@/data/locales/ko/about.json';
 import Image from 'next/image';
 import YongsHome from './YongsHome';
 import Link from 'next/link';
@@ -152,11 +151,15 @@ export default function Proposal({
   variant,
   page,
   base,
+  locale = 'ko',
 }: {
   variant: Variant;
   page: string;
   base: string;
+  locale?: Locale;
 }) {
+  const dict = getCopy(locale);
+  const { home, about, buttons } = dict;
   const v = variants[variant];
   const titles: Record<string, [string, string]> = {
     menu: ['OUR TABLE', '맛있는 만남의 시작.'],
@@ -164,6 +167,7 @@ export default function Proposal({
   };
   return (
     <div
+      lang={locale}
       className={`pv pv-${variant}`}
       id={variant !== 'b' ? 'ya-top' : undefined}
     >
@@ -172,6 +176,9 @@ export default function Proposal({
         variant={variant}
         page={page}
         base={base}
+        copy={dict.navigation}
+        languageLinks={variant === 'c' ? Object.entries(languageNames).map(([code, label]) => ({ code, label, href: `/a${code === 'ko' ? '' : `/${code}`}${page ? `/${page}` : ''}` })) : []}
+        locale={locale}
         showProposalSwitch={process.env.SHOW_DRAFT_PROPOSALS === '1'}
       />
       <main id="main-content">
@@ -181,7 +188,7 @@ export default function Proposal({
           <>
             {variant === 'c' ? (
               <section className="pv-c-showcase">
-                <h1 className="sr-only">{restaurant.name}</h1>
+                <h1 className="sr-only">{dict.restaurant.name}</h1>
                 <div className="pv-c-showcase-mosaic">
                   <div className="pv-c-mosaic-tile pv-c-mosaic-grill">
                     <Image
@@ -270,7 +277,7 @@ export default function Proposal({
                 <div className="pv-section-heading">
                   <h2 id="c-reviews-heading">{home.reviewsHeading}</h2>
                 </div>
-                {reviews.length > 0 && <ReviewSlider items={reviews} />}
+                {reviews.length > 0 && <ReviewSlider items={reviews.map((review) => ({ ...review, source: dict.reviews.naverBlog }))} copy={dict.reviews} />}
               </section>
             ) : (
               <section className="pv-section">
@@ -293,7 +300,7 @@ export default function Proposal({
               >
                 <h2 id="c-faq-heading">{about.faqHeading}</h2>
                 <div className="pv-c-faq-list">
-                  {cHomeFaqs.map(({ question, answer, contact }) => (
+                  {(locale === 'ko' ? cHomeFaqs : dict.faq).map(({ question, answer, contact }) => (
                     <details key={question} name="c-home-faq">
                       <summary>{question}</summary>
                       <p>{answer}</p>
@@ -351,7 +358,7 @@ export default function Proposal({
               <section
                 className={`pv-section pv-menu-section${page === 'menu' ? ' pv-menu-page' : ''}`}
               >
-                <MenuGrid items={menus} overlay={variant === 'a'} />
+                <MenuGrid items={menus.map((item) => ({ ...item, ...dict.menu[item.id] }))} overlay={variant === 'a'} copy={dict.menuUi} drinkNames={dict.drinks} />
               </section>
             )}
             {page === 'about' && (
@@ -434,7 +441,7 @@ export default function Proposal({
                 <YongsLocation />
               ) : (
                 <section className="pv-section pv-location-page">
-                  {variant === 'c' ? <BranchLocations /> : <Visit standalone />}
+                  {variant === 'c' ? <BranchLocations copy={dict.location} details={dict.restaurant} /> : <Visit standalone />}
                   {variant !== 'c' && (
                     <div className="pv-location-note">
                       <h2>{location.visitHeading}</h2>
