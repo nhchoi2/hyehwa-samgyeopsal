@@ -1587,9 +1587,6 @@
 
 .pv-brand-story {
   color: var(--pv-accent);
-  margin: 0 0 clamp(36px, 6vw, 72px);
-  padding-bottom: clamp(28px, 5vw, 60px);
-  border-bottom: 1px solid var(--pv-line);
   text-align: center;
 }
 
@@ -1666,6 +1663,21 @@
   margin: 0;
   line-height: 1.8;
   word-break: keep-all;
+}
+
+@media (min-width: 800px) {
+  .pv-brand-story {
+    display: grid;
+    grid-template-columns: minmax(0, 15rem) minmax(0, 32rem);
+    justify-content: center;
+    align-items: start;
+    gap: clamp(32px, 5vw, 72px);
+  }
+
+  .pv-brand-name,
+  .pv-brand-copy {
+    margin: 0;
+  }
 }
 
 .pv-c main {

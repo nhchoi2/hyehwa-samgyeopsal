@@ -403,25 +403,29 @@ export default function Proposal({
                     </div>
                   </section>
                 )}
-                <div className="pv-about-image">
-                  <Photo
-                    name="table"
-                    alt={about.tablePhoto}
-                    priority
-                  />
-                </div>
-                <div className="pv-intro">
-                  <p>{restaurant.introduction}</p>
-                </div>
-                <div className="pv-about-details">
-                  {restaurant.features.map((f, i) => (
-                    <article key={f.title}>
-                      <span className="pv-kicker">0{i + 1}</span>
-                      <h2>{f.title}</h2>
-                      <p>{f.description}</p>
-                    </article>
-                  ))}
-                </div>
+                {variant !== 'c' && (
+                  <>
+                    <div className="pv-about-image">
+                      <Photo
+                        name="table"
+                        alt={about.tablePhoto}
+                        priority
+                      />
+                    </div>
+                    <div className="pv-intro">
+                      <p>{restaurant.introduction}</p>
+                    </div>
+                    <div className="pv-about-details">
+                      {restaurant.features.map((f, i) => (
+                        <article key={f.title}>
+                          <span className="pv-kicker">0{i + 1}</span>
+                          <h2>{f.title}</h2>
+                          <p>{f.description}</p>
+                        </article>
+                      ))}
+                    </div>
+                  </>
+                )}
               </section>
             )}
             {page === 'location' &&
