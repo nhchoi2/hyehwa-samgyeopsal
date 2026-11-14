@@ -484,6 +484,21 @@
   gap: 0;
   width: min(100%, 420px);
 }
+@media (min-width: 900px) {
+  .pv-c .pv-header {
+    width: 80%;
+    max-width: 960px;
+    margin-inline: auto;
+    padding: 16px 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .pv-c .pv-brand-logo {
+    width: 210px;
+  }
+}
+
 .pv-c .pv-nav > a:not(.pv-button) {
   font-size: 18px;
   font-weight: 600;
@@ -561,6 +576,12 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 0;
+}
+@media (min-width: 761px) {
+  .pv-c .pv-home-reviews h2,
+  .pv-c .pv-c-faq h2 {
+    font-size: clamp(26px, 3.2vw, 32px);
+  }
 }
 .pv-home-reviews .pv-review-slider {
   margin-top: 24px;
@@ -1064,7 +1085,7 @@
     object-position: 64% center;
   }
   .pv-c .pv-facts {
-    font-size: 11px;
+    font-size: 12px;
   }
   .pv-choices {
     grid-template-columns: 1fr;
@@ -1550,7 +1571,7 @@
 .pv-branch-card > h2 {
   margin: 0;
   color: var(--pv-accent);
-  font-size: calc(clamp(1.65rem, 3vw, 2.3rem) - 2px);
+  font-size: clamp(24px, 3vw, 30px);
   font-weight: 400;
 }
 
@@ -1558,7 +1579,7 @@
   display: grid;
   gap: 14px;
   margin: 0;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .pv-branch-info dt {
@@ -1602,12 +1623,11 @@
   font-display: swap;
 }
 
-.pv-c .pv-about-page :is(.pv-brand-name, .pv-brand-copy) {
+.pv-c .pv-about-page .pv-brand-name {
   font-family: 'Miryang Arirang', 'Nanum Brush Story', Batang, serif;
 }
 
-.pv-brand-name,
-.pv-brand-copy {
+.pv-brand-name {
   font-family: 'Nanum Brush Story', Batang, serif;
   font-size: 24px;
   font-synthesis: none;
@@ -1643,6 +1663,7 @@
 }
 
 .pv-brand-copy {
+  font-size: clamp(17px, 2vw, 18px);
   display: grid;
   gap: 12px;
   width: fit-content;
@@ -1659,7 +1680,6 @@
 }
 
 .pv-brand-copy p {
-  -webkit-text-stroke: 0.2px currentColor;
   margin: 0;
   line-height: 1.8;
   word-break: keep-all;
