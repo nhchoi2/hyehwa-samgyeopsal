@@ -1,3 +1,4 @@
+import HomeHeroVideo from './HomeHeroVideo';
 import { getCopy, languageNames, type Locale } from '@/data/locales';
 import location from '@/data/locales/ko/location.json';
 import buttons from '@/data/locales/ko/buttons.json';
@@ -168,7 +169,7 @@ export default function Proposal({
   return (
     <div
       lang={locale}
-      className={`pv pv-${variant}`}
+      className={`pv pv-${variant}${variant === 'c' && !page ? ' pv-video-home' : ''}`}
       id={variant !== 'b' ? 'ya-top' : undefined}
     >
       <Navigation
@@ -187,40 +188,9 @@ export default function Proposal({
         ) : !page ? (
           <>
             {variant === 'c' ? (
-              <section className="pv-c-showcase">
+              <section className="pv-home-video">
                 <h1 className="sr-only">{dict.restaurant.name}</h1>
-                <div className="pv-c-showcase-mosaic">
-                  <div className="pv-c-mosaic-tile pv-c-mosaic-grill">
-                    <Image
-                      src={proposalPhotos[v.image]}
-                      alt={home.bambooPhoto}
-                      fill
-                      sizes="(max-width: 760px) 57vw, (max-width: 1200px) 50vw, 600px"
-                      preload
-                      className="pv-photo"
-                    />
-                  </div>
-                  <div className="pv-c-mosaic-tile pv-c-mosaic-table">
-                    <Image
-                      src="/images/proposals/c-full-table.webp"
-                      alt={home.tablePhoto}
-                      fill
-                      sizes="(max-width: 760px) 33vw, (max-width: 1200px) 30vw, 352px"
-                      loading="eager"
-                      className="pv-photo"
-                    />
-                  </div>
-                  <div className="pv-c-mosaic-tile pv-c-mosaic-interior">
-                    <Image
-                      src="/images/proposals/c-interior.webp"
-                      alt={home.interiorPhoto}
-                      fill
-                      sizes="(max-width: 760px) 33vw, (max-width: 1200px) 30vw, 352px"
-                      loading="eager"
-                      className="pv-photo"
-                    />
-                  </div>
-                </div>
+                <HomeHeroVideo />
               </section>
             ) : (
               <section className="pv-hero">

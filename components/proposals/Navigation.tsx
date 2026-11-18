@@ -2,7 +2,7 @@
 import copy from '@/data/locales/ko/navigation.json';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { pages, variants, type Variant } from '@/data/proposals';
 
 
@@ -142,6 +142,26 @@ export default function Navigation({
   locale: string;
 }) {
   const [open, setOpen] = useState(false);
+  const drawer = useRef<HTMLDialogElement>(null);
+  useEffect(() => {
+    const desktop = window.matchMedia('(min-width: 761px)');
+    const closeOnDesktop = () => {
+      if (desktop.matches) drawer.current?.close();
+    };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => desktop.removeEventListener('change', closeOnDesktop);
+  }, []);
+
+  const navigationLinks = pages.map((p) => (
+            <Link
+              key={p.slug}
+              href={`${base}${p.slug ? `/${p.slug}` : ''}`}
+              aria-current={p.slug === page ? 'page' : undefined}
+              onClick={() => { drawer.current?.close(); setOpen(false); }}
+            >
+              {variant === 'c' ? (labels[(p.slug || 'home') as 'home' | 'menu' | 'about' | 'location'] ?? p.label) : p.label}
+            </Link>
+          ));
   return (
     <>
       {showProposalSwitch && <ProposalSwitch variant={variant} page={page} />}
@@ -169,15 +189,26 @@ export default function Navigation({
           )}
         </Link>
         <button
+          type="button"
           className="pv-toggle"
+          aria-label={variant === 'c' ? labels.primary : undefined}
           aria-expanded={open}
-          aria-controls="proposal-navigation"
-          onClick={() => setOpen(!open)}
+          aria-controls={variant === 'c' ? 'mobile-navigation' : 'proposal-navigation'}
+          onClick={() => {
+            if (variant === 'c') {
+              drawer.current?.showModal();
+              setOpen(true);
+            } else setOpen(!open);
+          }}
           onKeyDown={(e) => {
             if (e.key === 'Escape') setOpen(false);
           }}
         >
-          {open ? copy.close : copy.open}
+          {variant === 'c' ? (
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <path d={open ? 'M6 6l12 12M18 6L6 18' : 'M4 6h16M4 12h16M4 18h16'} />
+            </svg>
+          ) : (open ? copy.close : copy.open)}
         </button>
         <nav
           id="proposal-navigation"
@@ -187,16 +218,7 @@ export default function Navigation({
             if (e.key === 'Escape') setOpen(false);
           }}
         >
-          {pages.map((p) => (
-            <Link
-              key={p.slug}
-              href={`${base}${p.slug ? `/${p.slug}` : ''}`}
-              aria-current={p.slug === page ? 'page' : undefined}
-              onClick={() => setOpen(false)}
-            >
-              {variant === 'c' ? (labels[(p.slug || 'home') as 'home' | 'menu' | 'about' | 'location'] ?? p.label) : p.label}
-            </Link>
-          ))}
+          {navigationLinks}
           {variant !== 'c' && (
             <a className="pv-button" href="tel:027664405">
               {copy.phoneBooking}
@@ -207,6 +229,27 @@ export default function Navigation({
           <LanguagePicker links={languageLinks} locale={locale} label={labels.language ?? '언어 선택'} />
         )}
       </header>
+      {variant === 'c' && (
+        <dialog
+          ref={drawer}
+          id="mobile-navigation"
+          className="pv-mobile-drawer"
+          aria-label={labels.primary}
+          onClose={() => setOpen(false)}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) event.currentTarget.close();
+          }}
+        >
+          <div className="pv-mobile-drawer-inner">
+            <button
+              type="button"
+              aria-label={labels.close.replace(' ✕', '')}
+              onClick={() => drawer.current?.close()}
+            >×</button>
+            <nav aria-label={labels.primary}>{navigationLinks}</nav>
+          </div>
+        </dialog>
+      )}
     </>
   );
 }
