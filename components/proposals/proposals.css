@@ -1549,18 +1549,11 @@
   border-radius: 12px;
 }
 
-.pv-branch-options {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px clamp(20px, 4vw, 56px);
-  max-width: 1080px;
-  margin-inline: auto;
-}
-
 .pv-branch-card {
   display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 4;
+  gap: 24px;
+  max-width: 560px;
+  margin-inline: auto;
   text-align: center;
 }
 
@@ -1589,17 +1582,6 @@
 .pv-branch-info dd {
   margin: 4px 0 0;
   white-space: pre-line;
-}
-
-@media (max-width: 760px) {
-  .pv-branch-options {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 24px;
-  }
-
-  .pv-branch-card + .pv-branch-card {
-    margin-top: 24px;
-  }
 }
 
 .pv-c .pv-section.pv-about-page {

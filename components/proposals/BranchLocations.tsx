@@ -4,87 +4,54 @@ import { restaurant } from '@/data/restaurant';
 import NaverLocationMap, { NaverMapsProvider } from './NaverLocationMap';
 
 export default function BranchLocations({ copy = korean, details = restaurant }: { copy?: typeof korean; details?: Pick<typeof restaurant, 'address' | 'businessHours' | 'parking' | 'seating'> }) {
-const branches = [
-  {
-    id: 'hyehwa',
-    name: copy.hyehwa,
-    photo: '/images/materials/business/hyehwa-exterior.webp',
-    photoAlt: copy.hyehwaPhoto,
-    latitude: 37.5838458897522,
-    longitude: 127.002705870434,
-    center: { latitude: 37.5832, longitude: 127.0025 },
-    address: details.address,
-    hours: details.businessHours,
-    phone: restaurant.phone,
-    parking: details.parking,
-    seating: details.seating,
-  },
-  {
-    id: 'sinnonhyeon',
-    name: copy.sinnonhyeon,
-    photo: '/images/materials/business/sinnonhyeon-exterior.webp',
-    photoAlt: copy.sinnonhyeonPhoto,
-    latitude: 37.5037441978014,
-    longitude: 127.026057149674,
-    address: copy.sinnonhyeonAddress,
-    hours: copy.sinnonhyeonHours,
-    phone: '02-554-9934',
-    parking: copy.sinnonhyeonParking,
-    seating: copy.sinnonhyeonSeating,
-  },
-];
 
   return (
     <NaverMapsProvider>
-      <div className="pv-branch-options">
-        {branches.map((branch) => (
-          <article key={branch.id} className="pv-branch-card">
-            <h2>{branch.name}</h2>
-            <div className="pv-location-entrance">
-              <Image
-                src={branch.photo}
-                alt={branch.photoAlt}
-                fill
-                sizes="(max-width: 760px) 88vw, 42vw"
-                className="pv-photo"
-              />
+      <article className="pv-branch-card">
+        <h2>{copy.hyehwa}</h2>
+        <div className="pv-location-entrance">
+          <Image
+            src="/images/materials/business/hyehwa-exterior.webp"
+            alt={copy.hyehwaPhoto}
+            fill
+            sizes="(max-width: 760px) 90vw, 560px"
+            className="pv-photo"
+          />
+        </div>
+        <div className="pv-branch-info">
+          <dl>
+            <div>
+              <dt>{copy.address}</dt>
+              <dd>{details.address}</dd>
             </div>
-            <div className="pv-branch-info">
-              <dl>
-                <div>
-                  <dt>{copy.address}</dt>
-                  <dd>{branch.address}</dd>
-                </div>
-                <div>
-                  <dt>{copy.hours}</dt>
-                  <dd>{branch.hours}</dd>
-                </div>
-                <div>
-                  <dt>{copy.phone}</dt>
-                  <dd>
-                    <a href={`tel:${branch.phone}`}>{branch.phone}</a>
-                  </dd>
-                </div>
-                <div>
-                  <dt>{copy.parking}</dt>
-                  <dd>{branch.parking}</dd>
-                </div>
-                <div>
-                  <dt>{copy.seating}</dt>
-                  <dd>{branch.seating}</dd>
-                </div>
-              </dl>
+            <div>
+              <dt>{copy.hours}</dt>
+              <dd>{details.businessHours}</dd>
             </div>
-            <NaverLocationMap
-              name={branch.name}
-              mapLabel={copy.naverMap}
-              latitude={branch.latitude}
-              longitude={branch.longitude}
-              center={branch.center}
-            />
-          </article>
-        ))}
-      </div>
+            <div>
+              <dt>{copy.phone}</dt>
+              <dd>
+                <a href={`tel:${restaurant.phone}`}>{restaurant.phone}</a>
+              </dd>
+            </div>
+            <div>
+              <dt>{copy.parking}</dt>
+              <dd>{details.parking}</dd>
+            </div>
+            <div>
+              <dt>{copy.seating}</dt>
+              <dd>{details.seating}</dd>
+            </div>
+          </dl>
+        </div>
+        <NaverLocationMap
+          name={copy.hyehwa}
+          mapLabel={copy.naverMap}
+          latitude={37.5838458897522}
+          longitude={127.002705870434}
+          center={{ latitude: 37.5832, longitude: 127.0025 }}
+        />
+      </article>
     </NaverMapsProvider>
   );
 }
