@@ -14,8 +14,8 @@ export default function HomeHeroVideo() {
     <video
       ref={video}
       aria-hidden="true"
-      src="/videos/hyehwa-about-web.mp4"
-      poster="/images/proposals/c-home-video-poster.webp"
+      src="/videos/hyehwa-food-first.mp4"
+      poster="/images/proposals/c-home-food-first.webp"
       muted
       loop
       playsInline
