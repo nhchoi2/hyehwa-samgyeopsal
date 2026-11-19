@@ -353,9 +353,6 @@
   border: 1px solid var(--pv-line);
   font-size: 12px;
 }
-.pv-mobile-contact {
-  display: none;
-}
 /* B: an editorial split composition, deep green and warm paper. */
 .pv-b {
   --pv-bg: #f1eee5;
@@ -1022,27 +1019,6 @@
   .pv-menu-notice h2 {
     font-size: 24px;
   }
-  .pv-mobile-contact {
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 20;
-    background: var(--pv-bg);
-    border-top: 1px solid var(--pv-line);
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-  .pv-mobile-contact a {
-    width: 50%;
-    text-align: center;
-    padding: 15px 8px;
-    font-size: 13px;
-  }
-  .pv-mobile-contact a:first-child {
-    background: var(--pv-accent);
-    color: #fff;
-  }
   .pv-b .pv-hero {
     display: flex;
     flex-direction: column;
@@ -1082,7 +1058,7 @@
   }
   .pv-b #main-content,
   .pv-c #main-content {
-    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
   }
   .pv-c .pv-header {
     flex-direction: row;
@@ -2055,4 +2031,33 @@ html:has(.pv-mobile-drawer[open]) {
     from { transform: translateX(100%); }
     to { transform: translateX(0); }
   }
+}
+
+.pv-drawer-social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pv-drawer-social a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+}
+
+.pv-drawer-contact {
+  display: grid;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--pv-line);
+  font-style: normal;
+}
+
+.pv-drawer-contact a {
+  padding: 4px 0;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
 }

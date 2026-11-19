@@ -180,6 +180,7 @@ export default function Proposal({
         copy={dict.navigation}
         languageLinks={variant === 'c' ? Object.entries(languageNames).map(([code, label]) => ({ code, label, href: `/a${code === 'ko' ? '' : `/${code}`}${page ? `/${page}` : ''}` })) : []}
         locale={locale}
+        contact={{ address: dict.restaurant.address, phone: restaurant.phone, instagram: buttons.instagram, naverPlace: buttons.naverPlace }}
         showProposalSwitch={process.env.SHOW_DRAFT_PROPOSALS === '1'}
       />
       <main id="main-content">
@@ -508,14 +509,6 @@ export default function Proposal({
             <span aria-hidden="true">{buttons.top}</span>
           </a>
         </nav>
-      )}
-      {variant !== 'a' && (
-        <div className="pv-mobile-contact">
-          <a href={phone}>{buttons.callInquiry}</a>
-          <a href={links.naverMapUrl} target="_blank" rel="noopener noreferrer">
-            {buttons.directions}
-          </a>
-        </div>
       )}
     </div>
   );

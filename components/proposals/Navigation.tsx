@@ -1,4 +1,5 @@
 'use client';
+import { links } from '@/data/links';
 import copy from '@/data/locales/ko/navigation.json';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -132,6 +133,7 @@ export default function Navigation({
   copy: labels,
   languageLinks,
   locale,
+  contact,
 }: {
   variant: Variant;
   page: string;
@@ -140,6 +142,7 @@ export default function Navigation({
   copy: typeof copy & { language?: string };
   languageLinks: { code: string; label: string; href: string }[];
   locale: string;
+  contact: { address: string; phone: string; instagram: string; naverPlace: string };
 }) {
   const [open, setOpen] = useState(false);
   const drawer = useRef<HTMLDialogElement>(null);
@@ -247,6 +250,18 @@ export default function Navigation({
               onClick={() => drawer.current?.close()}
             >×</button>
             <nav aria-label={labels.primary}>{navigationLinks}</nav>
+            <div className="pv-drawer-social">
+              <a href={links.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label={contact.instagram}>
+                <Image src="/images/brands/instagram-rounded.svg" width={36} height={36} alt="" />
+              </a>
+              <a href={links.naverMapUrl} target="_blank" rel="noopener noreferrer" aria-label={contact.naverPlace}>
+                <Image src="/images/brands/naver.svg" width={28} height={28} alt="" />
+              </a>
+            </div>
+            <address className="pv-drawer-contact">
+              <a href={links.naverMapUrl} target="_blank" rel="noopener noreferrer">{contact.address}</a>
+              <a href={`tel:${contact.phone.replace(/[^+\d]/g, '')}`}>{contact.phone}</a>
+            </address>
           </div>
         </dialog>
       )}

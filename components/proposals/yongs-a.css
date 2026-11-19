@@ -1051,6 +1051,6 @@ pv-a .ya-overlay-grid {
 }
 @media (max-width: 760px) {
   .pv-c .ya-floating {
-    bottom: calc(68px + env(safe-area-inset-bottom));
+    bottom: max(16px, env(safe-area-inset-bottom));
   }
 }
