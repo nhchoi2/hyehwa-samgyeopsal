@@ -252,15 +252,26 @@ export default function Navigation({
             <nav aria-label={labels.primary}>{navigationLinks}</nav>
             <div className="pv-drawer-social">
               <a href={links.instagramUrl} target="_blank" rel="noopener noreferrer" aria-label={contact.instagram}>
-                <Image src="/images/brands/instagram-rounded.svg" width={36} height={36} alt="" />
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
               </a>
               <a href={links.naverMapUrl} target="_blank" rel="noopener noreferrer" aria-label={contact.naverPlace}>
-                <Image src="/images/brands/naver.svg" width={28} height={28} alt="" />
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17" fill="currentColor">
+                  <path d="M16.273 12.845 7.376 0H0v24h7.726V11.156L16.624 24H24V0h-7.727v12.845Z" />
+                </svg>
               </a>
             </div>
             <address className="pv-drawer-contact">
-              <a href={links.naverMapUrl} target="_blank" rel="noopener noreferrer">{contact.address}</a>
-              <a href={`tel:${contact.phone.replace(/[^+\d]/g, '')}`}>{contact.phone}</a>
+              <a href={links.naverMapUrl} target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" />
+                  <circle cx="12" cy="10" r="2.5" />
+                </svg><span>{contact.address}</span></a>
+              <a href={`tel:${contact.phone.replace(/[^+\d]/g, '')}`}><svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round">
+                  <path d="m7 3 3 5-2 2a15 15 0 0 0 6 6l2-2 5 3-1 4C11 22 2 13 3 4Z" />
+                </svg><span>{contact.phone}</span></a>
             </address>
           </div>
         </dialog>

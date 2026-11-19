@@ -243,11 +243,8 @@ export default function Proposal({
             {variant === 'c' ? (
               <section
                 className="pv-section pv-home-reviews"
-                aria-labelledby="c-reviews-heading"
+                aria-label={home.reviewsHeading}
               >
-                <div className="pv-section-heading">
-                  <h2 id="c-reviews-heading">{home.reviewsHeading}</h2>
-                </div>
                 {reviews.length > 0 && <ReviewSlider items={reviews.map((review) => ({ ...review, source: dict.reviews.naverBlog }))} copy={dict.reviews} />}
               </section>
             ) : (
