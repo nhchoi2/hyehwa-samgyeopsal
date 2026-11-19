@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 188">
-  <g fill="none" stroke="#54773C" stroke-linecap="round" opacity=".16">
+  <g fill="none" stroke="#89A482" stroke-linecap="round" opacity=".16">
     <path d="M0 166 Q48 110 99 63 M37 126 Q70 105 119 105 M63 96 Q75 75 76 49"/>
   </g>
-  <g fill="#54773C" opacity=".13">
+  <g fill="#89A482" opacity=".13">
     <path d="M98 65 Q113 47 139 42 Q128 58 98 65Z"/>
     <path d="M98 66 Q121 62 147 77 Q122 78 98 66Z"/>
     <path d="M91 73 Q109 80 116 100 Q98 91 91 73Z"/>
