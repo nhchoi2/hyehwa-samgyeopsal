@@ -1684,6 +1684,20 @@
   }
 }
 
+.pv-c[lang='ko'] .pv-brand-copy {
+  gap: 24px;
+}
+
+.pv-c[lang='ko'] .pv-brand-copy p {
+  white-space: pre-line;
+  text-wrap: pretty;
+  line-height: 1.8;
+}
+
+.pv-c[lang='ko'] .pv-brand-copy p:last-child {
+  margin-top: 8px;
+}
+
 @media (min-width: 800px) {
   .pv-brand-story {
     display: grid;
