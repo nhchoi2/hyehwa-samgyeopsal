@@ -1664,9 +1664,24 @@
 }
 
 .pv-brand-copy p {
+  white-space: pre-line;
   margin: 0;
   line-height: 1.8;
   word-break: keep-all;
+}
+
+@media (max-width: 760px) {
+  .pv-brand-copy {
+    width: 100%;
+    font-size: 17px;
+    gap: 20px;
+  }
+
+  .pv-brand-copy p {
+    white-space: normal;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+  }
 }
 
 @media (min-width: 800px) {

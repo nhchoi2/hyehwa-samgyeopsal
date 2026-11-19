@@ -371,7 +371,7 @@ export default function Proposal({
                     </dl>
                     <div className="pv-brand-copy">
                       {Object.entries(about.paragraphs).map(([key, paragraph]) => (
-                        <p key={key} style={{ whiteSpace: 'pre-line' }}>
+                        <p key={key}>
                           {paragraph.split(/(\{[^{}]+\})/g).map((part, index) =>
                             part.startsWith('{') ? (
                               <strong key={index}>{part.slice(1, -1)}</strong>
