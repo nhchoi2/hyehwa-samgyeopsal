@@ -1425,11 +1425,6 @@
     padding-inline: 6px;
   }
 }
-@media (max-width: 389px) {
-  .pv-c .pv-menu-browser .pv-menu-category > .pv-menu-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
 @media (min-width: 761px) and (max-width: 1100px) {
   .pv-menu-browser {
     grid-template-columns: 120px minmax(0, 1fr);
