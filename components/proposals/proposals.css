@@ -1827,10 +1827,7 @@
   }
 }
 
-.pv-about-video {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
+.pv-about-mosaic {
   margin-bottom: clamp(24px, 4vw, 48px);
 }
 

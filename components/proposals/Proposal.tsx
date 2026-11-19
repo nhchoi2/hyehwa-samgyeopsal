@@ -332,17 +332,20 @@ export default function Proposal({
             {page === 'about' && (
               <section className="pv-section pv-about-page">
                 {variant === 'c' && (
-                  <video
-                    className="pv-about-video"
-                    aria-label={about.videoLabel}
-                    src="/videos/hyehwa-about-web.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    controls
-                    preload="metadata"
-                  />
+                  <div className="pv-c-showcase-mosaic pv-about-mosaic">
+                    <div className="pv-c-mosaic-tile pv-c-mosaic-grill">
+                      <Image src={proposalPhotos[v.image]} alt={home.bambooPhoto} fill
+                        sizes="(max-width: 760px) 57vw, 600px" preload className="pv-photo" />
+                    </div>
+                    <div className="pv-c-mosaic-tile pv-c-mosaic-table">
+                      <Image src="/images/proposals/c-full-table.webp" alt={home.tablePhoto} fill
+                        sizes="(max-width: 760px) 33vw, 352px" loading="eager" className="pv-photo" />
+                    </div>
+                    <div className="pv-c-mosaic-tile pv-c-mosaic-interior">
+                      <Image src="/images/proposals/c-interior.webp" alt={home.interiorPhoto} fill
+                        sizes="(max-width: 760px) 33vw, 352px" loading="eager" className="pv-photo" />
+                    </div>
+                  </div>
                 )}
                 {variant === 'c' && (
                   <section
