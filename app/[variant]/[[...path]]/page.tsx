@@ -2,6 +2,7 @@ import { getCopy, languageNames, isLocale } from '@/data/locales';
 import type { Metadata } from 'next';
 import { notFound, redirect } from 'next/navigation';
 import { variants, pages, isVariant } from '@/data/proposals';
+import LuxuryProposal from '@/components/proposals/LuxuryProposal';
 import Proposal from '@/components/proposals/Proposal';
 import '@/components/proposals/proposals.css';
 import '@/components/proposals/yongs-a.css';
@@ -10,11 +11,12 @@ export const dynamicParams = false;
 const showDrafts = process.env.SHOW_DRAFT_PROPOSALS === '1';
 
 function resolveVariant(route: string) {
+  if (route === 'b') return 'b';
   if (showDrafts) return isVariant(route) ? route : null;
   return route === 'a' || route === 'c' ? 'c' : null;
 }
 export function generateStaticParams() {
-  const visibleVariants = showDrafts ? Object.keys(variants) : ['a', 'c'];
+  const visibleVariants = showDrafts ? Object.keys(variants) : ['a', 'b', 'c'];
   return visibleVariants.flatMap((variant) => [
     ...pages.map((page) => ({ variant, path: page.slug ? [page.slug] : [] })),
     { variant, path: ['lunch'] },
@@ -33,10 +35,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   )
     return {};
   return {
-    title: locale === 'ko' ? `${pages.find((p) => p.slug === (path[0] || ''))!.label} · ${variants[variant].name}` : `${getCopy(locale).navigation[(path[0] || 'home') as 'home' | 'menu' | 'about' | 'location']} · ${getCopy(locale).restaurant.name}`,
+    title: locale === 'ko' ? `${pages.find((p) => p.slug === (path[0] || ''))!.label} · ${route === 'b' ? '대통령 삼겹살 혜화 본점' : variants[variant].name}` : `${getCopy(locale).navigation[(path[0] || 'home') as 'home' | 'menu' | 'about' | 'location']} · ${getCopy(locale).restaurant.name}`,
     robots: { index: false, follow: false },
     alternates: {
-      canonical: `/${showDrafts ? route : 'a'}${locale === 'ko' ? '' : `/${locale}`}${path.length ? `/${path[0]}` : ''}`,
+      canonical: `/${showDrafts || route === 'b' ? route : 'a'}${locale === 'ko' ? '' : `/${locale}`}${path.length ? `/${path[0]}` : ''}`,
     },
   };
 }
@@ -45,7 +47,7 @@ export default async function Page({ params }: Props) {
   const locale = route === 'a' && isLocale(segments[0]) ? segments[0] : 'ko';
   const path = locale === 'ko' ? segments : segments.slice(1);
   const variant = resolveVariant(route);
-  const base = locale === 'ko' ? (showDrafts ? `/${route}` : '/a') : `/a/${locale}`;
+  const base = locale === 'ko' ? (showDrafts || route === 'b' ? `/${route}` : '/a') : `/a/${locale}`;
   if (variant && path.length === 1 && path[0] === 'lunch')
     redirect(`${base}/menu`);
   if (
@@ -56,5 +58,6 @@ export default async function Page({ params }: Props) {
     notFound();
   if (!showDrafts && route === 'c')
     redirect(path.length ? `${base}/${path[0]}` : base);
+  if (route === 'b') return <LuxuryProposal page={path[0] || ''} />;
   return <Proposal variant={variant} page={path[0] || ''} base={base} locale={locale} />;
 }
