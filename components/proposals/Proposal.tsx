@@ -6,7 +6,7 @@ import Image from 'next/image';
 import YongsHome from './YongsHome';
 import Link from 'next/link';
 import { variants, type Variant } from '@/data/proposals';
-import { cHomeFaqs, restaurant, reviews } from '@/data/restaurant';
+import { restaurant, reviews } from '@/data/restaurant';
 import { menus, featuredMenus } from '@/data/menu';
 import MenuGrid from './MenuGrid';
 import { MenuCards } from './MenuCards';
@@ -268,7 +268,7 @@ export default function Proposal({
               >
                 <h2 id="c-faq-heading">{about.faqHeading}</h2>
                 <div className="pv-c-faq-list">
-                  {(locale === 'ko' ? cHomeFaqs : dict.faq).map(({ question, answer, contact }) => (
+                  {dict.faq.map(({ question, answer, contact }) => (
                     <details key={question} name="c-home-faq">
                       <summary>{question}</summary>
                       <p>{answer}</p>
@@ -412,7 +412,7 @@ export default function Proposal({
                 <YongsLocation />
               ) : (
                 <section className="pv-section pv-location-page">
-                  {variant === 'c' ? <BranchLocations copy={dict.location} details={dict.restaurant} /> : <Visit standalone />}
+                  {variant === 'c' ? <BranchLocations copy={dict.location} details={dict.restaurant} showNightPhoto /> : <Visit standalone />}
                   {variant !== 'c' && (
                     <div className="pv-location-note">
                       <h2>{location.visitHeading}</h2>

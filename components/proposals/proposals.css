@@ -1563,6 +1563,41 @@
   width: 100%;
 }
 
+.pv-branch-carousel {
+  min-width: 0;
+}
+
+.pv-branch-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+  color: var(--pv-accent);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.pv-branch-carousel-controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pv-branch-carousel .swiper-wrapper {
+    transition-duration: 0ms !important;
+  }
+}
+
 .pv-branch-card > h2 {
   margin: 0;
   color: var(--pv-accent);

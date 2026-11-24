@@ -83,31 +83,6 @@ export const restaurantFaqs = [
   childrenFaq,
 ];
 
-export const cHomeFaqs: {
-  question: string;
-  answer: string;
-  contact?: boolean;
-}[] = [
-  {
-    question: copy.faq.reservation.question,
-    answer: copy.faq.reservation.answer,
-    contact: true,
-  },
-  {
-    question: copy.faq.capacity.question,
-    answer:
-      copy.faq.capacity.answer,
-  },
-  {
-    question: copy.faq.corkage.question,
-    answer:
-      copy.faq.corkage.answer,
-  },
-  menuFaq,
-  parkingFaq,
-  childrenFaq,
-];
-
 // 실제 사진을 public/images에 저장한 뒤 src와 alt를 등록하세요.
 export const photos: Record<'hero' | 'interior' | 'about', RestaurantImage[]> =
   {

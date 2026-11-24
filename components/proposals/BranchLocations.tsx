@@ -1,23 +1,15 @@
 import korean from '@/data/locales/ko/location.json';
-import Image from 'next/image';
+import BranchExteriorPhoto from './BranchExteriorPhoto';
 import { restaurant } from '@/data/restaurant';
 import NaverLocationMap, { NaverMapsProvider } from './NaverLocationMap';
 
-export default function BranchLocations({ copy = korean, details = restaurant }: { copy?: typeof korean; details?: Pick<typeof restaurant, 'address' | 'businessHours' | 'parking' | 'seating'> }) {
+export default function BranchLocations({ copy = korean, details = restaurant, showNightPhoto = false }: { copy?: typeof korean; showNightPhoto?: boolean; details?: Pick<typeof restaurant, 'address' | 'businessHours' | 'parking' | 'seating'> }) {
 
   return (
     <NaverMapsProvider>
       <article className="pv-branch-card">
         <h2>{copy.hyehwa}</h2>
-        <div className="pv-location-entrance">
-          <Image
-            src="/images/materials/business/hyehwa-exterior.webp"
-            alt={copy.hyehwaPhoto}
-            fill
-            sizes="(max-width: 760px) 90vw, 560px"
-            className="pv-photo"
-          />
-        </div>
+        <BranchExteriorPhoto copy={copy} showNightPhoto={showNightPhoto} />
         <div className="pv-branch-info">
           <dl>
             <div>

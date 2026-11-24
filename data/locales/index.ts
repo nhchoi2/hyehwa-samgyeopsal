@@ -1,3 +1,4 @@
+import faq0 from './ko/faq.json';
 import navigation0 from './ko/navigation.json';
 import about0 from './ko/about.json';
 import buttons0 from './ko/buttons.json';
@@ -60,7 +61,7 @@ export function isLocale(value: string | undefined): value is Locale {
 }
 
 const dictionaries = {
-  'ko': { navigation: navigation0, about: about0, buttons: buttons0, home: home0, location: location0, drinks: drinks0, menuUi: menuUi0, menu: menu0, restaurant: restaurant0.restaurant, reviews: reviews0, faq: [] },
+  'ko': { navigation: navigation0, about: about0, buttons: buttons0, home: home0, location: location0, drinks: drinks0, menuUi: menuUi0, menu: menu0, restaurant: restaurant0.restaurant, reviews: reviews0, faq: faq0 },
   'en': { navigation: { ...navigation0, ...navigation1 }, about: { ...about0, ...about1 }, buttons: { ...buttons0, ...buttons1 }, home: { ...home0, ...home1 }, location: { ...location0, ...location1 }, drinks: { ...drinks0, ...drinks1 }, menuUi: { ...menuUi0, ...menuUi1 }, menu: menu1, restaurant: restaurant1, reviews: { ...reviews0, ...reviews1 }, faq: faq1 },
   'ja': { navigation: { ...navigation0, ...navigation2 }, about: { ...about0, ...about2 }, buttons: { ...buttons0, ...buttons2 }, home: { ...home0, ...home2 }, location: { ...location0, ...location2 }, drinks: { ...drinks0, ...drinks2 }, menuUi: { ...menuUi0, ...menuUi2 }, menu: menu2, restaurant: restaurant2, reviews: { ...reviews0, ...reviews2 }, faq: faq2 },
   'zh-Hans': { navigation: { ...navigation0, ...navigation3 }, about: { ...about0, ...about3 }, buttons: { ...buttons0, ...buttons3 }, home: { ...home0, ...home3 }, location: { ...location0, ...location3 }, drinks: { ...drinks0, ...drinks3 }, menuUi: { ...menuUi0, ...menuUi3 }, menu: menu3, restaurant: restaurant3, reviews: { ...reviews0, ...reviews3 }, faq: faq3 },
