@@ -1952,7 +1952,7 @@
   overflow-wrap: anywhere;
 }
 
-.pv-c.pv-video-home .pv-header {
+.pv-c.pv-photo-home .pv-header {
   position: absolute;
   inset: 0 0 auto;
   width: 100%;
@@ -1962,56 +1962,67 @@
   padding-bottom: 30px;
 }
 
-.pv-c.pv-video-home .pv-nav > a:not(.pv-button),
-.pv-c.pv-video-home .pv-language summary {
+.pv-c.pv-photo-home .pv-nav > a:not(.pv-button),
+.pv-c.pv-photo-home .pv-language summary {
   color: #fff;
   -webkit-text-stroke: 2px #171713;
   paint-order: stroke fill;
 }
 
-.pv-c.pv-video-home .pv-nav a[aria-current]::after {
+.pv-c.pv-photo-home .pv-nav a[aria-current]::after {
   background: #fff;
   box-shadow: 0 0 0 1px #171713;
 }
 
-.pv-home-video {
+.pv-home-entrance {
   position: relative;
-  height: clamp(520px, 72svh, 820px);
+  height: clamp(520px, max(72svh, 46vw), 820px);
   background: #252921;
 }
 
-.pv-home-video video {
+.pv-home-entrance picture,
+.pv-home-entrance img {
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.pv-home-entrance img {
   object-fit: cover;
+  object-position: center 20%;
+}
+
+@media (max-width: 600px) and (orientation: portrait) {
+  .pv-home-entrance img {
+    object-position: 54% center;
+  }
 }
 
 @media (max-width: 760px) {
-  .pv-c.pv-video-home .pv-header {
+  .pv-c.pv-photo-home .pv-header {
     padding: 12px 5%;
     background: linear-gradient(to bottom, #faf8ef99, #faf8ef20 56%, transparent 85%);
   }
 
-  .pv-c.pv-video-home .pv-toggle {
+  .pv-c.pv-photo-home .pv-toggle {
     color: #fff;
   }
 
-  .pv-c.pv-video-home .pv-toggle svg {
+  .pv-c.pv-photo-home .pv-toggle svg {
     filter: drop-shadow(0 0 1px #171713) drop-shadow(0 0 1px #171713);
   }
 
-  .pv-c.pv-video-home .pv-nav > a:not(.pv-button) {
+  .pv-c.pv-photo-home .pv-nav > a:not(.pv-button) {
     color: var(--pv-ink);
     -webkit-text-stroke: 0;
   }
 
-  .pv-c.pv-video-home .pv-nav a[aria-current]::after {
+  .pv-c.pv-photo-home .pv-nav a[aria-current]::after {
     background: var(--pv-accent);
     box-shadow: none;
   }
 
-  .pv-home-video {
+  .pv-home-entrance {
     height: clamp(450px, 68svh, 620px);
   }
 }

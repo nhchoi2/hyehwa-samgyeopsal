@@ -1,8 +1,7 @@
-import HomeHeroVideo from './HomeHeroVideo';
 import { getCopy, languageNames, type Locale } from '@/data/locales';
 import location from '@/data/locales/ko/location.json';
 import buttons from '@/data/locales/ko/buttons.json';
-import Image from 'next/image';
+import Image, { getImageProps } from 'next/image';
 import YongsHome from './YongsHome';
 import Link from 'next/link';
 import { variants, type Variant } from '@/data/proposals';
@@ -15,6 +14,38 @@ import { links } from '@/data/links';
 import Navigation from './Navigation';
 import BranchLocations from './BranchLocations';
 import { proposalPhotos } from '@/data/proposals';
+function HomeEntrancePhoto({ title, alt }: { title: string; alt: string }) {
+  const imageOptions = { alt, sizes: '100vw', loading: 'eager', fetchPriority: 'high' } as const;
+  const { props: landscape } = getImageProps({
+    ...imageOptions,
+    src: '/images/materials/business/hyehwa-exterior-night.webp',
+    width: 1408,
+    height: 880,
+  });
+  const { props: portrait } = getImageProps({
+    ...imageOptions,
+    src: '/images/materials/business/hyehwa-exterior-night-portrait.webp',
+    width: 900,
+    height: 1200,
+  });
+
+  return (
+    <section className="pv-home-entrance">
+      <h1 className="sr-only">{title}</h1>
+      <picture>
+        <source
+          media="(max-width: 600px) and (orientation: portrait)"
+          srcSet={portrait.srcSet}
+          sizes={portrait.sizes}
+          width={portrait.width}
+          height={portrait.height}
+        />
+        <img {...landscape} alt={alt} />
+      </picture>
+    </section>
+  );
+}
+
 const phone = `tel:${restaurant.phone.replace(/[^+\d]/g, '')}`;
 export function Photo({
   name,
@@ -169,7 +200,7 @@ export default function Proposal({
   return (
     <div
       lang={locale}
-      className={`pv pv-${variant}${variant === 'c' && !page ? ' pv-video-home' : ''}`}
+      className={`pv pv-${variant}${variant === 'c' && !page ? ' pv-photo-home' : ''}`}
       id={variant !== 'b' ? 'ya-top' : undefined}
     >
       <Navigation
@@ -189,10 +220,7 @@ export default function Proposal({
         ) : !page ? (
           <>
             {variant === 'c' ? (
-              <section className="pv-home-video">
-                <h1 className="sr-only">{dict.restaurant.name}</h1>
-                <HomeHeroVideo />
-              </section>
+              <HomeEntrancePhoto title={dict.restaurant.name} alt={dict.location.nightPhoto} />
             ) : (
               <section className="pv-hero">
                 <div className="pv-hero-image">
